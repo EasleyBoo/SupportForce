@@ -8,6 +8,8 @@ import { ForumComponent } from './component/pages/forum/forum.component';
 import { FaqComponent } from './component/pages/faq/faq.component';
 import { EmergencycontactComponent } from './component/pages/emergencycontact/emergencycontact.component';
 import { ModalComponent } from './component/modal/modal.component';
+import { CarouselComponent } from './component/carousel/carousel.component';
+import { MainHomeComponent } from './component/pages/main-home/main-home.component';
 import { AccordianComponent } from './component/accordian/accordian.component';
 import { CardComponent } from './component/card/card.component';
 
@@ -19,6 +21,8 @@ import { CardComponent } from './component/card/card.component';
     FaqComponent,
     EmergencycontactComponent,
     ModalComponent,
+    CarouselComponent,
+    MainHomeComponent,
     AccordianComponent,
     CardComponent
   ],
