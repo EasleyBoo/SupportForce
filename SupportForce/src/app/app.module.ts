@@ -8,6 +8,8 @@ import { ForumComponent } from './component/pages/forum/forum.component';
 import { FaqComponent } from './component/pages/faq/faq.component';
 import { EmergencycontactComponent } from './component/pages/emergencycontact/emergencycontact.component';
 import { ModalComponent } from './component/modal/modal.component';
+import { AccordianComponent } from './component/accordian/accordian.component';
+import { CardComponent } from './component/card/card.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { ModalComponent } from './component/modal/modal.component';
     ForumComponent,
     FaqComponent,
     EmergencycontactComponent,
-    ModalComponent
+    ModalComponent,
+    AccordianComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,
