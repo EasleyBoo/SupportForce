@@ -8,6 +8,8 @@ import { ForumComponent } from './component/pages/forum/forum.component';
 import { FaqComponent } from './component/pages/faq/faq.component';
 import { EmergencycontactComponent } from './component/pages/emergencycontact/emergencycontact.component';
 import { ModalComponent } from './component/modal/modal.component';
+import { StatisticsComponent } from './component/statistics/statistics.component';
+
 
 @NgModule({
   declarations: [
@@ -16,7 +18,8 @@ import { ModalComponent } from './component/modal/modal.component';
     ForumComponent,
     FaqComponent,
     EmergencycontactComponent,
-    ModalComponent
+    ModalComponent,
+    StatisticsComponent,
   ],
   imports: [
     BrowserModule,
