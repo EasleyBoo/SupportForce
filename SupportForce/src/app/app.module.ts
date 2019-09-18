@@ -10,6 +10,10 @@ import { EmergencycontactComponent } from './component/pages/emergencycontact/em
 import { ModalComponent } from './component/modal/modal.component';
 import { StatisticsComponent } from './component/statistics/statistics.component';
 
+import { CarouselComponent } from './component/carousel/carousel.component';
+import { MainHomeComponent } from './component/pages/main-home/main-home.component';
+import { AccordianComponent } from './component/accordian/accordian.component';
+import { CardComponent } from './component/card/card.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +24,10 @@ import { StatisticsComponent } from './component/statistics/statistics.component
     EmergencycontactComponent,
     ModalComponent,
     StatisticsComponent,
+    CarouselComponent,
+    MainHomeComponent,
+    AccordianComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,
