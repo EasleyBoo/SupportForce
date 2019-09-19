@@ -3,7 +3,7 @@ steps:
 - name: 'gcr.io/cloud-builders/npm'
   args: ['install', '-g', '@angular/cli']
 # Build
-- name: 'gcr.io/cloud-builders/ng'
+- name: 'gcr.io/cloud-builders-community/ng'
   args: ['build']
 # Upload to Bucket
 - name: 'gcr.io/support-force/gsutil'
