@@ -1,7 +1,4 @@
 steps:
-# Install
-- name: 'gcr.io/cloud-builders/npm'
-  args: ['install', '-g', '@angular/cli']
 # Build
 - name: 'gcr.io/$PROJECT_ID/ng'
   args: 
