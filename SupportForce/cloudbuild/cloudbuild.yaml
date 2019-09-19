@@ -3,8 +3,12 @@ steps:
 - name: 'gcr.io/cloud-builders/npm'
   args: ['install', '-g', '@angular/cli']
 # Build
-- name: 'gcr.io/cloud-builders-community/ng'
-  args: ['build']
+- name: 'gcr.io/$PROJECT_ID/ng'
+  args: 
+  - build
+  - -var
+  - support-force=$PROJECT_ID
+  - ng.json
 # Upload to Bucket
 - name: 'gcr.io/support-force/gsutil'
   args: ['-m', 'cp', '-r', './dist', 'gs://support-force']
