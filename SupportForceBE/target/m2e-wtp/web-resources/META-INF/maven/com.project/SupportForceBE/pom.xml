@@ -4,4 +4,36 @@
   <artifactId>SupportForceBE</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
+  
+ <properties>
+  <maven.compiler.target>1.8</maven.compiler.target>
+  <maven.compiler.source>1.8</maven.compiler.source> 
+</properties>
+  
+  
+<dependencies>
+<!-- Hibernate Core -->
+<dependency>
+    	<groupId>org.hibernate</groupId>
+    	<artifactId>hibernate-core</artifactId>
+    	<version>5.4.3.Final</version>
+</dependency>
+	
+<!-- Validator -->	
+<dependency>
+    <groupId>org.hibernate</groupId>
+    <artifactId>hibernate-validator</artifactId>
+    <version>6.0.17.Final</version>
+</dependency>
+	
+
+<dependency>
+    <groupId>org.postgresql</groupId>
+    <artifactId>postgresql</artifactId>
+    <version>42.2.5</version>
+</dependency>
+	
+	
+</dependencies> 
+  
 </project>
