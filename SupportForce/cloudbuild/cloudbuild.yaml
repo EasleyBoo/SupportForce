@@ -1,10 +1,7 @@
 steps:
-- name: 'gcr.io/support-force/ng'
-  args: ['update', '@angular/cli', '--from=1.7.4', '--migrate-only']
 # Build
-- name: 'gcr.io/support-force/ng'
-  args: ['build']
+- name: 'gcr.io/cloud-builders/npm'
+  args: ['run', 'build']
 # Upload to Bucket
 - name: 'gcr.io/support-force/gsutil'
   args: ['-m', 'cp', '-r', './dist', 'gs://support-force']
-images: ['gcr.io/$PROJECT_ID/custom-script-test2']
