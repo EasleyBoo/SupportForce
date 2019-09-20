@@ -2,7 +2,7 @@ steps:
 # Build
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-f', 'SupportForce/Dockerfile.dockerfile', '-t', 'support-force:angular-app', '.']
- Upload to Bucket
+# Upload to Bucket
 - name: 'gcr.io/cloud-builders/gsutil'
   args: ['-m', 'cp', '-r', './dist', 'gs://support-force']
 images:
