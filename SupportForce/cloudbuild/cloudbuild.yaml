@@ -1,6 +1,4 @@
 steps:
-- name: 'cd'
-  args: ['SupportForce/']
 # Build
 - name: 'gcr.io/support-force/ng'
   args: ['build']
