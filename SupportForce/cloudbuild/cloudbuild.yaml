@@ -1,7 +1,4 @@
 steps:
 # Build
-- name: 'gcr.io/cloud-builders/npm'
-  args: ['run', 'build']
-# Upload to Bucket
-- name: 'gcr.io/support-force/gsutil'
-  args: ['-m', 'cp', '-r', './dist', 'gs://support-force']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-f', '/SupportForce/Dockerfile']
