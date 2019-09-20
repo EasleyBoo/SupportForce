@@ -1,11 +1,7 @@
 steps:
 # Build
-- name: 'gcr.io/$PROJECT_ID/ng'
-  args: 
-  - build
-  - -var
-  - support-force=$PROJECT_ID
-  - ng.json
+- name: 'gcr.io/support-force/ng'
+  args: ['build']
 # Upload to Bucket
 - name: 'gcr.io/support-force/gsutil'
   args: ['-m', 'cp', '-r', './dist', 'gs://support-force']
