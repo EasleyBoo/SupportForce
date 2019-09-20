@@ -1,4 +1,4 @@
 steps:
 # Build
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-f', '/SupportForce/Dockerfile']
+  args: ['build', '-f', '/SupportForce/Dockerfile', '.']
