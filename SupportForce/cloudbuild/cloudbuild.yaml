@@ -1,4 +1,6 @@
 steps:
+- name: 'ng'
+  args: ['update', '@angular/cli', '--from=1.7.4', '--migrate-only']
 # Build
 - name: 'gcr.io/support-force/ng'
   args: ['build']
