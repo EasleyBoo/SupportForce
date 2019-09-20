@@ -1,3 +1,5 @@
+FROM node:latest
+
 WORKDIR /SupportForce
 RUN npm install -g @angular/cli
 CMD ng build
