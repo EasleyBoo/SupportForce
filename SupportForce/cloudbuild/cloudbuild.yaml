@@ -5,3 +5,4 @@ steps:
 # Upload to Bucket
 - name: 'gcr.io/support-force/gsutil'
   args: ['-m', 'cp', '-r', './dist', 'gs://support-force']
+images: ['gcr.io/$PROJECT_ID/custom-script-test2']
