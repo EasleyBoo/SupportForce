@@ -9,7 +9,7 @@ steps:
   args:
   - 'app'
   - 'deploy'
-  - 'app.yaml'
+  - 'SupportForce/app.yaml'
   - '--image-url'
   - 'gcr.io/support-force/support-force:angular-app'
 images:
