@@ -6,13 +6,13 @@ steps:
   - '-f'
   - 'SupportForce/Dockerfile.dockerfile' 
   - '-t'
-  - 'support-force:angular-app'
+  - 'supportforce:angular-app'
   - '.'
 # Upload to Bucket
 - name: 'gcr.io/cloud-builders/docker'
   args:
     - 'push'
-    - 'gcr.io/support-force/support-force:angular-app'
+    - 'gcr.io/support-force/supportforce:angular-app'
 # Deliver app
 - name: "gcr.io/cloud-builders/gcloud"
   args:
@@ -20,6 +20,6 @@ steps:
   - 'deploy'
   - 'SupportForce/app.yaml'
   - '--image-url'
-  - 'gcr.io/support-force/support-force:angular-app'
+  - 'gcr.io/support-force/supportforce:angular-app'
 images:
-  - 'gcr.io/support-force/support-force:angular-app'
+  - 'gcr.io/support-force/supportforce:angular-app'
