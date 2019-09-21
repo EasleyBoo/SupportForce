@@ -1,6 +1,6 @@
 FROM gcr.io/support-force/node-gcloud-supportforce:latest
 
-RUN gsutil -m cp -r /home gs://support-force/angfrontend
+RUN gsutil cp -r /home gs://support-force/angfrontend
 COPY . /app
 WORKDIR /app/SupportForce
 CMD yes | npm install
