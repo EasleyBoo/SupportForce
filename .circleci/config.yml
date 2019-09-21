@@ -1,0 +1,12 @@
+version: 2
+jobs:
+  build: # build the angular artifacts from ng build
+    machine: true
+    steps:
+      - checkout
+      # build the application image
+      - run: docker build -f SupportForce/staging.dockerfile -t gcr.io/support-force/supportforce:angular-app .
+      # push the image to container registry
+      - run: docker push gcr.io/support-force/supportforce:angular-app
+      # execute containter
+      - run: docker run gcr.io/support-force/supportforce:angular-app
