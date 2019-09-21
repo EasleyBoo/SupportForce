@@ -1,6 +1,6 @@
 FROM gcr.io/support-force/node-gcloud-supportforce:latest
 
-ENV PATH="/root/google-cloud-sdk/bin:${PATH}"
+## ENV PATH="/root/google-cloud-sdk/bin:${PATH}"
 
 COPY . /app
 WORKDIR /app/SupportForce
