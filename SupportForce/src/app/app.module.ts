@@ -14,6 +14,7 @@ import { CarouselComponent } from './component/carousel/carousel.component';
 import { MainHomeComponent } from './component/pages/main-home/main-home.component';
 import { AccordianComponent } from './component/accordian/accordian.component';
 import { CardComponent } from './component/card/card.component';
+import { UserHomeComponent } from './component/pages/user-home/user-home.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { CardComponent } from './component/card/card.component';
     CarouselComponent,
     MainHomeComponent,
     AccordianComponent,
-    CardComponent
+    CardComponent,
+    UserHomeComponent
   ],
   imports: [
     BrowserModule,
