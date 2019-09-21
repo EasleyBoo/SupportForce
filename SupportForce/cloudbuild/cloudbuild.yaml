@@ -13,14 +13,14 @@ steps:
   args:
     - 'push'
     - 'gcr.io/support-force/supportforce:angular-app'
-# Deliver app
-- name: "gcr.io/cloud-builders/gcloud"
-  args:
-  - 'app'
-  - 'deploy'
-  - 'SupportForce/app.yml'
-  - '--image-url'
-  - 'gcr.io/support-force/supportforce:angular-app'
+## # Deliver app
+## - name: "gcr.io/cloud-builders/gcloud"
+##   args:
+##   - 'app'
+##   - 'deploy'
+##   - 'SupportForce/app.yml'
+##   - '--image-url'
+##   - 'gcr.io/support-force/supportforce:angular-app'
 images:
   - 'gcr.io/support-force/supportforce:angular-app'
 timeout: 12000s
