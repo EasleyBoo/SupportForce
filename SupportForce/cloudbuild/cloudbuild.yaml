@@ -12,7 +12,7 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   args:
     - 'push'
-    - 'gcr.io/support-force/supportforce:angular-ap
+    - 'gcr.io/support-force/supportforce:angular-app'
 # Deliver app
 - name: 'gcr.io/cloud-builders/docker'
   args:
