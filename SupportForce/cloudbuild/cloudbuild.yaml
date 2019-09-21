@@ -6,7 +6,7 @@ steps:
   - '-f'
   - 'SupportForce/Dockerfile.dockerfile' 
   - '-t'
-  - 'supportforce:angular-app'
+  - 'gcr.io/support-force/supportforce:angular-app'
   - '.'
 # Upload to Bucket
 - name: 'gcr.io/cloud-builders/docker'
