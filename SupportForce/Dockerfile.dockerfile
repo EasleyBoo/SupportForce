@@ -1,4 +1,4 @@
-FROM node:latest
+FROM gcr.io/support-force/node-gcloud-supportforce:latest
 
 COPY . /app
 WORKDIR /app/SupportForce
