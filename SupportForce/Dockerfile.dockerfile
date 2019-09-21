@@ -6,4 +6,5 @@ CMD yes | npm install
 ## RUN npm install -g @angular/cli
 CMD ng build
 CMD gsutil -m cp -r ./dist gs://support-force/angfrontend
+RUN echo "FINISHED DOCKERFILE"
 ## CMD ng serve
