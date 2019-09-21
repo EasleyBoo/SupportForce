@@ -1,11 +1,23 @@
 steps:
-# Build
-- name: 'gcr.io/$PROJECT_ID/ng'
-  args: 
-  - build
-  - -var
-  - support-force=$PROJECT_ID
-  - ng.json
+# Build front-end
+- name: 'gcr.io/cloud-builders/docker'
+  args:
+  - 'build' 
+  - '-f'
+  - 'SupportForce/Dockerfile.dockerfile' 
+  - '-t'
+  - 'gcr.io/support-force/supportforce:angular-app'
+  - '.'
 # Upload to Bucket
-- name: 'gcr.io/support-force/gsutil'
-  args: ['-m', 'cp', '-r', './dist', 'gs://support-force']
+- name: 'gcr.io/cloud-builders/docker'
+  args:
+    - 'push'
+    - 'gcr.io/support-force/supportforce:angular-app'
+# Deliver app
+- name: 'gcr.io/cloud-builders/docker'
+  args:
+  - 'run'
+  - 'gcr.io/support-force/supportforce:angular-app'
+images:
+  - 'gcr.io/support-force/supportforce:angular-app'
+timeout: 12000s
