@@ -6,9 +6,9 @@ COPY . /app
 WORKDIR /app/SupportForce
 
 RUN echo ${PATH}
-CMD yes | npm install
+RUN yes | npm install
 ## RUN npm install -g @angular/cli
-CMD ng build
+RUN ng build
 CMD echo "Storing Build Artifacts..."
 CMD gsutil -m cp -r dist gs://support-force/angfrontend
 ## CMD ng serve
