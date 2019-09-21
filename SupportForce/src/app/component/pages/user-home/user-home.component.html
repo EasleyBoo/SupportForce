@@ -1,0 +1,92 @@
+<!-- <div class="card">
+   <h2>My Support Groups</h2>
+   <ul class="supportgroup">
+       <li *ngFor="let supportgroup of supportgroup">
+           <span class="badge">{{supportgroup.supportName}} 
+               {{supportgroup.userList}}
+               {{supportgroup.addiction}}
+           </span> 
+       </li>
+   </ul>
+</div> -->
+<app-user-modal></app-user-modal>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenterUser">
+    Create Support Group
+  </button>
+  
+ 
+<div class="card">
+    <div class="card-header">
+        <h2 class="text-center"> My Groups </h2>
+    </div>
+    <div class="card-body d-flex flex-row">
+
+        <a *ngFor="let groups of supportgroup" class="card w-25 m-3" routerLink="forum/{{groups.supportId}}">
+            <h2 class="text-center">{{groups.supportName}}</h2>
+            <div>Addiction: {{groups.addiction}}
+                <span>{{groups.userList.length}} participants</span>
+            </div>
+        </a>
+    </div>
+</div>
+
+
+
+
+<!-- <div class="card">
+    <div class="card-header">
+        <h2 class="text-center"> My Groups </h2>
+    </div>
+    <div class="card-body d-flex flex-row">
+        
+        <div *ngFor="let groups of supportgroup" class="card w-25 m-3">
+            <h2 class="text-center">{{groups.supportName}}</h2>
+            <div>Addiction: {{groups.addiction}}
+                <span>{{groups.userList.length}} participants</span>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<div class="container mt-5">
+    <h2 class="text-center">All Groups Available</h2>
+    <div class="allofmygroups">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Support Name</th>
+                    <th scope="col">Addiction</th>
+                    <th scope="col">Number of Participants</th>
+                    <th scope="col">actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let allgroups of allsupportgroups">
+                    <th scope="row">{{allgroups.supportId}}</th>
+                    <td>{{allgroups.supportName}}</td>
+                    <td>{{allgroups.addiction}}</td>
+                    <td>{{allgroups.userList.length}}</td>
+                    <td>
+                        <button class="btn btn-sm btn-success mr-1" id="group{{allgroups.supportId}}">join</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+
+
+
+<!-- <div *ngFor="let allgroups of allsupportgroups" class="card w-25 m-3">
+                <h2 class="text-center">{{allgroups.supportName}}</h2>
+                <div>Addiction: {{allgroups.addiction}}
+                    <span>{{allgroups.userList.length}} participants</span>
+                </div>
+            </div> -->
