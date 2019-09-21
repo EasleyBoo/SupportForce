@@ -14,7 +14,7 @@ steps:
     - 'push'
     - 'gcr.io/support-force/supportforce:angular-ap
 # Deliver app
-- name: "gcr.io/cloud-builders/docker"
+- name: 'gcr.io/cloud-builders/docker'
   args:
   - 'run'
   - 'gcr.io/support-force/supportforce:angular-app'
