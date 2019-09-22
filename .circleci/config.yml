@@ -23,7 +23,7 @@ jobs:
       - gcp-gke/init
       ## Update a deployment Docker image.
       - gcp-gke/rollout-image:
-          deployment: app-cluster
+          deployment: supportforce-cluster
           container: supportforce-frontend
           image: gcr.io/support-force/supportforce:latest
 workflows:
