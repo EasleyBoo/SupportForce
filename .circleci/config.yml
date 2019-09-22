@@ -1,14 +1,37 @@
-version: 2
+version: 2.1
+orbs:
+  gcp-gke: circleci/gcp-gke@0.1.0
 jobs:
-  build: # build the angular artifacts from ng build
+  build: ## build the angular artifacts from ng build
+    description: build and push frontend docker image to container registry
     machine: true
     steps:
       - checkout
-      # authorize with gcp service account key
+      ## authorize with gcp service account key
       - run: cat .circleci/support-force-27baa1965112.json | docker login -u _json_key --password-stdin https://gcr.io
-      # build the application image
-      - run: docker build -f SupportForce/staging.dockerfile -t gcr.io/support-force/supportforce:angular-app .
-      # push the image to container registry
-      - run: docker push gcr.io/support-force/supportforce:angular-app
-      # execute containter
-      - run: docker run gcr.io/support-force/supportforce:angular-app
+      ## build the application image
+      - run: docker build -f SupportForce/staging.dockerfile -t gcr.io/support-force/supportforce:latest .
+      ## push the image to container registry
+      - run: docker push gcr.io/support-force/supportforce:latest
+      ## execute containter
+      - run: docker run gcr.io/support-force/supportforce:latest
+  deploy: ## deploy to gcp kubernetes engine
+    description: Deploy application to Google Kubernetes Engine
+    machine: true
+    steps:
+      ## Install `gcloud` and `kubectl` if not already installed.
+      - gcp-gke/install
+      ## Initialize the `gcloud` CLI.
+      - gcp-gke/init
+      ## Update a deployment Docker image.
+      - gcp-gke/rollout-image:
+          deployment: app-cluster
+          container: supportforce-frontend
+          image: gcr.io/support-force/supportforce:latest
+workflows:
+  build_update_deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
