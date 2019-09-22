@@ -13,8 +13,6 @@ jobs:
       - run: docker build -f SupportForce/staging.dockerfile -t gcr.io/support-force/supportforce:latest .
       ## push the image to container registry
       - run: docker push gcr.io/support-force/supportforce:latest
-      ## execute containter
-      - run: docker run gcr.io/support-force/supportforce:latest
   deploy: ## deploy to gcp kubernetes engine
     description: Deploy application to Google Kubernetes Engine
     machine: true
