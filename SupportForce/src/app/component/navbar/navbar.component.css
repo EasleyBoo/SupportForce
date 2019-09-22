@@ -1,8 +1,8 @@
 .navbar{
-    background-color: #0c26ce;
+    background-color: rgb(143, 164, 174, 0.3);
 }
 .navbar .navbar-brand {
-    color: #FFF;
+    color: black;
     font-weight: bolder;
     font-size: 1.8em;
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -13,6 +13,6 @@
 } */
 
 .navbar .nav-item {
-    color: #FFF !important;
+    color: black !important;
 }
 

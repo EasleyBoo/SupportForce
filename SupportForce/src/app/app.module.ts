@@ -15,6 +15,11 @@ import { MainHomeComponent } from './component/pages/main-home/main-home.compone
 import { AccordianComponent } from './component/accordian/accordian.component';
 import { CardComponent } from './component/card/card.component';
 import { UserHomeComponent } from './component/pages/user-home/user-home.component';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './in-memory-data.service';
+import { HttpClientModule } from '@angular/common/http';
+import { UserModalComponent } from './component/user-modal/user-modal.component';
+import { GroupcreationformComponent } from './component/groupcreationform/groupcreationform.component';
 
 @NgModule({
   declarations: [
@@ -29,11 +34,18 @@ import { UserHomeComponent } from './component/pages/user-home/user-home.compone
     MainHomeComponent,
     AccordianComponent,
     CardComponent,
-    UserHomeComponent
+    UserHomeComponent,
+    UserModalComponent,
+    GroupcreationformComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, {dataEncapsulation: false}
+    )
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -43,4 +43,22 @@ export const ALLSUPPORTGROUPS: SupportGroup[] = [
         userList: ['Sprite', 'Paper', 'Jason'] ,
         addiction: 'Heroine',
       },
+      {
+        supportId: 8,
+        supportName: 'wallstreetbets addiction help zone',
+        userList: ['Onions', 'Pork Chops', 'Jason'] ,
+        addiction: 'Gambling',
+      },
+      {
+        supportId: 9,
+        supportName: 'Carrots against drinking',
+        userList: ['Merkat', 'Boolean', 'Saol'] ,
+        addiction: 'Alcohol',
+      },
+      {
+        supportId: 10,
+        supportName: 'SPY 0 days recovery post',
+        userList: ['Wizzdaddy', 'Bloombindale', 'Jason'] ,
+        addiction: 'Gambling',
+      },
 ];
