@@ -13,12 +13,12 @@ export const REPLY: Reply[] = [
     },
     {
         replyId: 3,
-        replyBody: 'reply: YOLO!',
-        postId: 2
+        replyBody: 'YOLO!',
+        postId: 5
     },
     {
         replyId: 4,
-        replyBody: 'reply: nJust keep swimming, Just keep swimming',
-        postId: 2
+        replyBody: 'Just keep swimming, Just keep swimming',
+        postId: 5
     }
 ];
