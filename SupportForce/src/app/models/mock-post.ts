@@ -8,6 +8,10 @@ export const POST: Post[] = [
     {
     postId: 5,
     postBody: 'Alcohol is my gateway to freedom...'
+    },
+    {
+    postId: 4,
+    postBody: 'Cocaine is not good'
     }
 ];
 
