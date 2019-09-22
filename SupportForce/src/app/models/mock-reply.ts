@@ -14,11 +14,11 @@ export const REPLY: Reply[] = [
     {
         replyId: 3,
         replyBody: 'YOLO!',
-        postId: 2
+        postId: 5
     },
     {
         replyId: 4,
         replyBody: 'Just keep swimming, Just keep swimming',
-        postId: 2
+        postId: 5
     }
 ];
