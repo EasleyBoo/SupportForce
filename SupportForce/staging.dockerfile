@@ -10,4 +10,4 @@ WORKDIR /app/SupportForce
 RUN yes | npm install
 RUN ng build
 
-CMD gsutil -m cp -r dist/* gs://support-force
+CMD gsutil -m cp -r dist/SupportForce/* gs://support-force
