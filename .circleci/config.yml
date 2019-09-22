@@ -13,23 +13,24 @@ jobs:
       - run: docker build -f SupportForce/staging.dockerfile -t gcr.io/support-force/supportforce:latest .
       ## push the image to container registry
       - run: docker push gcr.io/support-force/supportforce:latest
-  deploy: ## deploy to gcp kubernetes engine
-    description: Deploy application to Google Kubernetes Engine
-    machine: true
-    steps:
-      ## Install `gcloud` and `kubectl` if not already installed.
-      - gcp-gke/install
-      ## Initialize the `gcloud` CLI.
-      - gcp-gke/init
-      ## Update a deployment Docker image.
-      - gcp-gke/rollout-image:
-          deployment: supportforce-cluster
-          container: supportforce-frontend
-          image: gcr.io/support-force/supportforce:latest
+      ## run container
+      - run: docker run gcr.io/support-force/supportforce:latest
+  # deploy: ## deploy to gcp kubernetes engine
+  #   description: Deploy application to Google Kubernetes Engine
+  #   machine: true
+  #   steps:
+  #     ## Install `gcloud` and `kubectl` if not already installed.
+  #     - gcp-gke/install
+  #     ## Initialize the `gcloud` CLI.
+  #     - gcp-gke/init
+  #     ## Update a deployment Docker image.
+  #     - run: gcloud container clusters get-credentials supportforce-cluster
+  #     ## use yaml file instead...
+  #     - run: kubectl create deployment supportforce --image=gcr.io/support-force/supportforce:latest
 workflows:
   build_update_deploy:
     jobs:
       - build
-      - deploy:
-          requires:
-            - build
+      # - deploy:
+      #     requires:
+      #       - build
