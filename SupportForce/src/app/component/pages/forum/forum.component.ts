@@ -16,24 +16,48 @@ export class ForumComponent implements OnInit {
   replies = REPLY;
   forumReplies = this.getReplies();
 
-  constructor() { 
-    this.getReplies();
+  constructor() {
+    // this.getReplies();
   }
 
   ngOnInit() {
   }
 
-  getReplies(): Reply {
+
+  getReplies(): string[] {
+    let myReply: Reply;
+    const emptyArr: string[] = [];
+
     this.posts.forEach(post => {
       const postId = post.postId;
       this.replies.forEach(reply => {
         if (reply.postId === postId) {
-          console.log(reply);
-          return reply;
+          myReply = reply;
+          emptyArr.push(myReply.replyBody);
         }
       });
     });
-    return null;
+    return emptyArr;
   }
+
+ /*  getReplies(): Reply {
+    let myReply: Reply;
+    this.posts.forEach(post => {
+      const postId = post.postId;
+      this.replies.forEach(reply => {
+
+        if (reply.postId === postId) {
+          console.log('hey this id is a match!');
+          console.log(reply);
+          return myReply = reply;
+        }
+
+      });
+    });
+
+    console.log('this is myReply...');
+    console.log(myReply);
+    return myReply;
+  } */
 
 }
