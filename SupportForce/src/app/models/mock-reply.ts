@@ -3,12 +3,12 @@ import { Reply } from './reply';
 export const REPLY: Reply[] = [
     {
         replyId: 1,
-        replyBody: 'This is my reply to sadness :(',
+        replyBody: 'reply: This is my reply to sadness :(',
         postId: 1
     },
     {
         replyId: 2,
-        replyBody: 'Keep on drinking!',
+        replyBody: 'reply:  Keep on drinking!',
         postId: 1
     },
     {
