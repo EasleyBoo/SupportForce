@@ -1,6 +1,10 @@
+import { Reply } from './reply';
+
 export class Post {
     postId: number;
-    postBody: string; 
+    postBody: string;
+    replyList?: Reply[];
+    userId: number;
 }
 
 
