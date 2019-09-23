@@ -1,6 +1,6 @@
-import { UserCreds } from "./userCreds";
+import { User } from './user';
 
-export const USERS: UserCreds[] = [
+export const USERS: User[] = [
   {
     userId: 1,
     username: 'jasonkim4201',
@@ -22,9 +22,3 @@ export const USERS: UserCreds[] = [
 ];
 
 
-/* export class UserCreds {
-  userId: number;
-  username: string;
-  password: string;
-  email: string;
-} */
