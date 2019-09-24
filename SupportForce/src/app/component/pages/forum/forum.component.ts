@@ -3,7 +3,7 @@ import { Post } from 'src/app/models/post';
 import { Reply } from 'src/app/models/reply';
 import { POST } from 'src/app/models/mock-post';
 import { REPLY } from 'src/app/models/mock-reply';
-import { SUPPORTGROUPS } from 'src/app/models/mock-supportgroups';
+// import { SUPPORTGROUPS } from 'src/app/models/mock-supportgroups';
 
 
 
@@ -14,7 +14,7 @@ import { SUPPORTGROUPS } from 'src/app/models/mock-supportgroups';
 })
 export class ForumComponent implements OnInit {
 
-  allgroups = SUPPORTGROUPS;
+  // allgroups = SUPPORTGROUPS;
   posts = POST;
   replies = REPLY;
   forumReplies = this.getReplies();

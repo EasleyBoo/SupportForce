@@ -22,6 +22,7 @@ import { UserModalComponent } from './component/user-modal/user-modal.component'
 import { GroupcreationformComponent } from './component/groupcreationform/groupcreationform.component';
 import { LoginComponent } from './component/login/login.component';
 import { RegisterComponent } from './component/register/register.component';
+import { UserserviceService } from './services/userservice.service';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,7 @@ import { RegisterComponent } from './component/register/register.component';
       InMemoryDataService, {dataEncapsulation: false}
     )
   ],
-  providers: [],
+  providers: [UserserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
