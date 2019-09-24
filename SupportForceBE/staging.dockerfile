@@ -1,16 +1,44 @@
+#######################
+### build - backend ###
+#######################
+
+## base image
 FROM maven:3.3.9-jdk-8-alpine as build
-ARG JDBC_PASSWORD
+
+## environment variables
+ARG DB_PASSWORD
 ENV DATABASE_NAME="postgres"
-ENV JDBC_SCHEMA="mockazon"
-ENV JDBC_URL="104.154.244.24"
-ENV JDBC_USERNAME="postgres"
-ENV JDBC_PASSWORD=${JDBC_PASSWORD}
-# RUN echo ${DATABASE_NAME}
-# RUN echo ${JDBC_SCHEMA}
-# RUN echo ${JDBC_URL}
-# RUN echo ${JDBC_USERNAME}
-# RUN echo ${JDBC_PASSWORD}${JDBC_SCHEMA}
+# ENV DB_SCHEMA=""
+ENV DB_URL="35.236.247.30"
+ENV DB_USERNAME="postgres"
+ENV DB_PASSWORD=${DB_PASSWORD}
+
+## set up working directory
 COPY . /app
-WORKDIR /app
+WORKDIR /app/SupportForceBE
+
+## build files
 RUN mvn install
-CMD java -jar target/Mockazon-0.0.1-SNAPSHOT.jar
+
+
+#########################
+### delivery - tomcat ###
+#########################
+
+## base image
+FROM tomcat:latest as deliver
+
+## copy tomcat settings into tomcat/conf
+COPY --from=build ["/app/Servers/Tomcat v9.0 Server at localhost-config/", "/usr/local/tomcat/conf"]
+
+## copy war artifact build into tomcat/webapps
+COPY --from=build /app/SupportForceBE/target/SupportForceBE-0.0.1-SNAPSHOT.war /usr/local/tomcat/webapps
+
+## run tomcat server (default port is 8080)
+# RUN ls /usr/local/tomcat/conf
+# RUN ls /usr/local/tomcat/webapps
+# RUN ls /usr/local/tomcat
+RUN /usr/local/tomcat/bin/startup.sh
+
+## persist container
+CMD tail -f /dev/null
