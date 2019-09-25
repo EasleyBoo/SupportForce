@@ -1,22 +1,10 @@
 import { Injectable } from '@angular/core';
-import { User } from '../models/user';
+import { User } from 'src/app/models/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserserviceService {
-
-/*   export class User {
-    userId?: number;
-    username: string;
-    password: string;
-    email: string;
-    addictionList?: Addiction[];
-    supportGroupList?: SupportGroup[];
-    postList?: Post[];
-    replyList?: Reply[];
-
-  } */
   users: User[] = [
     {
       userId: 1,
@@ -38,15 +26,20 @@ export class UserserviceService {
     }
   ];
 
+
+
+/*   export class User {
+    userId?: number;
+    username: string;
+    password: string;
+    email: string;
+    addictionList?: Addiction[];
+    supportGroupList?: SupportGroup[];
+    postList?: Post[];
+    replyList?: Reply[];
+
+  } */
   constructor() { }
-
-  insertUser(newUser: User) {
-    this.users.push(newUser);
-  }
-
-  getAllUsers() {
-    return this.users;
-  }
 
   getAllGroups() {
     return [
@@ -160,6 +153,14 @@ export class UserserviceService {
         addiction: 'Gambling',
       },
     ];
+  }
+
+
+
+  createNewUser(newUser: User) {
+    console.log('This is in service' + newUser);
+    this.users.push(newUser);
+    console.log(this.users);
   }
 
 
