@@ -1,11 +1,52 @@
 import { Injectable } from '@angular/core';
+import { User } from '../models/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserserviceService {
 
+/*   export class User {
+    userId?: number;
+    username: string;
+    password: string;
+    email: string;
+    addictionList?: Addiction[];
+    supportGroupList?: SupportGroup[];
+    postList?: Post[];
+    replyList?: Reply[];
+
+  } */
+  users: User[] = [
+    {
+      userId: 1,
+      username: 'jasonkim4201',
+      password: 'password123',
+      email: 'jasonkim4201@gmail.com'
+    },
+    {
+      userId: 2,
+      username: 'jyothit',
+      password: 'password1234',
+      email: 'jyothit@gmail.com'
+    },
+    {
+      userId: 3,
+      username: 'eboo1234',
+      password: 'password12345',
+      email: 'eboo@gmail.com'
+    }
+  ];
+
   constructor() { }
+
+  insertUser(newUser: User) {
+    this.users.push(newUser);
+  }
+
+  getAllUsers() {
+    return this.users;
+  }
 
   getAllGroups() {
     return [
