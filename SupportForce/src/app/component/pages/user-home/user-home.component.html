@@ -47,7 +47,7 @@
         <div class="col-2">Search Available Groups:</div>
         <div class="col-10">
           
-          <input type="text" class="form-control w-50" [(ngModel)]="filerGroups">
+          <input type="text" class="form-control w-50" [(ngModel)]="filterGroups">
 
         </div>
       </div>
@@ -56,20 +56,26 @@
 
         <div class="form-group">
           <label for="filterGroupSection">Find By:</label>
-          <select name="addictionType" class="form-control" id="filterGroupSection">
-            <option value=""></option>
-            <option value=""></option>
-            <option value=""></option>
-            <option value=""></option>
-            <option value=""></option>
-            <option value=""></option>
-            <option value=""></option>
-          </select>
+          <form class="">
+            
+            <select name="addictionType" class="form-control" id="filterGroupSection">
+              <option selected>Select</option>
+              <option value="1">Alcohol</option>
+              <option value="2">Heroin</option>
+              <option value="3">PainKillers</option>
+              <option value="4">Meth</option>
+              <option value="5">Gambling</option>
+              <option value="6">Nicotine</option>
+              <option value="7">Cocaine</option>
+              <option value="8">View All</option>
+            </select>
+
+          </form>
         </div>
 
       </div>
 
-      <table class="table table-hover">
+      <table class="table table-hover" *ngIf="allSupportGroups && allSupportGroups.length">
         <thead>
           <tr>
             <th scope="col">#</th>
@@ -80,7 +86,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let allgroups of allSupportGroups">
+          <tr *ngFor="let allgroups of filteredSupportGroups">
             <th scope="row">{{allgroups.supportId}}</th>
             <td>{{allgroups.supportName}}</td>
             <td>{{allgroups.addiction}}</td>
