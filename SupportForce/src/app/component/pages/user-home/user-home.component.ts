@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { SupportGroup } from '../../../models/supportgroup';
-import { SUPPORTGROUPS } from 'src/app/models/mock-supportgroups';
-import { ALLSUPPORTGROUPS } from 'src/app/models/mock-allgroups';
-import { SgserviceService } from 'src/app/services/sgservice.service';
+// import { SUPPORTGROUPS } from 'src/app/models/mock-supportgroups';
+/* import { ALLSUPPORTGROUPS } from 'src/app/models/mock-allgroups'; */
+// import { SgserviceService } from 'src/app/services/sgservice.service';
+import { UserserviceService } from 'src/app/services/userservice.service';
+
 
 
 
@@ -14,22 +16,42 @@ import { SgserviceService } from 'src/app/services/sgservice.service';
 
 export class UserHomeComponent implements OnInit {
 
- supportgroup = SUPPORTGROUPS;
-//  allsupportgroups = ALLSUPPORTGROUPS;
-allsupportgroups: SupportGroup[];
+  // This returns an array of my support groups from service
+  // supportgroup = SUPPORTGROUPS;
+  mySupportGroup: SupportGroup[];
 
-  constructor(private sgservice: SgserviceService) {
-    console.log(this.supportgroup);
-    // console.log(this.allsupportgroups);
+  // This returns an array of all support groups from service
+  allSupportGroups: SupportGroup[];
+  filteredSupportGroups: SupportGroup[];
+
+  fileredInput = '';
+
+  constructor(private userserv: UserserviceService) {
+
   }
 
   ngOnInit() {
-    this.getallgroups();
+    console.log('Im in init');
+    this.allSupportGroups = this.userserv.getAllGroups();
+    this.mySupportGroup = this.userserv.getMyGroups();
+    this.filteredSupportGroups = this.allSupportGroups;
   }
 
+  get filterGroups(): string {
 
-  getallgroups(): void {
-    this.sgservice.getallgroups().subscribe(allsupportgroups => this.allsupportgroups = allsupportgroups);
+    return this.fileredInput;
+  }
+
+  set filterGroups(input: string) {
+    this.fileredInput = input;
+    console.log(this.fileredInput);
+    this.filteredSupportGroups = this.fileredInput ? this.filterGroupsByAddiction(this.fileredInput) : this.allSupportGroups;
+  }
+
+  filterGroupsByAddiction(query: string): SupportGroup[] {
+    query = query.toLocaleLowerCase();
+    return this.allSupportGroups.filter((groups: SupportGroup) =>
+      groups.addiction.toLocaleLowerCase().indexOf(query) !== -1);
   }
 
 }
