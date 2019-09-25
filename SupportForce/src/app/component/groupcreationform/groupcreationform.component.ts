@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ForumserviceService } from 'src/app/services/forumservice.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-groupcreationform',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GroupcreationformComponent implements OnInit {
 
-  constructor() { }
+  constructor(private forumServ: ForumserviceService) { }
 
   ngOnInit() {
+  }
+
+  createGroup(newGroup: NgForm) {
+    this.forumServ.myNewGroup(newGroup.value);
+
   }
 
 }
