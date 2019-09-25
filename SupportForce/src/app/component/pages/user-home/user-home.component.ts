@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SupportGroup } from '../../../models/supportgroup';
 // import { SUPPORTGROUPS } from 'src/app/models/mock-supportgroups';
 import { ALLSUPPORTGROUPS } from 'src/app/models/mock-allgroups';
-import { SgserviceService } from 'src/app/services/sgservice.service';
+// import { SgserviceService } from 'src/app/services/sgservice.service';
 import { UserserviceService } from 'src/app/services/userservice.service';
 
 
