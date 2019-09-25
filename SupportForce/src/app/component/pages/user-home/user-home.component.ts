@@ -23,12 +23,15 @@ export class UserHomeComponent implements OnInit {
   // This returns an array of all support groups from service
   allSupportGroups: SupportGroup[];
 
+  filteredSupportGroups: SupportGroup[];
 
+  fileredInput = '';
 
   constructor(private userserv: UserserviceService) {
 
 
   }
+
 
   ngOnInit() {
     console.log('Im in init');
@@ -37,5 +40,17 @@ export class UserHomeComponent implements OnInit {
     console.log(this.mySupportGroup);
   }
 
+  get filterGroups(): string {
+    return this.fileredInput;
+  }
+
+  set filterGroups(input: string) {
+    this.fileredInput = input;
+    console.log(this.fileredInput);
+  }
+
+  filterGroupsByAddiction() {
+
+  }
 
 }
