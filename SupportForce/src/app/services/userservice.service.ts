@@ -30,10 +30,18 @@ export class UserserviceService {
 
 
 
+/*   export class User {
+    userId?: number;
+    username: string;
+    password: string;
+    email: string;
+    addictionList?: Addiction[];
+    supportGroupList?: SupportGroup[];
+    postList?: Post[];
+    replyList?: Reply[];
+
+  } */
   constructor() { }
-
-
-
 
   getAllGroups() {
     return [
