@@ -1,11 +1,37 @@
 import { Injectable } from '@angular/core';
+import { User } from 'src/app/models/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserserviceService {
+  users: User[] = [
+    {
+      userId: 1,
+      username: 'jasonkim4201',
+      password: 'password123',
+      email: 'jasonkim4201@gmail.com'
+    },
+    {
+      userId: 2,
+      username: 'jyothit',
+      password: 'password1234',
+      email: 'jyothit@gmail.com'
+    },
+    {
+      userId: 3,
+      username: 'eboo1234',
+      password: 'password12345',
+      email: 'eboo@gmail.com'
+    }
+  ];
+
+
 
   constructor() { }
+
+
+
 
   getAllGroups() {
     return [
@@ -119,6 +145,14 @@ export class UserserviceService {
         addiction: 'Gambling',
       },
     ];
+  }
+
+
+
+  createNewUser(newUser: User) {
+    console.log('This is in service' + newUser);
+    this.users.push(newUser);
+    console.log(this.users);
   }
 
 

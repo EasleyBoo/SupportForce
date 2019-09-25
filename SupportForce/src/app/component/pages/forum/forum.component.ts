@@ -15,13 +15,19 @@ import { REPLY } from 'src/app/models/mock-reply';
 export class ForumComponent implements OnInit {
 
   // allgroups = SUPPORTGROUPS;
+
+
+//  forumReplies: Reply[];
+//  forumPost: Post[];
+
+
   posts = POST;
   replies = REPLY;
   forumReplies = this.getReplies();
   forumPost = this.getPosts();
 
   constructor() {
-    this.getPosts();
+    // this.getPosts();
     this.getReplies();
   }
 
