@@ -1,4 +1,5 @@
-<form #newGroup="ngForm" (ngSubmit)="createGroup(newGroup)">
+<!-- (ngSubmit)="createGroup(newGroup)" -->
+<form #newGroup="ngForm" >
     <div class="form-group">
         <label for="groupForum">Name</label>
         <input [(ngModel)]="groupForum" type="text" class="form-control" id="groupForum" name="supportName"
@@ -18,6 +19,6 @@
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Create Group</button>
+        <button type="submit" class="btn btn-primary" data-dismiss="modal" (click)="createGroup(newGroup)">Create Group</button>
     </div>
 </form>
