@@ -3,6 +3,7 @@ import { User } from 'src/app/models/user';
 import { NgForm } from '@angular/forms';
 import { UserserviceService } from 'src/app/services/userservice.service';
 
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -17,6 +18,12 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
   }
+
+ 
+
+// onCloseModal(event: any) {
+//   this.closeModalEvent.emit(false);
+// }
 
   // getRegisterInfo(event) {
   //   event.preventDefault();
@@ -50,5 +57,6 @@ export class RegisterComponent implements OnInit {
   closeModal(): void {
     this.closeBtn.nativeElement.click();
   }
+
 
 }

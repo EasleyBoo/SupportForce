@@ -17,6 +17,10 @@
             <option value="7">Cocaine</option>
         </select>
     </div>
+    <div>
+        <label for="currentUser">Name</label>
+        <input [(ngModel)]="currentUser" type="text" class="form-control" id="currentUser" name="userList">
+    </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="submit" class="btn btn-primary" data-dismiss="modal" (click)="createGroup(newGroup)">Create Group</button>
