@@ -1,0 +1,102 @@
+
+<app-user-modal></app-user-modal>
+
+<div class="container-fluid d-flex justify-content-center">
+
+  <div class="card w-100">
+    <div class="card-header">
+      <h2 class="text-center"> My Groups </h2>
+    </div>
+    <div class="card-body">
+
+      <!-- Button trigger modal -->
+      <div class="d-flex justify-content-end">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addGroupModal">
+          Create Support Group
+        </button>
+      </div>
+
+      <div class="row d-flex flex-row justify-content-center">
+        
+        <div *ngFor="let groups of mySupportGroup" class=" card w-25 m-3 p-4 group {{groups.addiction}}"
+        routerLink="forum/{{groups.supportId}}" >
+          <h2 class="text-center">{{groups.supportName}}</h2>
+          <div class="row">
+            <div class="col-9">
+              <div class="">Topic: {{groups.addiction}}</div>
+            </div>
+            <div class="col-3">
+              <div>{{groups.userList.length}}/15</div> 
+            </div>
+          </div>
+        </div>
+        
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="container mt-5">
+  <div class="card">
+    <h2 class="text-center card-header">All Groups Available</h2>
+    <div class="allofmygroups card-body">
+      
+      <div class="row">
+        <div class="col-2">Search Available Groups:</div>
+        <div class="col-10">
+          
+          <input type="text" class="form-control w-50" [(ngModel)]="filterGroups">
+
+        </div>
+      </div>
+      <!-- test filter -->
+      <div>
+
+        <div class="form-group">
+          <label for="filterGroupSection">Find By:</label>
+          <form class="">
+            
+            <select name="addictionType" class="form-control" id="filterGroupSection">
+              <option selected>Select</option>
+              <option value="Alcohol">Alcohol</option>
+              <option value="Heroin">Heroin</option>
+              <option value="PainKillers">PainKillers</option>
+              <option value="Meth">Meth</option>
+              <option value="Gambling">Gambling</option>
+              <option value="Nicotine">Nicotine</option>
+              <option value="Cocaine">Cocaine</option>
+            </select>
+
+          </form>
+        </div>
+
+      </div>
+
+      <table class="table table-hover" *ngIf="allSupportGroups && allSupportGroups.length">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Support Name</th>
+            <th scope="col">Addiction</th>
+            <th scope="col">Number of Participants</th>
+            <th scope="col">actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let allgroups of filteredSupportGroups">
+            <th scope="row" >{{allgroups.supportId}} </th>
+            <td>{{allgroups.supportName}}</td>
+            <td>{{allgroups.addiction}}</td>
+            <td>{{allgroups.userList.length}}</td>
+            <td >
+              <button *ngIf="showMyContainer" (click)="[joinGroup(allgroups),showMyContainer=!showMyContainer]" class="btn btn-sm btn-success mr-1" id="group{{allgroups.supportId}}">Join</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>

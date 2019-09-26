@@ -1,0 +1,28 @@
+<!-- (ngSubmit)="createGroup(newGroup)" -->
+<form #newGroup="ngForm" >
+    <div class="form-group">
+        <label for="groupForum">Name</label>
+        <input [(ngModel)]="groupForum" type="text" class="form-control" id="groupForum" name="supportName"
+            placeholder="Group Name">
+    </div>
+    <div class="form-group">
+        <label for="selectAddiction">Addiction</label>
+        <select class="form-control" id="selectAddiction" name="addiction"[(ngModel)]="addiction">
+            <option value="1">Alcohol</option>
+            <option value="2">Heroin</option>
+            <option value="3">Pain Killers</option>
+            <option value="4">Meth</option>
+            <option value="5">Gambling</option>
+            <option value="6">Nicotine</option>
+            <option value="7">Cocaine</option>
+        </select>
+    </div>
+    <div>
+        <label for="currentUser">Name</label>
+        <input [(ngModel)]="currentUser" type="text" class="form-control" id="currentUser" name="userList">
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary" data-dismiss="modal" (click)="createGroup(newGroup)">Create Group</button>
+    </div>
+</form>

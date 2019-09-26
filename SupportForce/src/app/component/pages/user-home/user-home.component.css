@@ -1,0 +1,11 @@
+.group {
+  background: #E5F8FB;
+  cursor: pointer;
+  border: black solid;
+  border-width: .5px;
+  transition: all .6s;
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
+.group:hover {
+  transform: scale(1.06);
+}

@@ -1,0 +1,16 @@
+/* .carousel-inner > .item > img{
+    height: 300px;
+} */
+
+
+.carouselImage {
+  width:1280px;
+  height:620px;
+}
+
+.quotes {
+    font-size: 1.4rem;
+    color: #FFFF;
+    background: rgb(0, 0, 0); 
+    background: rgba(0, 0, 0, 0.3);
+}
