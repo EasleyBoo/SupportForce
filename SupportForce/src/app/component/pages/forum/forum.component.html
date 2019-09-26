@@ -24,6 +24,12 @@
 
 <div *ngFor="let reply of forumReplies" class="card w-50">
     <div class="card-body">
-        <h5>{{reply}}</h5>
+        <h5>{{reply.replyBody}}</h5>
+    </div>
+</div>
+
+<div *ngFor="let post of forumPosts" class="card w-50">
+    <div class="card-body">
+        <h5>{{post.postBody}}</h5>
     </div>
 </div>
