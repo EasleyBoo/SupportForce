@@ -30,7 +30,8 @@ export class UserHomeComponent implements OnInit {
 
   fileredInput = '';
 
-  constructor(private userserv: UserserviceService, private groupServ: GroupserviceService) {
+  constructor(private userserv: UserserviceService, private groupServ: GroupserviceService,
+              private forumServ: ForumserviceService) {
 
   }
 
@@ -64,4 +65,8 @@ joinGroup(allgroups) {
   console.log(allgroups);
 }
 
+
+
 }
+
+
