@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { User } from 'src/app/models/user';
 import { NgForm } from '@angular/forms';
 import { UserserviceService } from 'src/app/services/userservice.service';
+
 
 @Component({
   selector: 'app-register',
@@ -9,6 +10,7 @@ import { UserserviceService } from 'src/app/services/userservice.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+  @ViewChild('closeBtn', {read: ElementRef, static: false}) closeBtn: ElementRef;
 
   user: User[];
 
@@ -16,6 +18,12 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
   }
+
+ 
+
+// onCloseModal(event: any) {
+//   this.closeModalEvent.emit(false);
+// }
 
   // getRegisterInfo(event) {
   //   event.preventDefault();
@@ -40,11 +48,15 @@ export class RegisterComponent implements OnInit {
   // }
 
 
-
   registerUser(userForm: NgForm): void {
     this.userserv.createNewUser(userForm.value);
     console.log(userForm.value);
-
+    /* this.closeModal(); */
   }
+
+  closeModal(): void {
+    this.closeBtn.nativeElement.click();
+  }
+
 
 }
