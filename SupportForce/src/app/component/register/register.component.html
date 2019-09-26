@@ -1,4 +1,4 @@
-<form #newUser="ngForm" (ngSubmit)="registerUser(newUser)" class="register">
+<form #newUser="ngForm" (ngSubmit)="registerUser(newUser); closeModal(loginModal)" class="register">
     <div class="form-group">
         <label for="registerEmail">Email</label> <input [(ngModel)]="registerEmail"
           name="email" type="email" class="form-control"

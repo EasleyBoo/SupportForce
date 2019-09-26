@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { User } from 'src/app/models/user';
 import { NgForm } from '@angular/forms';
 import { UserserviceService } from 'src/app/services/userservice.service';
+
 
 @Component({
   selector: 'app-register',
@@ -9,13 +10,19 @@ import { UserserviceService } from 'src/app/services/userservice.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-
+  
   user: User[];
 
   constructor(private userserv: UserserviceService) { }
 
   ngOnInit() {
   }
+
+ 
+
+// onCloseModal(event: any) {
+//   this.closeModalEvent.emit(false);
+// }
 
   // getRegisterInfo(event) {
   //   event.preventDefault();
@@ -44,7 +51,12 @@ export class RegisterComponent implements OnInit {
   registerUser(userForm: NgForm): void {
     this.userserv.createNewUser(userForm.value);
     console.log(userForm.value);
+    
 
   }
+
+ 
+
+
 
 }
