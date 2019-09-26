@@ -58,10 +58,14 @@ replies: Reply[] = [
 ];
 
 
-
-
-
-
 constructor() { }
+
+getPost(): Post[] {
+  return this.posts;
+}
+
+getReply(): Reply[] {
+  return this.replies;
+}
 
 }
