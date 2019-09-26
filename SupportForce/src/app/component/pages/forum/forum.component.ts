@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Post } from 'src/app/models/post';
 import { Reply } from 'src/app/models/reply';
 import { NgForm } from '@angular/forms';
@@ -9,30 +10,38 @@ import { ForumserviceService } from 'src/app/services/forumservice.service';
   templateUrl: './forum.component.html',
   styleUrls: ['./forum.component.css']
 })
+
 export class ForumComponent implements OnInit {
 
   forumReplies: Reply[];
   forumPosts: Post[];
 
-  constructor(private forumServ: ForumserviceService) {
 
-    this.forumPosts = this.forumServ.getPost();
-    this.forumReplies = this.forumServ.getReply();
+  constructor(private forumServ: ForumserviceService, private route: ActivatedRoute) {
 
   }
 
   ngOnInit() {
+    this.getPost();
+    this.forumReplies = this.forumServ.getReply();
   }
 
- insertComment(comment: NgForm): void {
+
+  getPost() {
+    //this method should grab the support id to pass into the service
+    console.log(this.route.snapshot.paramMap.get('id'));
+    let id = this.route.snapshot.paramMap.get('id');
+    this.forumServ.getPost(id);
+  }
+
+
+  insertComment(comment: NgForm): void {
     console.log(comment.value);
     comment.reset();
 
- }
-
+  }
 
 }
-
 
 //USING MOCK DATA TO GET REPLIES AND POSTS
 
