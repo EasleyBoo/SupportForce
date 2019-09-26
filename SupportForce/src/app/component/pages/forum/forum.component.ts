@@ -1,10 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Post } from 'src/app/models/post';
 import { Reply } from 'src/app/models/reply';
+import { NgForm } from '@angular/forms';
 import { ForumserviceService } from 'src/app/services/forumservice.service';
-
-
-
 
 @Component({
   selector: 'app-forum',
@@ -13,15 +11,10 @@ import { ForumserviceService } from 'src/app/services/forumservice.service';
 })
 export class ForumComponent implements OnInit {
 
-
-
-
   forumReplies: Reply[];
   forumPosts: Post[];
 
-
   constructor(private forumServ: ForumserviceService) {
-
 
     this.forumPosts = this.forumServ.getPost();
     this.forumReplies = this.forumServ.getReply();
@@ -31,7 +24,11 @@ export class ForumComponent implements OnInit {
   ngOnInit() {
   }
 
+ insertComment(comment: NgForm): void {
+    console.log(comment.value);
+    comment.reset();
 
+ }
 
 
 }

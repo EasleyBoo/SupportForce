@@ -18,7 +18,6 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
   }
-
  
 
 // onCloseModal(event: any) {
@@ -54,9 +53,9 @@ export class RegisterComponent implements OnInit {
     /* this.closeModal(); */
   }
 
-  closeModal(): void {
+ /*  closeModal(): void {
     this.closeBtn.nativeElement.click();
-  }
+  } */
 
 
 }
