@@ -6,6 +6,8 @@ import { SupportGroup } from '../../../models/supportgroup';
 
 // import { SgserviceService } from 'src/app/services/sgservice.service';
 import { UserserviceService } from 'src/app/services/userservice.service';
+import { ForumserviceService } from 'src/app/services/forumservice.service';
+import { GroupserviceService } from 'src/app/services/groupservice.service';
 
 
 
@@ -28,14 +30,14 @@ export class UserHomeComponent implements OnInit {
 
   fileredInput = '';
 
-  constructor(private userserv: UserserviceService) {
+  constructor(private userserv: UserserviceService, private groupServ: GroupserviceService) {
 
   }
 
   ngOnInit() {
     console.log('Im in init');
-    this.allSupportGroups = this.userserv.getAllGroups();
-    this.mySupportGroup = this.userserv.getMyGroups();
+    this.allSupportGroups = this.groupServ.getAllGroups();
+    this.mySupportGroup = this.groupServ.getMyGroups();
     this.filteredSupportGroups = this.allSupportGroups;
   }
 
