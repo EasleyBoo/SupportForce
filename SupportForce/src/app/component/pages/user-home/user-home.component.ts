@@ -57,5 +57,11 @@ export class UserHomeComponent implements OnInit {
     return this.allSupportGroups.filter((groups: SupportGroup) =>
       groups.addiction.toLocaleLowerCase().indexOf(query) !== -1);
   }
+/* s */
+
+joinGroup(allgroups) {
+  this.groupServ.updateMyGroup(allgroups);
+  console.log(allgroups);
+}
 
 }
