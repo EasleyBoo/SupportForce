@@ -64,7 +64,4 @@ joinGroup(allgroups) {
   console.log(allgroups);
 }
 
-
-
-
 }
