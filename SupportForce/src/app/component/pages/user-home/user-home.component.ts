@@ -58,4 +58,13 @@ export class UserHomeComponent implements OnInit {
       groups.addiction.toLocaleLowerCase().indexOf(query) !== -1);
   }
 /* s */
+
+joinGroup(allgroups) {
+  this.groupServ.updateMyGroup(allgroups);
+  console.log(allgroups);
+}
+
+
+
+
 }

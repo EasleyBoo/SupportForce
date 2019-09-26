@@ -455,15 +455,15 @@ export class GroupserviceService {
     this.mySupportGroup.push(newGroup);
     console.log('This is my new Support Group' + this.mySupportGroup);
 
-    this.myarr.push(newGroup.supportName, newGroup.addiction);
-    console.log(this.myarr);
-
     this.tempGroup = newGroup;
 
     console.log('This is my tempGroup');
     console.log(this.tempGroup);
     return this.tempGroup;
+  }
 
+  updateMyGroup(joinGroup): void {
+    this.mySupportGroup.push(joinGroup);
 
   }
 
