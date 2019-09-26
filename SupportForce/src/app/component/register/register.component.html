@@ -1,8 +1,23 @@
 <!-- (ngSubmit)="registerUser(newUser)" -->
 <form #newUser="ngForm" class="register">
   <div class="form-group">
-    <label for="registerEmail">Email</label> <input [(ngModel)]="registerEmail" name="email" type="email"
-      class="form-control" id="registerEmail" aria-describedby="UNHelp" placeholder="Enter email">
+    <label for="registerEmail">Email</label> 
+    <input [(ngModel)]="registerEmail" 
+        name="email"
+        type="email"
+        class="form-control"
+        id="registerEmail" 
+        aria-describedby="UNHelp" 
+        placeholder="Enter email"
+    >
+   <!-- 
+    test for additional form validation please ignore... 
+    #newEmail="ngModel"
+    required
+    pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"
+      <div class="invalid-feedback">
+        Email required
+      </div> -->
   </div>
   <div class="form-group">
     <label for="InputUserName">Username</label> <input [(ngModel)]="InputUserName" name="username" type="username"
