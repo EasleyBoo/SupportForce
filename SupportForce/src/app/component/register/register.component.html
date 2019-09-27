@@ -1,37 +1,28 @@
 <!-- (ngSubmit)="registerUser(newUser)" -->
-<form #newUser="ngForm" class="register">
+<!-- #newUser="ngForm" -->
+<form method="POST" class="register">
   <div class="form-group">
-    <label for="registerEmail">Email</label> 
-    <input [(ngModel)]="registerEmail" 
-        name="email"
-        type="email"
-        class="form-control"
-        id="registerEmail" 
-        aria-describedby="UNHelp" 
-        placeholder="Enter email"
-    >
-   <!-- 
-    test for additional form validation please ignore... 
-    #newEmail="ngModel"
-    required
-    pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"
-      <div class="invalid-feedback">
-        Email required
-      </div> -->
+    <label for="registerEmail">Email</label>
+    <input [(ngModel)]="registerEmail" name="email" #email type="email" class="form-control" id="registerEmail"
+      aria-describedby="UNHelp" placeholder="Enter email">
+
+  </div>
+
+  <div class="form-group">
+    <label for="InputUserName">Username</label>
+    <input [(ngModel)]="InputUserName" name="username" #username type="username" class="form-control" id="InputUserName"
+      aria-describedby="UNHelp" placeholder="Enter username">
   </div>
   <div class="form-group">
-    <label for="InputUserName">Username</label> 
-    <input [(ngModel)]="InputUserName" name="username" type="username"
-      class="form-control" id="InputUserName" aria-describedby="UNHelp" placeholder="Enter username">
-  </div>
-  <div class="form-group">
-    <label for="InputPassword">Password</label> <input [(ngModel)]="InputPassword" name="password" type="password"
+    <label for="InputPassword">Password</label> 
+    <input [(ngModel)]="InputPassword" name="password" #password type="password"
       class="form-control" id="InputPassword" placeholder="Password">
   </div>
-  <div class="alert alert-danger" role="alert">Please enter in a password with at least 8 characters long and with one
-    number</div>
+  
   <div class="modal-footer">
     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-    <button type="submit" class="btn btn-primary" (click) = "registerUser(newUser)" data-dismiss="modal" #closeBtn>Submit</button>
+    <button type="submit" class="btn btn-primary" (click)="registerUser(email.value, username.value, password.value)" data-dismiss="modal"
+      #closeBtn>Submit</button>
+      <!-- (click)="registerUser(newUser)" -->
   </div>
 </form>

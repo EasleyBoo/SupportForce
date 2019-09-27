@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UserserviceService } from 'src/app/services/userservice.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-main-home',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainHomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private userService: UserserviceService) { }
 
   ngOnInit() {
+  }
+
+  onSubmit(emails, usernames, passwords) {
+    console.log(emails, usernames, passwords);
+    this.userService.registerUser({
+      email: emails,
+      username: usernames,
+      password: passwords
+    }).subscribe(data => {
+      console.log(data);
+    });
   }
 
 }
