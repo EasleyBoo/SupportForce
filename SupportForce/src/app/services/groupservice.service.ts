@@ -39,7 +39,7 @@ export class GroupserviceService {
   mySupportGroup: SupportGroup[] = [
     {
       supportId: 1,
-      supportName: 'Alcohol for days',
+      supportName: 'Sober for a week',
       userList: [
         {
           userId: 1,
@@ -70,7 +70,7 @@ export class GroupserviceService {
     },
     {
       supportId: 2,
-      supportName: 'Cocaine for days',
+      supportName: 'Cocaine is not my master',
       userList: [
         {
           userId: 1,
@@ -101,7 +101,7 @@ export class GroupserviceService {
     },
     {
       supportId: 3,
-      supportName: 'Gambling for days',
+      supportName: 'Life is not worth gambling away',
       userList: [
         {
           userId: 1,
@@ -155,7 +155,7 @@ export class GroupserviceService {
     },
     {
       supportId: 10,
-      supportName: 'SPY 0 days recovery post',
+      supportName: 'No more casinos for me',
       userList: [
         {
           userId: 1,
@@ -187,7 +187,7 @@ export class GroupserviceService {
   allGroups: SupportGroup[] = [
     {
       supportId: 1,
-      supportName: 'Alcohol for days',
+      supportName: 'Sober for a week',
       userList: [
         {
           userId: 1,
@@ -212,7 +212,7 @@ export class GroupserviceService {
     },
     {
       supportId: 2,
-      supportName: 'Cocaine for days',
+      supportName: 'Cocaine is not my master',
       userList: [
         {
           userId: 1,
@@ -237,7 +237,7 @@ export class GroupserviceService {
     },
     {
       supportId: 3,
-      supportName: 'Gambling for days',
+      supportName: 'Life is not worth gambling away',
       userList: [
         {
           userId: 1,
@@ -262,7 +262,7 @@ export class GroupserviceService {
     },
     {
       supportId: 4,
-      supportName: 'Meth for days',
+      supportName: 'meth: never again',
       userList: [
         {
           userId: 1,
@@ -287,7 +287,7 @@ export class GroupserviceService {
     },
     {
       supportId: 5,
-      supportName: 'Pain Killers for days',
+      supportName: 'I will never go back to oxy',
       userList: [
         {
           userId: 1,
@@ -312,7 +312,7 @@ export class GroupserviceService {
     },
     {
       supportId: 6,
-      supportName: 'Nicotine for days',
+      supportName: 'life is better without cigarettes',
       userList: [
         {
           userId: 1,
@@ -337,7 +337,7 @@ export class GroupserviceService {
     },
     {
       supportId: 7,
-      supportName: 'Heroine for days',
+      supportName: 'help me be free of heroin',
       userList: [
         {
           userId: 1,

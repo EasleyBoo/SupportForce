@@ -23,6 +23,4 @@ export class GroupcreationformComponent implements OnInit {
     console.log(this.groupServ.mySupportGroup);
   }
 
-  
-
 }

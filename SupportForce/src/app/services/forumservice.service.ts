@@ -57,15 +57,17 @@ replies: Reply[] = [
   }
 ];
 
-
 constructor() { }
 
-getPost(): Post[] {
+getPost(id): Post[] {
+  console.log('This is my support group id in my service ' + id);
   return this.posts;
+  // this will issue a http request by passing specific group id to get posts
 }
 
 getReply(): Reply[] {
   return this.replies;
+  // this will issue a http request by passing specific post if to get replies
 }
 
 }

@@ -1,11 +1,15 @@
 import { Injectable } from '@angular/core';
 import { User } from 'src/app/models/user';
+import { Observable, of } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { NewUser } from '../models/newUser';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserserviceService {
-  
+
+  postUrl = 'http://localhost:8080/SupportForceBE/supportforce/register';
 
   users: User[] = [
     {
@@ -28,15 +32,21 @@ export class UserserviceService {
     }
   ];
 
-  constructor() { }
+  constructor(private http: HttpClient) {
 
+   }
 
-  createNewUser(newUser: User) {
-    console.log('This is in service' + newUser);
-    this.users.push(newUser);
-    console.log(this.users);
+  /* this method works but is not being used. was a test with a separate register form.
+     actual code is in createNewUser and problem over registration came from spring side
+  */
+  registerUser(newUser: NewUser): Observable<NewUser> {
+    return this.http.post<NewUser>(this.postUrl, newUser);
+  }
 
-    // this is where the HTTP request will go after we import the HTTP into our service
+  createNewUser(user: User): Observable<User> {
+    console.log('this is my user object');
+    console.log(user);
+    return this.http.post<User>(this.postUrl, user);
   }
 
   myLogin(userLogin: User) {
@@ -51,8 +61,6 @@ export class UserserviceService {
     });
 
   }
-
-
 
 
 }
