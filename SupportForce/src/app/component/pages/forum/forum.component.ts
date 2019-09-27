@@ -2,16 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Post } from 'src/app/models/post';
 import { Reply } from 'src/app/models/reply';
+import { NgForm } from '@angular/forms';
 import { ForumserviceService } from 'src/app/services/forumservice.service';
-
-
-
 
 @Component({
   selector: 'app-forum',
   templateUrl: './forum.component.html',
   styleUrls: ['./forum.component.css']
 })
+
 export class ForumComponent implements OnInit {
 
   forumReplies: Reply[];
@@ -36,9 +35,13 @@ export class ForumComponent implements OnInit {
   }
 
 
+  insertComment(comment: NgForm): void {
+    console.log(comment.value);
+    comment.reset();
+
+  }
 
 }
-
 
 //USING MOCK DATA TO GET REPLIES AND POSTS
 
