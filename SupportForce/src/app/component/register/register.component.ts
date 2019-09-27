@@ -26,20 +26,6 @@ export class RegisterComponent implements OnInit {
     this.userserv.createNewUser(userForm.value).subscribe(data => {
       console.log(data);
     });
-  } 
-
-  // registerUser(email, username, password) {
-
-  //   console.log(email);
-  //   console.log(username);
-  //   console.log(password);
-  //   this.userserv.createNewUser({email, password, username} as User).subscribe(data => {
-  //     console.log(data);
-  //   });
-  // }
-
- 
-
-
+  }
 
 }

@@ -14,7 +14,10 @@ export class MainHomeComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmit(emails, usernames, passwords) {
+  // this was an experimental form to register. it works pretty well! and i used it with interface. turns out acutal
+  // issue was in the backend
+  
+ /*  onSubmit(emails, usernames, passwords) {
     console.log(emails, usernames, passwords);
     this.userService.registerUser({
       email: emails,
@@ -23,7 +26,6 @@ export class MainHomeComponent implements OnInit {
     }).subscribe(data => {
       console.log(data);
     });
-  }
+  } */
 
 }
-/* s */
