@@ -16,7 +16,7 @@ export class MainHomeComponent implements OnInit {
 
   // this was an experimental form to register. it works pretty well! and i used it with interface. turns out acutal
   // issue was in the backend
-  
+
  /*  onSubmit(emails, usernames, passwords) {
     console.log(emails, usernames, passwords);
     this.userService.registerUser({
