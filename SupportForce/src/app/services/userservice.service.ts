@@ -61,22 +61,31 @@ export class UserserviceService {
      }, httpPut);
   } */
 
-  createNewUser(user: User): Observable<User> {
-    /* const httpPut = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json'
-      })
-    }; */
-    return this.http.post<User>(this.postUrl, {
-      username: user.username,
-      password: user.password,
-      email: user.email
-    });
-  }
-
   registerUser(newUser: NewUser): Observable<NewUser> {
     return this.http.post<NewUser>(this.postUrl, newUser);
   }
+
+
+  // createNewUser(user: User): Observable<User> {
+  //   /* const httpPut = {
+  //     headers: new HttpHeaders({
+  //       'Content-Type': 'application/json'
+  //     })
+  //   }; */
+  //   return this.http.post<User>(this.postUrl, {
+  //     username: user.username,
+  //     password: user.password,
+  //     email: user.email
+  //   });
+  // }
+
+  createNewUser(user: User): Observable<User> {
+    console.log('this is my user object');
+    console.log(user);
+    return this.http.post<User>(this.postUrl, user);
+  }
+
+
 
   myLogin(userLogin: User) {
     this.users.forEach(user => {

@@ -12,6 +12,7 @@ import { NgForm } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
+currentUser: User[];
 
   constructor(private userserv: UserserviceService) {
 
@@ -23,6 +24,7 @@ export class LoginComponent implements OnInit {
 
   loginUser(userLogin: NgForm) {
     this.userserv.myLogin(userLogin.value);
+    // this should call the method within service to send th request
     }
 
 

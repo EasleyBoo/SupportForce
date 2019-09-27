@@ -1,6 +1,7 @@
 <!-- (ngSubmit)="registerUser(newUser)" -->
 <!-- #newUser="ngForm" -->
-<form method="POST" class="register">
+<!-- <form method="POST" class="register"> -->
+<form #newUser="ngForm" class="register" (ngSubmit)="registerUser(newUser)">
   <div class="form-group">
     <label for="registerEmail">Email</label>
     <input [(ngModel)]="registerEmail" name="email" #email type="email" class="form-control" id="registerEmail"
@@ -21,8 +22,9 @@
   
   <div class="modal-footer">
     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-    <button type="submit" class="btn btn-primary" (click)="registerUser(email.value, username.value, password.value)" data-dismiss="modal"
+    <button type="submit" class="btn btn-primary" (click)="registerUser(newUser)"data-dismiss="modal"
       #closeBtn>Submit</button>
-      <!-- (click)="registerUser(newUser)" -->
+      <!-- "(click)=registerUser(email.value, username.value, password.value)" -->
+      <!--  -->
   </div>
 </form>

@@ -20,25 +20,26 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
 
-  /* registerUser(userForm: NgForm): void {
-    // this.userserv.createNewUser(userForm.value);
+   registerUser(userForm: NgForm): void {
+    this.userserv.createNewUser(userForm.value);
     console.log(userForm.value);
     this.userserv.createNewUser(userForm.value).subscribe(data => {
       console.log(data);
     });
-  } */
+  } 
 
-  registerUser(email, username, password) {
+  // registerUser(email, username, password) {
 
-    console.log(email);
-    console.log(username);
-    console.log(password);
-    this.userserv.createNewUser({email, password, username} as User).subscribe(data => {
-      console.log(data);
-    });
-  }
+  //   console.log(email);
+  //   console.log(username);
+  //   console.log(password);
+  //   this.userserv.createNewUser({email, password, username} as User).subscribe(data => {
+  //     console.log(data);
+  //   });
+  // }
 
-  
+ 
+
 
 
 }
