@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule} from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +21,9 @@ import { InMemoryDataService } from './in-memory-data.service';
 import { HttpClientModule } from '@angular/common/http';
 import { UserModalComponent } from './component/user-modal/user-modal.component';
 import { GroupcreationformComponent } from './component/groupcreationform/groupcreationform.component';
+import { LoginComponent } from './component/login/login.component';
+import { RegisterComponent } from './component/register/register.component';
+import { UserserviceService } from './services/userservice.service';
 
 @NgModule({
   declarations: [
@@ -36,18 +40,21 @@ import { GroupcreationformComponent } from './component/groupcreationform/groupc
     CardComponent,
     UserHomeComponent,
     UserModalComponent,
-    GroupcreationformComponent
+    GroupcreationformComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
 
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, {dataEncapsulation: false}
     )
   ],
-  providers: [],
+  providers: [UserserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

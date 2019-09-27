@@ -1,1 +1,35 @@
-<h2>YOUR IN FORUM!</h2>
+<!-- <div class=forum>
+    <div *ngFor="let post of posts">
+        <h2>{{post.postId}}</h2>
+        <h3>{{post.postBody}}</h3>
+    </div>
+</div> -->
+
+<!-- <div>
+    <div *ngFor="let reply of replies">
+        <h2>{{reply.replyId}}: {{reply.replyBody}}</h2>
+        <h3></h3>
+    </div>
+</div> -->
+
+<!-- <div *ngFor="let post of posts" class="card w-50">
+    <div class="card-body">
+        <h5>{{post.postId}}: {{post.postBody}}</h5>
+    </div>
+</div> -->
+
+<!-- <div>
+    <h2>{{forumReplies}}</h2>
+</div> -->
+
+<div *ngFor="let reply of forumReplies" class="card w-50">
+    <div class="card-body">
+        <h5>{{reply.replyBody}}</h5>
+    </div>
+</div>
+
+<div *ngFor="let post of forumPosts" class="card w-50">
+    <div class="card-body">
+        <h5>{{post.postBody}}</h5>
+    </div>
+</div>
