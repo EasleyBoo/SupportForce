@@ -29,12 +29,9 @@ currentUser: User[];
   loginUser(userLogin: NgForm) {
     console.log(userLogin.value);
     this.userserv.myLogin(userLogin.value).subscribe(data => {
-      localStorage.setItem('user', JSON.stringify(data));
-      console.log('in my login component');
-      // console.log(localStorage.getItem('user'));
+      console.log('This is the userId after logging in' + data.userId);
+      localStorage.setItem('userId', JSON.stringify(data.userId));
       this.router.navigateByUrl('/home');
-      console.log('this is the data within loginUser');
-      console.log(data);
     });
 
     }

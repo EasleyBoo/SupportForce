@@ -32,6 +32,7 @@ export class RegisterComponent implements OnInit {
       this.userserv.createNewUser(userForm.value).subscribe(data => {
         console.log(data);
       });
+      userForm.reset();
       return true;
     }
 

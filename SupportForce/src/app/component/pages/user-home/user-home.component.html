@@ -44,36 +44,14 @@
     <div class="allofmygroups card-body">
       
       <div class="row">
-        <div class="col-2">Search Available Groups:</div>
+        <div class="col-2">Filter groups by addiction:</div>
         <div class="col-10">
           
           <input type="text" class="form-control w-50" [(ngModel)]="filterGroups">
 
         </div>
       </div>
-      <!-- test filter -->
-<!--       <div>
-
-        <div class="form-group">
-          <label for="filterGroupSection">Find By:</label>
-          <form class="">
-            
-            <select name="addictionType" class="form-control" id="filterGroupSection">
-              <option selected>Select</option>  
-              <option value="Alcohol">Alcohol</option>
-              <option value="Heroin">Heroin</option>
-              <option value="PainKillers">PainKillers</option>
-              <option value="Meth">Meth</option>
-              <option value="Gambling">Gambling</option>
-              <option value="Nicotine">Nicotine</option>
-              <option value="Cocaine">Cocaine</option>
-            </select>
-
-          </form>
-        </div>
-
-      </div> -->
-
+    
       <table class="table table-hover" *ngIf="allSupportGroup && allSupportGroup.length">
         <thead>
           <tr>
@@ -84,17 +62,33 @@
             <th scope="col">actions</th>
           </tr>
         </thead>
-        <tbody>
-          <tr *ngFor="let allgroups of allSupportGroup">
-            <th scope="row" >{{allgroups.supportGroupId}} </th>
-            <td>{{allgroups.supportGroupName}}</td>
-            <td>{{allgroups.addict.addictionName}}</td>
-            <td>{{allgroups.supportGroupUsers.length}}</td>
-            <td >
-              <button  class="btn btn-sm btn-success mr-1" id="group{{allgroups.supportId}}">Join</button>
-            </td>
-          </tr>
+        <tbody *ngIf= "fileredInput === ''; else filteredTable">
+            <tr  *ngFor="let allgroups of allSupportGroup">
+              <th scope="row" >{{allgroups.supportGroupId}} </th>
+              <td>{{allgroups.supportGroupName}}</td>
+              <td>{{allgroups.addict.addictionName}}</td>
+              <td>{{allgroups.supportGroupUsers.length}}</td>
+              <td >
+                <!-- <button *ngIf="showMyContainer" (click)="[joinGroup(allgroups),showMyContainer=!showMyContainer]" class="btn btn-sm btn-success mr-1" id="group{{allgroups.supportId}}">Join</button> -->
+                <button class="btn btn-sm btn-success mr-1" id="group{{allgroups.supportGroupId}}">Join</button>
+              </td>
+            </tr>
         </tbody>
+        <!-- the ng Else block for filtered table... -->
+        <ng-template #filteredTable>     
+          <tbody>
+            <tr  *ngFor="let allgroups of filteredSupportGroups">
+              <th scope="row" >{{allgroups.supportGroupId}} </th>
+              <td>{{allgroups.supportGroupName}}</td>
+              <td>{{allgroups.addict.addictionName}}</td>
+              <td>{{allgroups.supportGroupUsers.length}}</td>
+              <td >
+                <button class="btn btn-sm btn-success mr-1" id="group{{allgroups.supportGroupId}}">Join</button>
+              </td>
+            </tr>
+          </tbody>
+        </ng-template>
+        
       </table>
     </div>
 
