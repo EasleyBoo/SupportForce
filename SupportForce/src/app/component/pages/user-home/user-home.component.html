@@ -85,11 +85,11 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let allgroups of filteredSupportGroups">
+          <tr *ngFor="let allgroups of allSupportGroup">
             <th scope="row" >{{allgroups.supportId}} </th>
-            <td>{{allgroups.supportName}}</td>
+            <td>{{allgroups.supportGroupName}}</td>
             <td>{{allgroups.addiction}}</td>
-            <td>{{allgroups.userList.length}}</td>
+          <!--   <td>{{allgroups.userList.length}}</td> -->
             <td >
               <button *ngIf="showMyContainer" (click)="[joinGroup(allgroups),showMyContainer=!showMyContainer]" class="btn btn-sm btn-success mr-1" id="group{{allgroups.supportId}}">Join</button>
             </td>

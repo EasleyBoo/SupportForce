@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { SupportGroup } from '../../../models/supportgroup';
 // import { SUPPORTGROUPS } from 'src/app/models/mock-supportgroups';
 /* import { ALLSUPPORTGROUPS } from 'src/app/models/mock-allgroups'; */
@@ -20,13 +20,14 @@ import { GroupserviceService } from 'src/app/services/groupservice.service';
 
 export class UserHomeComponent implements OnInit {
 
+
   // This returns an array of my support groups from service
   // supportgroup = SUPPORTGROUPS;
   mySupportGroup: SupportGroup[];
 
   // This returns an array of all support groups from service
-  allSupportGroup: SupportGroup[];
-  
+  allSupportGroup: SupportGroup[] = [];
+
 
 
 
@@ -37,14 +38,14 @@ export class UserHomeComponent implements OnInit {
   fileredInput = '';
 
   constructor(private userserv: UserserviceService, private groupServ: GroupserviceService,
-    private forumServ: ForumserviceService) {
+              private forumServ: ForumserviceService) {
 
   }
 
   ngOnInit() {
     console.log('Im in init');
     this.allSupportGroup = this.userAllgroups();
-    //this.allSupportGroup = this.groupServ.getAllGroups();
+    // this.allSupportGroup = this.groupServ.getAllGroups();
     this.mySupportGroup = this.groupServ.getMyGroups();
     this.filteredSupportGroups = this.allSupportGroup;
   }
@@ -54,17 +55,18 @@ export class UserHomeComponent implements OnInit {
     return this.fileredInput;
   }
 
-  set filterGroups(input: string) {
+  /* set filterGroups(input: string) {
     this.fileredInput = input;
     console.log(this.fileredInput);
     this.filteredSupportGroups = this.fileredInput ? this.filterGroupsByAddiction(this.fileredInput) : this.allSupportGroup;
-  }
+  } */
 
-  filterGroupsByAddiction(query: string): SupportGroup[] {
+  /* filterGroupsByAddiction(query: string): SupportGroup[] {
     query = query.toLocaleLowerCase();
     return this.allSupportGroup.filter((groups: SupportGroup) =>
       groups.addiction.toLocaleLowerCase().indexOf(query) !== -1);
-  }
+  } */
+
   /* s */
 
   joinGroup(allgroups) {
@@ -72,16 +74,39 @@ export class UserHomeComponent implements OnInit {
     console.log(allgroups);
   }
 
-  userAllgroups(): SupportGroup[] {
+  /* userAllgroups(): SupportGroup[] {
     this.groupServ.getAllGroups().subscribe(data => {
       console.log(data);
-      
-      this.allSupportGroup.push(data);
-      this.allSupportGroup.push(data);
 
+      // this.allSupportGroup.push(data);
+      
+    });
+    return this.allSupportGroup;
+  } */
+
+
+  userAllgroups(): SupportGroup[] {
+    this.groupServ.getAllGroups().subscribe(data => {
+      console.log('data...');
+      console.log(data);
+     // let temp = [];
+    //  temp.push(data);
+      // console.log('temp...');
+      // console.log(temp);
+      /* this.allSupportGroup = temp; */
+      // temp.forEach(element => {
+      //   this.allSupportGroup.push(element);
+      // });
+      // this.allSupportGroup.push(data);
+      // this.allSupportGroup = temp.map(x => x);
+
+      console.log('before return');
+      console.log(this.allSupportGroup);
     });
     return this.allSupportGroup;
   }
+
+
 }
 
 
