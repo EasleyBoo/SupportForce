@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user';
 import { UserserviceService } from 'src/app/services/userservice.service';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 
 
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
 
 currentUser: User[];
 
-  constructor(private userserv: UserserviceService) {
+  constructor(private userserv: UserserviceService, private router: Router) {
 
   }
 
@@ -25,6 +26,7 @@ currentUser: User[];
   loginUser(userLogin: NgForm) {
     console.log(userLogin.value);
     this.userserv.myLogin(userLogin.value).subscribe(data => {
+      this.router.navigateByUrl('/home');
       console.log(data);
     });
 

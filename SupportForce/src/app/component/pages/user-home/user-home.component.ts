@@ -26,18 +26,25 @@ export class UserHomeComponent implements OnInit {
 
   // This returns an array of all support groups from service
   allSupportGroup: SupportGroup[];
+  
+
+
+
+
   filteredSupportGroups: SupportGroup[];
+
 
   fileredInput = '';
 
   constructor(private userserv: UserserviceService, private groupServ: GroupserviceService,
-              private forumServ: ForumserviceService) {
+    private forumServ: ForumserviceService) {
 
   }
 
   ngOnInit() {
     console.log('Im in init');
     this.allSupportGroup = this.userAllgroups();
+    //this.allSupportGroup = this.groupServ.getAllGroups();
     this.mySupportGroup = this.groupServ.getMyGroups();
     this.filteredSupportGroups = this.allSupportGroup;
   }
@@ -58,23 +65,27 @@ export class UserHomeComponent implements OnInit {
     return this.allSupportGroup.filter((groups: SupportGroup) =>
       groups.addiction.toLocaleLowerCase().indexOf(query) !== -1);
   }
-/* s */
+  /* s */
 
-joinGroup(allgroups) {
-  this.groupServ.updateMyGroup(allgroups);
-  console.log(allgroups);
+  joinGroup(allgroups) {
+    this.groupServ.updateMyGroup(allgroups);
+    console.log(allgroups);
+  }
+
+  userAllgroups(): SupportGroup[] {
+    this.groupServ.getAllGroups().subscribe(data => {
+      console.log(data);
+      
+      this.allSupportGroup.push(data);
+      this.allSupportGroup.push(data);
+
+    });
+    return this.allSupportGroup;
+  }
 }
 
-userAllgroups(): SupportGroup[] {
-  this.groupServ.getAllGroups().subscribe(data => {
-    console.log(data);
-    this.allSupportGroup.push(data);
-  });
-  return this.allSupportGroup;
-}
 
 
 
-}
 
 
