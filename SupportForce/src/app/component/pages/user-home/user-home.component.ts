@@ -25,7 +25,7 @@ export class UserHomeComponent implements OnInit {
   mySupportGroup: SupportGroup[];
 
   // This returns an array of all support groups from service
-  allSupportGroups: SupportGroup[];
+  allSupportGroup: SupportGroup[];
   filteredSupportGroups: SupportGroup[];
 
   fileredInput = '';
@@ -37,9 +37,9 @@ export class UserHomeComponent implements OnInit {
 
   ngOnInit() {
     console.log('Im in init');
-    this.allSupportGroups = this.groupServ.getAllGroups();
+    this.allSupportGroup = this.userAllgroups();
     this.mySupportGroup = this.groupServ.getMyGroups();
-    this.filteredSupportGroups = this.allSupportGroups;
+    this.filteredSupportGroups = this.allSupportGroup;
   }
 
   get filterGroups(): string {
@@ -50,12 +50,12 @@ export class UserHomeComponent implements OnInit {
   set filterGroups(input: string) {
     this.fileredInput = input;
     console.log(this.fileredInput);
-    this.filteredSupportGroups = this.fileredInput ? this.filterGroupsByAddiction(this.fileredInput) : this.allSupportGroups;
+    this.filteredSupportGroups = this.fileredInput ? this.filterGroupsByAddiction(this.fileredInput) : this.allSupportGroup;
   }
 
   filterGroupsByAddiction(query: string): SupportGroup[] {
     query = query.toLocaleLowerCase();
-    return this.allSupportGroups.filter((groups: SupportGroup) =>
+    return this.allSupportGroup.filter((groups: SupportGroup) =>
       groups.addiction.toLocaleLowerCase().indexOf(query) !== -1);
   }
 /* s */
@@ -63,6 +63,14 @@ export class UserHomeComponent implements OnInit {
 joinGroup(allgroups) {
   this.groupServ.updateMyGroup(allgroups);
   console.log(allgroups);
+}
+
+userAllgroups(): SupportGroup[] {
+  this.groupServ.getAllGroups().subscribe(data => {
+    console.log(data);
+    this.allSupportGroup.push(data);
+  });
+  return this.allSupportGroup;
 }
 
 

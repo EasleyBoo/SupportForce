@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { SupportGroup } from 'src/app/models/supportgroup';
 import { User } from 'src/app/models/user';
+import { Observable, of } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GroupserviceService {
-  
+  AllGroupUrl = 'http://localhost:8080/SupportForceBE/supportforce/getAllSupportGroups';
   users: User[] = [
     {
       userId: 1,
@@ -439,7 +441,7 @@ export class GroupserviceService {
   ];
 
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
 
 
@@ -447,9 +449,16 @@ export class GroupserviceService {
     return this.mySupportGroup;
   }
 
-  getAllGroups(): SupportGroup[] {
-    return this.allGroups;
+  getAllGroups(): Observable<SupportGroup> {
+    return this.http.get<SupportGroup>(this.AllGroupUrl);
+
   }
+
+
+
+  // getAllGroups(): SupportGroup[] {
+  //   return this.allGroups;
+  // }
   myNewGroup(newGroup: SupportGroup): SupportGroup {
     console.log(this.users);
     this.mySupportGroup.push(newGroup);

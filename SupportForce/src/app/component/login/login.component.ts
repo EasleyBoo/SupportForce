@@ -23,8 +23,11 @@ currentUser: User[];
   }
 
   loginUser(userLogin: NgForm) {
-    this.userserv.myLogin(userLogin.value);
-    // this should call the method within service to send th request
+    console.log(userLogin.value);
+    this.userserv.myLogin(userLogin.value).subscribe(data => {
+      console.log(data);
+    });
+
     }
 
 
