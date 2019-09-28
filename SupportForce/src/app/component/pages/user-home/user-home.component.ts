@@ -8,6 +8,7 @@ import { SupportGroup } from '../../../models/supportgroup';
 import { UserserviceService } from 'src/app/services/userservice.service';
 import { ForumserviceService } from 'src/app/services/forumservice.service';
 import { GroupserviceService } from 'src/app/services/groupservice.service';
+import { LoginComponent } from '../../login/login.component';
 
 
 
@@ -22,31 +23,27 @@ export class UserHomeComponent implements OnInit {
 
   // This returns an array of my support groups from service
   // supportgroup = SUPPORTGROUPS;
-  mySupportGroup: SupportGroup[] = [];
+  mySupportGroup: SupportGroup[];
 
   // This returns an array of all support groups from service
-  allSupportGroup: SupportGroup[];
-
-
-
-
+  allSupportGroup: SupportGroup[] = [];
 
   filteredSupportGroups: SupportGroup[] = [];
-
 
   fileredInput = '';
 
   constructor(private userserv: UserserviceService, private groupServ: GroupserviceService,
     private forumServ: ForumserviceService) {
 
-  }
+    }
 
-  ngOnInit() {
-    console.log('Im in init');
-    this.allSupportGroup = this.userAllgroups();
-    //this.allSupportGroup = this.groupServ.getAllGroups();
-    // this.mySupportGroup = this.groupServ.getMyGroups();
-    this.filteredSupportGroups = this.allSupportGroup;
+    ngOnInit() {
+      console.log('Im in init');
+      this.allSupportGroup = this.userAllgroups();
+      console.log('this is user groups');
+      this.mySupportGroup = this.myGroups();
+      this.filteredSupportGroups = this.allSupportGroup;
+
   }
 
   get filterGroups(): string {
@@ -63,7 +60,7 @@ export class UserHomeComponent implements OnInit {
   // filterGroupsByAddiction(query: string): SupportGroup[] {
   //   query = query.toLocaleLowerCase();
   //   return this.allSupportGroup.filter((groups: SupportGroup) =>
-  //     groups.addiction.toLocaleLowerCase().indexOf(query) !== -1);
+  //     groups.addict.addictionName.toLocaleLowerCase().indexOf(query) !== -1);
   // }
   /* s */
 
@@ -73,30 +70,26 @@ export class UserHomeComponent implements OnInit {
   // }
 
   userAllgroups(): SupportGroup[] {
-    // let temp = [];
     this.groupServ.getAllGroups().subscribe(data => {
-      console.log('this is my data');
-      console.log(data);
-      // temp.push(data);
-      // console.log(temp);
       this.allSupportGroup = data;
 
-      // temp.forEach(element => {
-      //   this.allSupportGroup.push(element);
-      //  console.log(element);
-      // });
-      // temp.forEach(element => {
-      //   this.allSupportGroup.push(element);
-      // });
-      // this.allSupportGroup.push(data);;
-      // this.allSupportGroup.push(data);
-      // console.log('before return');
-      // console.log(this.allSupportGroup);
-      // console.log('this is temp' + temp);
       console.log('this is my support group');
       console.log(this.allSupportGroup);
     });
     return this.allSupportGroup;
+  }
+
+  myGroups(): SupportGroup[] {
+    let temp = 1;
+    console.log('in my groups');
+    console.log(JSON.parse(localStorage.getItem('user')));
+    // temp = localStorage.getItem('user');
+    this.groupServ.getMyGroups(temp).subscribe(data => {
+      console.log('this is all my groups');
+      console.log(data);
+      this.mySupportGroup = data;
+    });
+    return this.mySupportGroup;
   }
 
 }

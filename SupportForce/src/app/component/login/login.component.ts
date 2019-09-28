@@ -3,6 +3,8 @@ import { User } from 'src/app/models/user';
 import { UserserviceService } from 'src/app/services/userservice.service';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { SupportGroup } from 'src/app/models/supportgroup';
+import { GroupserviceService } from 'src/app/services/groupservice.service';
 
 
 
@@ -15,7 +17,8 @@ export class LoginComponent implements OnInit {
 
 currentUser: User[];
 
-  constructor(private userserv: UserserviceService, private router: Router) {
+
+  constructor(private userserv: UserserviceService, private router: Router, private groupserv: GroupserviceService) {
 
   }
 
@@ -26,7 +29,11 @@ currentUser: User[];
   loginUser(userLogin: NgForm) {
     console.log(userLogin.value);
     this.userserv.myLogin(userLogin.value).subscribe(data => {
+      localStorage.setItem('user', JSON.stringify(data));
+      console.log('in my login component');
+      // console.log(localStorage.getItem('user'));
       this.router.navigateByUrl('/home');
+      console.log('this is the data within loginUser');
       console.log(data);
     });
 

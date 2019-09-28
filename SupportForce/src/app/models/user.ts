@@ -4,7 +4,7 @@ import { Reply } from './reply';
 import { Addiction } from './addiction';
 
 export class User {
-    userId?: number;
+    userId?: string;
     username: string;
     password: string;
     email: string;

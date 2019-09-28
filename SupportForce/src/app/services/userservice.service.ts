@@ -12,26 +12,26 @@ export class UserserviceService {
   registerUrl = 'http://localhost:8080/SupportForceBE/supportforce/register';
   loginUrl = 'http://localhost:8080/SupportForceBE/supportforce/login';
 
-  users: User[] = [
-    {
-      userId: 1,
-      username: 'jasonkim4201',
-      password: 'password123',
-      email: 'jasonkim4201@gmail.com'
-    },
-    {
-      userId: 2,
-      username: 'jyothit',
-      password: 'password1234',
-      email: 'jyothit@gmail.com'
-    },
-    {
-      userId: 3,
-      username: 'eboo1234',
-      password: 'password12345',
-      email: 'eboo@gmail.com'
-    }
-  ];
+  // users: User[] = [
+  //   {
+  //     userId: 1,
+  //     username: 'jasonkim4201',
+  //     password: 'password123',
+  //     email: 'jasonkim4201@gmail.com'
+  //   },
+  //   {
+  //     userId: 2,
+  //     username: 'jyothit',
+  //     password: 'password1234',
+  //     email: 'jyothit@gmail.com'
+  //   },
+  //   {
+  //     userId: 3,
+  //     username: 'eboo1234',
+  //     password: 'password12345',
+  //     email: 'eboo@gmail.com'
+  //   }
+  // ];
 
   constructor(private http: HttpClient) {
 
@@ -49,11 +49,11 @@ export class UserserviceService {
     console.log(user);
     return this.http.post<User>(this.registerUrl, user);
   }
-
-  myLogin(userLogin: User): Observable<User>  {
+// get user by username
+  myLogin(userLogin: User): Observable<User[]>  {
     console.log('this is my login user');
     console.log(userLogin);
-    return this.http.post<User>(this.loginUrl, userLogin, {withCredentials: true});
+    return this.http.post<User[]>(this.loginUrl, userLogin, {withCredentials: true});
   }
 
 
