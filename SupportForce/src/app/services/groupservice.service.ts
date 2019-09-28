@@ -59,22 +59,22 @@ export class GroupserviceService {
   // getAllGroups(): SupportGroup[] {
   //   return this.allGroups;
   // }
-  myNewGroup(newGroup: SupportGroup): SupportGroup {
-    console.log(this.users);
-    this.mySupportGroup.push(newGroup);
-    console.log('This is my new Support Group' + this.mySupportGroup);
+  // myNewGroup(newGroup: SupportGroup): SupportGroup {
+  //   console.log(this.users);
+  //   this.mySupportGroup.push(newGroup);
+  //   console.log('This is my new Support Group' + this.mySupportGroup);
 
-    this.tempGroup = newGroup;
+  //   this.tempGroup = newGroup;
 
-    console.log('This is my tempGroup');
-    console.log(this.tempGroup);
-    return this.tempGroup;
-  }
+  //   console.log('This is my tempGroup');
+  //   console.log(this.tempGroup);
+  //   return this.tempGroup;
+  // }
 
-  updateMyGroup(joinGroup): void {
-    this.mySupportGroup.push(joinGroup);
+  // updateMyGroup(joinGroup): void {
+  //   this.mySupportGroup.push(joinGroup);
 
-  }
+  // }
 
 
 

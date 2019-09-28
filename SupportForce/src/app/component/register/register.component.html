@@ -31,12 +31,14 @@
     <input [(ngModel)]="InputPassword" name="password" #password="ngModel" type="password"
       class="form-control" id="InputPassword" placeholder="Password" required pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
       [ngClass]="{'is-invalid': password.errors && password.touched}">
+
     <div [hidden]="!password.errors?.required" class="invalid-feedback">
       Password is required
     </div> 
     <div [hidden]="!password.errors?.pattern" class="invalid-feedback">
       Password must be a minimum of eight characters with at least one letter and one number.
     </div>
+    
   </div>
   
   <div class="modal-footer">
