@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, DoCheck } from '@angular/core';
 import { SupportGroup } from '../../../models/supportgroup';
 
 // import { SgserviceService } from 'src/app/services/sgservice.service';
@@ -13,8 +13,9 @@ import { LoginComponent } from '../../login/login.component';
   styleUrls: ['./user-home.component.css']
 })
 
-export class UserHomeComponent implements OnInit {
+export class UserHomeComponent implements OnInit, DoCheck {
 
+  loading: boolean;
 
   // This returns an array of my support groups from service
   // supportgroup = SUPPORTGROUPS;
@@ -32,10 +33,15 @@ export class UserHomeComponent implements OnInit {
 
   ngOnInit() {
     console.log('Im in init');
+    this.loading = true;
     this.allSupportGroup = this.userAllgroups();
     this.filteredSupportGroups = this.allSupportGroup;
     // this.allSupportGroup = this.groupServ.getAllGroups();
     this.mySupportGroup = this.myGroups();
+  }
+
+  ngDoCheck() {
+
   }
 
   get filterGroups(): string {
@@ -66,6 +72,7 @@ export class UserHomeComponent implements OnInit {
       this.allSupportGroup = data;
 
       console.log(this.allSupportGroup);
+      this.loading = false;
     });
     return this.allSupportGroup;
   }
