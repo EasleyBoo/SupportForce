@@ -24,6 +24,7 @@ import { RegisterComponent } from './component/register/register.component';
 import { UserserviceService } from './services/userservice.service';
 import { ForumserviceService } from './services/forumservice.service';
 import { GroupserviceService } from './services/groupservice.service';
+import { PostComponent } from './post/post.component';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { GroupserviceService } from './services/groupservice.service';
     UserModalComponent,
     GroupcreationformComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,

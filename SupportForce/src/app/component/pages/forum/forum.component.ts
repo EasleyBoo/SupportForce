@@ -22,26 +22,38 @@ export class ForumComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getPost();
-    this.forumReplies = this.forumServ.getReply();
+   // this.getPost();
+  // this.forumReplies = this.forumServ.getReply();
   }
 
 
-  getPost() {
-    //this method should grab the support id to pass into the service
-    console.log(this.route.snapshot.paramMap.get('id'));
-    let id = this.route.snapshot.paramMap.get('id');
-    this.forumServ.getPost(id);
-  }
+  // getPost() {
+  //   //this method should grab the support id to pass into the service
+  //   console.log(this.route.snapshot.paramMap.get('id'));
+  //   let id = this.route.snapshot.paramMap.get('id');
+  //   this.forumServ.getPost(id);
+  // }
 
 
   insertComment(comment: NgForm): void {
     console.log(comment.value);
+    let tempId;
+    tempId = localStorage.getItem('userId');
+
+    this.forumServ.newPost(comment.value, tempId).subscribe(data => {
+      console.log(data);
+    });
     comment.reset();
 
   }
 
-}
+
+  }
+
+
+
+
+
 
 //USING MOCK DATA TO GET REPLIES AND POSTS
 

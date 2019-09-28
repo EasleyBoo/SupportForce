@@ -4,14 +4,13 @@ import { User } from './user';
 import { Addiction } from './addiction';
 
 
+
 export class SupportGroup {
     supportGroupId?: number;
     supportGroupName: string;
+    supportGroupUsers?: User[];
     addict?: Addiction;
-    // supportGroupUsers?:
-    // userList?: User[];
-    // postList?: Post[];
-    // replyList?: Reply[];
-    // addiction: string;
+    postList?: Post[];
+    replyList?: Reply[];
 }
 
