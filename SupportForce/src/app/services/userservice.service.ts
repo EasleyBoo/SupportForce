@@ -40,16 +40,18 @@ export class UserserviceService {
   /* this method works but is not being used. was a test with a separate register form.
      actual code is in createNewUser and problem over registration came from spring side
   */
-  registerUser(newUser: NewUser): Observable<NewUser> {
+ /*  registerUser(newUser: NewUser): Observable<NewUser> {
     return this.http.post<NewUser>(this.registerUrl, newUser);
-  }
+  } */
 
+  /* insert new user */
   createNewUser(user: User): Observable<User> {
     console.log('this is my user object');
     console.log(user);
     return this.http.post<User>(this.registerUrl, user);
   }
 
+  /* get user by username */
   myLogin(userLogin: User): Observable<User>  {
     console.log('this is my login user');
     console.log(userLogin);
@@ -57,17 +59,6 @@ export class UserserviceService {
   }
 
 
-
-  // myLogin(userLogin: User) {
-  //   this.users.forEach(user => {
-  //     console.log(userLogin.password);
-  //     if (user.username === userLogin.username && user.password === userLogin.password) {
-  //       console.log(userLogin.password);
-  //       console.log('yay');
-  //     } else {
-  //       console.log('u failed');
-  //     }
-  //   });
 
   }
 
