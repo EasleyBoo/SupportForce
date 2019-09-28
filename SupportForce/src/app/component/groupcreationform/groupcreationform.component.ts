@@ -16,11 +16,11 @@ export class GroupcreationformComponent implements OnInit {
   ngOnInit() {
   }
 
-  createGroup(newGroup: NgForm) {
-    this.tempVar = this.groupServ.myNewGroup(newGroup.value);
-    console.log('hi jyothi this is jason');
-    console.log(this.tempVar);
-    console.log(this.groupServ.mySupportGroup);
-  }
+  // createGroup(newGroup: NgForm) {
+  //   this.tempVar = this.groupServ.myNewGroup(newGroup.value);
+  //   console.log('hi jyothi this is jason');
+  //   console.log(this.tempVar);
+  //   console.log(this.groupServ.mySupportGroup);
+  // }
 
 }

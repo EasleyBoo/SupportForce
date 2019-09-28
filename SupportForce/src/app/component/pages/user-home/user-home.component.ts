@@ -23,16 +23,16 @@ export class UserHomeComponent implements OnInit {
 
   // This returns an array of my support groups from service
   // supportgroup = SUPPORTGROUPS;
-  mySupportGroup: SupportGroup[];
+  mySupportGroup: SupportGroup[] = [];
 
   // This returns an array of all support groups from service
-  allSupportGroup: SupportGroup[] = [];
+  allSupportGroup: SupportGroup[];
 
 
 
 
 
-  filteredSupportGroups: SupportGroup[];
+  filteredSupportGroups: SupportGroup[] = [];
 
 
   fileredInput = '';
@@ -46,7 +46,7 @@ export class UserHomeComponent implements OnInit {
     console.log('Im in init');
     this.allSupportGroup = this.userAllgroups();
     // this.allSupportGroup = this.groupServ.getAllGroups();
-    this.mySupportGroup = this.groupServ.getMyGroups();
+    // this.mySupportGroup = this.groupServ.getMyGroups();
     this.filteredSupportGroups = this.allSupportGroup;
   }
 
@@ -55,57 +55,50 @@ export class UserHomeComponent implements OnInit {
     return this.fileredInput;
   }
 
-  /* set filterGroups(input: string) {
-    this.fileredInput = input;
-    console.log(this.fileredInput);
-    this.filteredSupportGroups = this.fileredInput ? this.filterGroupsByAddiction(this.fileredInput) : this.allSupportGroup;
-  } */
+  // set filterGroups(input: string) {
+  //   this.fileredInput = input;
+  //   console.log(this.fileredInput);
+  //   this.filteredSupportGroups = this.fileredInput ? this.filterGroupsByAddiction(this.fileredInput) : this.allSupportGroup;
+  // }
 
-  /* filterGroupsByAddiction(query: string): SupportGroup[] {
-    query = query.toLocaleLowerCase();
-    return this.allSupportGroup.filter((groups: SupportGroup) =>
-      groups.addiction.toLocaleLowerCase().indexOf(query) !== -1);
-  } */
-
+  // filterGroupsByAddiction(query: string): SupportGroup[] {
+  //   query = query.toLocaleLowerCase();
+  //   return this.allSupportGroup.filter((groups: SupportGroup) =>
+  //     groups.addiction.toLocaleLowerCase().indexOf(query) !== -1);
+  // }
   /* s */
 
-  joinGroup(allgroups) {
-    this.groupServ.updateMyGroup(allgroups);
-    console.log(allgroups);
-  }
-
-  /* userAllgroups(): SupportGroup[] {
-    this.groupServ.getAllGroups().subscribe(data => {
-      console.log(data);
-
-      // this.allSupportGroup.push(data);
-      
-    });
-    return this.allSupportGroup;
-  } */
-
+  // joinGroup(allgroups) {
+  //   this.groupServ.updateMyGroup(allgroups);
+  //   console.log(allgroups);
+  // }
 
   userAllgroups(): SupportGroup[] {
+    // let temp = [];
     this.groupServ.getAllGroups().subscribe(data => {
-      console.log('data...');
+      console.log('this is my data');
       console.log(data);
-     // let temp = [];
-    //  temp.push(data);
-      // console.log('temp...');
+      // temp.push(data);
       // console.log(temp);
-      /* this.allSupportGroup = temp; */
+      this.allSupportGroup = data;
+
+      // temp.forEach(element => {
+      //   this.allSupportGroup.push(element);
+      //  console.log(element);
+      // });
       // temp.forEach(element => {
       //   this.allSupportGroup.push(element);
       // });
+      // this.allSupportGroup.push(data);;
       // this.allSupportGroup.push(data);
-      // this.allSupportGroup = temp.map(x => x);
-
-      console.log('before return');
+      // console.log('before return');
+      // console.log(this.allSupportGroup);
+      // console.log('this is temp' + temp);
+      console.log('this is my support group');
       console.log(this.allSupportGroup);
     });
     return this.allSupportGroup;
   }
-
 
 }
 
