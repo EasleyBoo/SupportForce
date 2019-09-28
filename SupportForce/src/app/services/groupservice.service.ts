@@ -9,67 +9,44 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class GroupserviceService {
   AllGroupUrl = 'http://localhost:8080/SupportForceBE/supportforce/getAllSupportGroups';
-  users: User[] = [
-    {
-      userId: 1,
-      username: 'jasonkim4201',
-      password: 'password123',
-      email: 'jasonkim4201@gmail.com'
-    },
-    {
-      userId: 2,
-      username: 'jyothit',
-      password: 'password1234',
-      email: 'jyothit@gmail.com'
-    },
-    {
-      userId: 3,
-      username: 'eboo1234',
-      password: 'password12345',
-      email: 'eboo@gmail.com'
-    }
-  ];
 
+  myGroupUrl = 'http://localhost:8080/SupportForceBE/supportforce/getUserSupportGroups';
 
-  myarr = [];
-  // tempGroup: SupportGroup = {
-  //   supportName: '',
-  //   addiction: null,
-  //   userList: null
-  // };
-
-  
-
+  createGroupUrl = 'http://localhost:8080/SupportForceBE/supportforce/createSupportGroup';
 
   constructor(private http: HttpClient) { }
 
-
-
-  // getMyGroups(): SupportGroup[] {
-  //   return this.mySupportGroup;
-  // }
+  getMyGroups(temp): Observable<SupportGroup[]> {
+    console.log('in my get groups');
+    console.log(temp);
+    return this.http.get<SupportGroup[]>(this.myGroupUrl + temp);
+  }
 
   getAllGroups(): Observable<SupportGroup[]> {
     return this.http.get<SupportGroup[]>(this.AllGroupUrl);
 
   }
 
+  myNewGroup(newGroup: SupportGroup, tempId): Observable<SupportGroup[]> {
+    console.log('Your in the Newgroup within service layer' + tempId);
+    console.log('Your newGroup is ' + newGroup);
+    return this.http.post<SupportGroup[]>(this.createGroupUrl + tempId, {newGroup, tempId});
+  }
 
 
-  // getAllGroups(): SupportGroup[] {
-  //   return this.allGroups;
-  // }
-  // myNewGroup(newGroup: SupportGroup): SupportGroup {
-  //   console.log(this.users);
-  //   this.mySupportGroup.push(newGroup);
-  //   console.log('This is my new Support Group' + this.mySupportGroup);
+
+
+  //  myNewGroup(newGroup: SupportGroup): SupportGroup {
+  //    console.log(this.users);
+  //    this.mySupportGroup.push(newGroup);
+  //    console.log('This is my new Support Group' + this.mySupportGroup);
 
   //   this.tempGroup = newGroup;
 
   //   console.log('This is my tempGroup');
-  //   console.log(this.tempGroup);
-  //   return this.tempGroup;
-  // }
+  //    console.log(this.tempGroup);
+  //    return this.tempGroup;
+  //  }
 
   // updateMyGroup(joinGroup): void {
   //   this.mySupportGroup.push(joinGroup);

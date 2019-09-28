@@ -5,6 +5,7 @@ import { SupportGroup } from '../../../models/supportgroup';
 import { UserserviceService } from 'src/app/services/userservice.service';
 import { ForumserviceService } from 'src/app/services/forumservice.service';
 import { GroupserviceService } from 'src/app/services/groupservice.service';
+import { LoginComponent } from '../../login/login.component';
 
 @Component({
   selector: 'app-user-home',
@@ -32,10 +33,9 @@ export class UserHomeComponent implements OnInit {
   ngOnInit() {
     console.log('Im in init');
     this.allSupportGroup = this.userAllgroups();
-    console.log(this.allSupportGroup);
     this.filteredSupportGroups = this.allSupportGroup;
     // this.allSupportGroup = this.groupServ.getAllGroups();
-    // this.mySupportGroup = this.groupServ.getMyGroups();
+    this.mySupportGroup = this.myGroups();
   }
 
   get filterGroups(): string {
@@ -68,6 +68,17 @@ export class UserHomeComponent implements OnInit {
       console.log(this.allSupportGroup);
     });
     return this.allSupportGroup;
+  }
+
+  myGroups(): SupportGroup[] {
+    let temp;
+    // console.log(JSON.parse(localStorage.getItem('userId')));
+    temp = localStorage.getItem('userId');
+    console.log(temp);
+    this.groupServ.getMyGroups(temp).subscribe(data => {
+      this.mySupportGroup = data;
+    });
+    return this.mySupportGroup;
   }
 
 }
