@@ -16,14 +16,18 @@ import { MainHomeComponent } from './component/pages/main-home/main-home.compone
 import { AccordianComponent } from './component/accordian/accordian.component';
 import { CardComponent } from './component/card/card.component';
 import { UserHomeComponent } from './component/pages/user-home/user-home.component';
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './in-memory-data.service';
 import { HttpClientModule } from '@angular/common/http';
 import { UserModalComponent } from './component/user-modal/user-modal.component';
 import { GroupcreationformComponent } from './component/groupcreationform/groupcreationform.component';
 import { LoginComponent } from './component/login/login.component';
 import { RegisterComponent } from './component/register/register.component';
 import { UserserviceService } from './services/userservice.service';
+import { ForumserviceService } from './services/forumservice.service';
+import { GroupserviceService } from './services/groupservice.service';
+import { SessionService } from './services/session.service';
+import { AuthGuard } from './guards/auth.guard';
+import { SpinnerComponent } from './component/spinner/spinner.component';
+
 
 @NgModule({
   declarations: [
@@ -42,19 +46,16 @@ import { UserserviceService } from './services/userservice.service';
     UserModalComponent,
     GroupcreationformComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule,
-
-    HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, {dataEncapsulation: false}
-    )
+    FormsModule
   ],
-  providers: [UserserviceService],
+  providers: [UserserviceService, ForumserviceService, GroupserviceService, SessionService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
