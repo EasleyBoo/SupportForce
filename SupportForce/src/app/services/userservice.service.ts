@@ -9,7 +9,8 @@ import { NewUser } from '../models/newUser';
 })
 export class UserserviceService {
 
-  postUrl = 'http://localhost:8080/SupportForceBE/supportforce/register';
+  registerUrl = 'http://localhost:8080/SupportForceBE/supportforce/register';
+  loginUrl = 'http://localhost:8080/SupportForceBE/supportforce/login';
 
   users: User[] = [
     {
@@ -40,27 +41,35 @@ export class UserserviceService {
      actual code is in createNewUser and problem over registration came from spring side
   */
   registerUser(newUser: NewUser): Observable<NewUser> {
-    return this.http.post<NewUser>(this.postUrl, newUser);
+    return this.http.post<NewUser>(this.registerUrl, newUser);
   }
 
   createNewUser(user: User): Observable<User> {
     console.log('this is my user object');
     console.log(user);
-    return this.http.post<User>(this.postUrl, user);
+    return this.http.post<User>(this.registerUrl, user);
   }
 
-  myLogin(userLogin: User) {
-    this.users.forEach(user => {
-      console.log(userLogin.password);
-      if (user.username === userLogin.username && user.password === userLogin.password) {
-        console.log(userLogin.password);
-        console.log('yay');
-      } else {
-        console.log('u failed');
-      }
-    });
-
+  myLogin(userLogin: User): Observable<User>  {
+    console.log('this is my login user');
+    console.log(userLogin);
+    return this.http.post<User>(this.loginUrl, userLogin, {withCredentials: true});
   }
 
 
-}
+
+  // myLogin(userLogin: User) {
+  //   this.users.forEach(user => {
+  //     console.log(userLogin.password);
+  //     if (user.username === userLogin.username && user.password === userLogin.password) {
+  //       console.log(userLogin.password);
+  //       console.log('yay');
+  //     } else {
+  //       console.log('u failed');
+  //     }
+  //   });
+
+  }
+
+
+
