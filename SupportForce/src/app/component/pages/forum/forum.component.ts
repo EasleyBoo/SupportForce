@@ -35,17 +35,17 @@ export class ForumComponent implements OnInit {
   // }
 
 
-  insertComment(comment: NgForm): void {
-    console.log(comment.value);
-    let tempId;
-    tempId = localStorage.getItem('userId');
+  // insertComment(comment: NgForm): void {
+  //   console.log(comment.value);
+  //   let tempId;
+  //   tempId = localStorage.getItem('userId');
 
-    this.forumServ.newPost(comment.value, tempId).subscribe(data => {
-      console.log(data);
-    });
-    comment.reset();
+  //   this.forumServ.newPost(comment.value, tempId).subscribe(data => {
+  //     console.log(data);
+  //   });
+  //   comment.reset();
 
-  }
+  // }
 
 
   }

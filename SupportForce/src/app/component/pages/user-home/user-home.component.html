@@ -1,7 +1,10 @@
 
 <app-user-modal></app-user-modal>
 
-<div class="container-fluid d-flex justify-content-center">
+<app-spinner *ngIf="loading; else displayPage"></app-spinner>
+<ng-template #displayPage>
+
+<div  *ngIf="!loading" class="container-fluid d-flex justify-content-center">
 
   <div class="card w-100">
     <div class="card-header">
@@ -94,3 +97,5 @@
 
   </div>
 </div>
+
+</ng-template>
