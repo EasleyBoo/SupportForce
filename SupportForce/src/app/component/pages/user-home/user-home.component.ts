@@ -36,6 +36,12 @@ export class UserHomeComponent implements OnInit {
     this.filteredSupportGroups = this.allSupportGroup;
     // this.allSupportGroup = this.groupServ.getAllGroups();
     this.mySupportGroup = this.myGroups();
+    this.getLocalStorageId();
+  }
+
+  getLocalStorageId() {
+   const userId = localStorage.getItem('userId');
+   userId ? console.log(`current user id is ${userId}`) : console.log('no one in session');
   }
 
   get filterGroups(): string {
