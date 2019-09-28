@@ -26,6 +26,7 @@ import { ForumserviceService } from './services/forumservice.service';
 import { GroupserviceService } from './services/groupservice.service';
 import { SessionService } from './services/session.service';
 import { AuthGuard } from './guards/auth.guard';
+import { SpinnerComponent } from './component/spinner/spinner.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { AuthGuard } from './guards/auth.guard';
     UserModalComponent,
     GroupcreationformComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
