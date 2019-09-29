@@ -12,10 +12,7 @@ export class NavbarComponent implements OnInit, DoCheck {
   constructor(private sessionServ: SessionService) { }
 
   ngOnInit() {
-    console.log(this.isLoggedin);
     this.isLoggedin = this.sessionServ.isLoggedIn();
-    console.log(`logged in????`);
-    console.log(this.isLoggedin);
   }
 
   ngDoCheck() {
