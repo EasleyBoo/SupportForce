@@ -1,5 +1,5 @@
 
-<app-user-modal></app-user-modal>
+<app-user-modal (userCreatedGroup) = "displayAddedGroup($event)"></app-user-modal>
 
 <app-spinner *ngIf="loading; else displayPage"></app-spinner>
 <ng-template #displayPage>
