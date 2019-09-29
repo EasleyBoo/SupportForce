@@ -10,18 +10,15 @@ import { GroupserviceService } from 'src/app/services/groupservice.service';
   styleUrls: ['./groupcreationform.component.css']
 })
 export class GroupcreationformComponent implements OnInit {
+
   tempVar: SupportGroup;
+  usersGroup: SupportGroup;
+  @Output() createdGroup: EventEmitter<SupportGroup[]> = new EventEmitter();
+
   constructor(private forumServ: ForumserviceService, private groupServ: GroupserviceService) { }
 
   ngOnInit() {
   }
-
-  // createGroup(newGroup: NgForm) {
-  //   this.tempVar = this.groupServ.myNewGroup(newGroup.value);
-  //   console.log('hi jyothi this is jason');
-  //   console.log(this.tempVar);
-  //   console.log(this.groupServ.mySupportGroup);
-  // }
 
   createGroup(newGroup: NgForm) {
     let tempId;
@@ -31,6 +28,7 @@ export class GroupcreationformComponent implements OnInit {
 
     this.groupServ.myNewGroup(newGroup.value, tempId).subscribe(data => {
       console.log(data);
+      this.createdGroup.emit(data);
     });
   }
 
