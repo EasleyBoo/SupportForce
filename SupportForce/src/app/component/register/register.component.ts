@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { User } from 'src/app/models/user';
 import { NgForm } from '@angular/forms';
 import { UserserviceService } from 'src/app/services/userservice.service';
+import { NewUser } from 'src/app/models/newUser';
 
 
 @Component({
@@ -10,7 +11,7 @@ import { UserserviceService } from 'src/app/services/userservice.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  @ViewChild('closeBtn', {read: ElementRef, static: false}) closeBtn: ElementRef;
+  @ViewChild('closeBtn', { read: ElementRef, static: false }) closeBtn: ElementRef;
 
   user: User[];
 
@@ -19,44 +20,22 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
 
- 
+  registerUser(userForm: NgForm): boolean {
 
-// onCloseModal(event: any) {
-//   this.closeModalEvent.emit(false);
-// }
+    if (userForm.invalid) {
+      // literally do nothing. users should not even be getting here but added just in case.
+      return false;
+    } else {
 
-  // getRegisterInfo(event) {
-  //   event.preventDefault();
-  //   const target = event.target;
-  //   const email = target.querySelector('#registerEmail').value;
-  //   const username = target.querySelector('#InputUserName').value;
-  //   const password = target.querySelector('#InputPassword').value;
-  //   console.log(email);
-  //   console.log(username);
-  //   console.log(password);
-  //   const pwCheck = new RegExp('^(?=.*[a-z])(?=.*[0-9])(?=.{8,})');
-  //   if (pwCheck.test(password)) {
-  //     alert('u passed the check');
-  //     this.user.push(email, username, password);
-  //     console.log(this.user);
-  //   } else {
-  //     alert('make better pw....');
-  //     // failed basic requirements to fill out form so do nothing and maybe say you filled form wrong\
+      this.userserv.createNewUser(userForm.value);
+      console.log(userForm.value);
+      this.userserv.createNewUser(userForm.value).subscribe(data => {
+        console.log(data);
+      });
+      userForm.reset();
+      return true;
+    }
 
-  //     return false;
-  //   }
-  // }
-
-
-  registerUser(userForm: NgForm): void {
-    this.userserv.createNewUser(userForm.value);
-    console.log(userForm.value);
-    /* this.closeModal(); */
   }
-
-  closeModal(): void {
-    this.closeBtn.nativeElement.click();
-  }
-
 
 }
