@@ -30,8 +30,9 @@ export class GroupserviceService {
   myNewGroup(newGroup: SupportGroup, tempId): Observable<SupportGroup[]> {
     console.log('Your in the Newgroup within service layer' + tempId);
     console.log('Your newGroup is ' + newGroup);
-    return this.http.post<SupportGroup[]>(this.createGroupUrl + tempId, {newGroup, tempId});
+    return this.http.post<SupportGroup[]>(this.createGroupUrl + tempId, newGroup);
   }
+
 
 
 
