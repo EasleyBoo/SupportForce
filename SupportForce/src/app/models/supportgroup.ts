@@ -1,12 +1,16 @@
 import { Post } from './post';
 import { Reply } from './reply';
 import { User } from './user';
+import { Addiction } from './addiction';
+
+
 
 export class SupportGroup {
-    supportId?: number;
-    supportName: string;
-    userList?: User[];
+    supportGroupId?: number;
+    supportGroupName: string;
+    supportGroupUsers?: User[];
+    addict?: Addiction;
     postList?: Post[];
     replyList?: Reply[];
-    addiction: string;
 }
+

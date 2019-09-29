@@ -11,7 +11,7 @@ import { NewUser } from 'src/app/models/newUser';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  @ViewChild('closeBtn', {read: ElementRef, static: false}) closeBtn: ElementRef;
+  @ViewChild('closeBtn', { read: ElementRef, static: false }) closeBtn: ElementRef;
 
   user: User[];
 
@@ -20,12 +20,22 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
 
-   registerUser(userForm: NgForm): void {
-    this.userserv.createNewUser(userForm.value);
-    console.log(userForm.value);
-    this.userserv.createNewUser(userForm.value).subscribe(data => {
-      console.log(data);
-    });
+  registerUser(userForm: NgForm): boolean {
+
+    if (userForm.invalid) {
+      // literally do nothing. users should not even be getting here but added just in case.
+      return false;
+    } else {
+
+      this.userserv.createNewUser(userForm.value);
+      console.log(userForm.value);
+      this.userserv.createNewUser(userForm.value).subscribe(data => {
+        console.log(data);
+      });
+      userForm.reset();
+      return true;
+    }
+
   }
 
 }

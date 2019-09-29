@@ -24,6 +24,9 @@ import { RegisterComponent } from './component/register/register.component';
 import { UserserviceService } from './services/userservice.service';
 import { ForumserviceService } from './services/forumservice.service';
 import { GroupserviceService } from './services/groupservice.service';
+import { SessionService } from './services/session.service';
+import { AuthGuard } from './guards/auth.guard';
+import { SpinnerComponent } from './component/spinner/spinner.component';
 
 
 @NgModule({
@@ -43,7 +46,8 @@ import { GroupserviceService } from './services/groupservice.service';
     UserModalComponent,
     GroupcreationformComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +55,7 @@ import { GroupserviceService } from './services/groupservice.service';
     HttpClientModule,
     FormsModule
   ],
-  providers: [UserserviceService, ForumserviceService, GroupserviceService],
+  providers: [UserserviceService, ForumserviceService, GroupserviceService, SessionService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

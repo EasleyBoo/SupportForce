@@ -1,26 +1,3 @@
-<!-- <div class=forum>
-    <div *ngFor="let post of posts">
-        <h2>{{post.postId}}</h2>
-        <h3>{{post.postBody}}</h3>
-    </div>
-</div> -->
-
-<!-- <div>
-    <div *ngFor="let reply of replies">
-        <h2>{{reply.replyId}}: {{reply.replyBody}}</h2>
-        <h3></h3>
-    </div>
-</div> -->
-
-<!-- <div *ngFor="let post of posts" class="card w-50">
-    <div class="card-body">
-        <h5>{{post.postId}}: {{post.postBody}}</h5>
-    </div>
-</div> -->
-
-<!-- <div>
-    <h2>{{forumReplies}}</h2>
-</div> -->
 
 <!-- message box place here for testing... -->
 <div class="container mt-4 d-flex justify-content-center">
@@ -32,7 +9,7 @@
       <form #newComment="ngForm" (ngSubmit) = "insertComment(newComment)">
         <div class="form-group">
           <label for="postMessage">Post message...</label>
-          <textarea [(ngModel)]= "postComment" class="form-control" name="comment" id="postComment" cols="30" rows="5"></textarea>
+          <textarea [(ngModel)]= "postComment" class="form-control" name="postBody" id="postComment" cols="30" rows="5"></textarea>
         </div>
         <button type="submit" class="btn btn-primary">submit</button>
       </form>
@@ -58,3 +35,6 @@
     
 </div>
 
+
+
+  
