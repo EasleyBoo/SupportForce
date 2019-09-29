@@ -11,11 +11,10 @@ import { environment } from '../../environments/environment'
 export class GroupserviceService {
 
   BACKEND_URL = environment.BACKEND_URL;
-  AllGroupUrl = `${this.BACKEND_URL}/SupportForceBE/supportforce/getAllSupportGroups`;
-
-  myGroupUrl = `${this.BACKEND_URL}/SupportForceBE/supportforce/getUserSupportGroups`;
-
-  createGroupUrl = `${this.BACKEND_URL}/SupportForceBE/supportforce/createSupportGroup`;
+  AllGroupUrl = `http://${this.BACKEND_URL}/SupportForceBE/supportforce/getAllSupportGroups`;
+  myGroupUrl = `http://${this.BACKEND_URL}/SupportForceBE/supportforce/getUserSupportGroups`;
+  createGroupUrl = `http://${this.BACKEND_URL}/SupportForceBE/supportforce/createSupportGroup`;
+ 
 
   constructor(private http: HttpClient) { }
 

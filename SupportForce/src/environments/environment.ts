@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  BACKEND_URL: '35.221.50.112:80',
+  BACKEND_URL: 'localhost:8080',
 };
 
 /*

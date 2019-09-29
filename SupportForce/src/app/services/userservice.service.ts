@@ -10,8 +10,9 @@ import { environment } from '../../environments/environment';
 })
 export class UserserviceService {
   BACKEND_URL = environment.BACKEND_URL;
-  registerUrl = `${this.BACKEND_URL}/SupportForceBE/supportforce/register`;
-  loginUrl = `${this.BACKEND_URL}/SupportForceBE/supportforce/login`;
+  registerUrl = `http://${this.BACKEND_URL}/SupportForceBE/supportforce/register`;
+  loginUrl = `http://${this.BACKEND_URL}/SupportForceBE/supportforce/login`;
+
 
   constructor(private http: HttpClient) {
 

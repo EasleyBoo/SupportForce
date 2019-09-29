@@ -12,7 +12,7 @@
       <a class="nav-item nav-link" routerLink='/faq'>FAQ</a>
 
       <!-- logout button -->
-      <button *ngIf="isLoggedin; else logOutBtn" type="button" class="btn btn-warning" (click)="logOut()">LOGOUT</button>
+      <button *ngIf="isLoggedin; else logOutBtn" type="button" class="btn btn-primary" (click)="logOut()">LOGOUT</button>
       <!-- Button trigger modal -->
       <ng-template #logOutBtn>
 

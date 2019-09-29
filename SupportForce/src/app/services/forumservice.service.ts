@@ -13,7 +13,8 @@ import { environment } from '../../environments/environment';
 
 export class ForumserviceService {
   BACKEND_URL = environment.BACKEND_URL;
-  postUrl = `${this.BACKEND_URL}/SupportForceBE/supportforce/createPost`;
+  postUrl = `http://${this.BACKEND_URL}/SupportForceBE/supportforce/createPost`;
+
 
 constructor(private http: HttpClient) { }
 
@@ -34,5 +35,8 @@ newPost(newGroup, id, tempId): Observable<Post> {
 
 }
 
+/* getAllPostsByGroup(): Observable<Post[]> {
+  console.log(`getting all posts in the group`);
+} */
 
 }
