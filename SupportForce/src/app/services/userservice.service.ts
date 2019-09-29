@@ -13,9 +13,6 @@ export class UserserviceService {
   registerUrl = `${this.BACKEND_URL}/SupportForceBE/supportforce/register`;
   loginUrl = `${this.BACKEND_URL}/SupportForceBE/supportforce/login`;
 
-
- /*  registerUrl = `http://localhost:8080/SupportForceBE/supportforce/register`;
-  loginUrl = 'http://localhost:8080/SupportForceBE/supportforce/login'; */
   constructor(private http: HttpClient) {
 
    }
