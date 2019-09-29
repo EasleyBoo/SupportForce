@@ -1,37 +1,52 @@
 <!-- (ngSubmit)="registerUser(newUser)" -->
-<form #newUser="ngForm" class="register">
+<!-- #newUser="ngForm" -->
+<!-- <form method="POST" class="register"> -->
+<form #newUser="ngForm" class="register" (ngSubmit)="registerUser(newUser)">
   <div class="form-group">
-    <label for="registerEmail">Email</label> 
-    <input [(ngModel)]="registerEmail" 
-        name="email"
-        type="email"
-        class="form-control"
-        id="registerEmail" 
-        aria-describedby="UNHelp" 
-        placeholder="Enter email"
-    >
-   <!-- 
-    test for additional form validation please ignore... 
-    #newEmail="ngModel"
-    required
-    pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"
-      <div class="invalid-feedback">
-        Email required
-      </div> -->
+    <label for="registerEmail">Email</label>
+    <input [(ngModel)]="registerEmail" name="email" #email="ngModel" type="email" class="form-control" id="registerEmail"
+      aria-describedby="UNHelp" placeholder="Enter email" [ngClass] ="{'is-invalid': email.errors && email.touched}" required
+      pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?">
+
+      <div [hidden]="!email.errors?.required" class="invalid-feedback">
+        Email name required
+      </div>
+      <div [hidden]="!email.errors?.pattern" class="invalid-feedback">
+        Please provide a valid email
+      </div>
   </div>
+
   <div class="form-group">
-    <label for="InputUserName">Username</label> 
-    <input [(ngModel)]="InputUserName" name="username" type="username"
-      class="form-control" id="InputUserName" aria-describedby="UNHelp" placeholder="Enter username">
+    <label for="InputUserName">Username</label>
+    <input [(ngModel)]="InputUserName" name="username" #username="ngModel" type="username" class="form-control" id="InputUserName"
+      aria-describedby="UNHelp" placeholder="Enter username" required minlength="4" [ngClass]="{'is-invalid': username.errors && username.touched}">
+
+    <div [hidden]="!username.errors?.minlength" class="invalid-feedback">
+      Username must be a minimum length of 4 characters.
+    </div>
   </div>
+
   <div class="form-group">
-    <label for="InputPassword">Password</label> <input [(ngModel)]="InputPassword" name="password" type="password"
-      class="form-control" id="InputPassword" placeholder="Password">
+    <label for="InputPassword">Password</label> 
+    <input [(ngModel)]="InputPassword" name="password" #password="ngModel" type="password"
+      class="form-control" id="InputPassword" placeholder="Password" required pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
+      [ngClass]="{'is-invalid': password.errors && password.touched}">
+
+    <div [hidden]="!password.errors?.required" class="invalid-feedback">
+      Password is required
+    </div> 
+    <div [hidden]="!password.errors?.pattern" class="invalid-feedback">
+      Password must be a minimum of eight characters with at least one letter and one number.
+    </div>
+    
   </div>
-  <div class="alert alert-danger" role="alert">Please enter in a password with at least 8 characters long and with one
-    number</div>
+  
   <div class="modal-footer">
-    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-    <button type="submit" class="btn btn-primary" (click) = "registerUser(newUser)" data-dismiss="modal" #closeBtn>Submit</button>
+    <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+    <button [disabled]="!newUser.form.valid" type="submit" class="btn btn-primary btn-block" (click)="registerUser(newUser)" 
+      #closeBtn data-dismiss="modal">
+      Submit
+    </button>
+
   </div>
 </form>
