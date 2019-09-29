@@ -3,16 +3,19 @@ import { User } from 'src/app/models/user';
 import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { NewUser } from '../models/newUser';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserserviceService {
+  BACKEND_URL = environment.BACKEND_URL;
+  registerUrl = `${this.BACKEND_URL}/SupportForceBE/supportforce/register`;
+  loginUrl = `${this.BACKEND_URL}/SupportForceBE/supportforce/login`;
 
-  registerUrl = 'http://localhost:8080/SupportForceBE/supportforce/register';
-  loginUrl = 'http://localhost:8080/SupportForceBE/supportforce/login';
 
-
+ /*  registerUrl = `http://localhost:8080/SupportForceBE/supportforce/register`;
+  loginUrl = 'http://localhost:8080/SupportForceBE/supportforce/login'; */
   constructor(private http: HttpClient) {
 
    }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserserviceService } from 'src/app/services/userservice.service';
 import { NgForm } from '@angular/forms';
-
+import { environment } from '../../../../environments/environment'
 @Component({
   selector: 'app-main-home',
   templateUrl: './main-home.component.html',
@@ -12,6 +12,7 @@ export class MainHomeComponent implements OnInit {
   constructor(private userService: UserserviceService) { }
 
   ngOnInit() {
+    
   }
 
   // this was an experimental form to register. it works pretty well! and i used it with interface. turns out acutal

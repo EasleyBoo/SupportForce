@@ -4,7 +4,7 @@ import { Post } from 'src/app/models/post';
 import { Reply } from 'src/app/models/reply';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
+import { environment } from '../../environments/environment';
 
 
 @Injectable({
@@ -12,8 +12,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 
 export class ForumserviceService {
-
-  postUrl = 'http://localhost:8080/SupportForceBE/supportforce/createPost';
+  BACKEND_URL = environment.BACKEND_URL;
+  postUrl = `${this.BACKEND_URL}/SupportForceBE/supportforce/createPost`;
 
 constructor(private http: HttpClient) { }
 
