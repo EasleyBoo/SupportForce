@@ -35,5 +35,8 @@ newPost(newGroup, id, tempId): Observable<Post> {
 
 }
 
+/* getAllPostsByGroup(): Observable<Post[]> {
+  console.log(`getting all posts in the group`);
+} */
 
 }
