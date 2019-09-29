@@ -1,0 +1,23 @@
+steps:
+# Build front-end
+- name: 'gcr.io/cloud-builders/docker'
+  args:
+  - 'build' 
+  - '-f'
+  - 'SupportForce/Dockerfile.dockerfile' 
+  - '-t'
+  - 'gcr.io/support-force/supportforce:angular-app'
+  - '.'
+# Upload to Bucket
+- name: 'gcr.io/cloud-builders/docker'
+  args:
+    - 'push'
+    - 'gcr.io/support-force/supportforce:angular-app'
+# Deliver app
+- name: 'gcr.io/cloud-builders/docker'
+  args:
+  - 'run'
+  - 'gcr.io/support-force/supportforce:angular-app'
+images:
+  - 'gcr.io/support-force/supportforce:angular-app'
+timeout: 12000s
