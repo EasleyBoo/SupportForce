@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { SupportGroup } from 'src/app/models/supportgroup';
 
 @Component({
   selector: 'app-user-modal',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserModalComponent implements OnInit {
 
+  addedUserGroup: SupportGroup[];
+  @Output() userCreatedGroup: EventEmitter<SupportGroup[]> = new EventEmitter();
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  newUsersGroup(myUserGroup: SupportGroup[]) {
+    this.userCreatedGroup.emit(myUserGroup);
+  }
 }

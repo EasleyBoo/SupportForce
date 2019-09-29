@@ -3,16 +3,19 @@ import { SupportGroup } from 'src/app/models/supportgroup';
 import { User } from 'src/app/models/user';
 import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from '../../environments/environment'
 
 @Injectable({
   providedIn: 'root'
 })
 export class GroupserviceService {
-  AllGroupUrl = 'http://localhost:8080/SupportForceBE/supportforce/getAllSupportGroups';
 
-  myGroupUrl = 'http://localhost:8080/SupportForceBE/supportforce/getUserSupportGroups';
+  BACKEND_URL = environment.BACKEND_URL;
+  AllGroupUrl = `${this.BACKEND_URL}/SupportForceBE/supportforce/getAllSupportGroups`;
 
-  createGroupUrl = 'http://localhost:8080/SupportForceBE/supportforce/createSupportGroup';
+  myGroupUrl = `${this.BACKEND_URL}/SupportForceBE/supportforce/getUserSupportGroups`;
+
+  createGroupUrl = `${this.BACKEND_URL}/SupportForceBE/supportforce/createSupportGroup`;
 
   constructor(private http: HttpClient) { }
 

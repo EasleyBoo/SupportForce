@@ -88,6 +88,13 @@ export class UserHomeComponent implements OnInit, DoCheck {
     return this.mySupportGroup;
   }
 
+  displayAddedGroup(addedGroup: SupportGroup) {
+    console.log('emitted event!');
+    console.log(addedGroup);
+    this.mySupportGroup.push(addedGroup);
+
+  }
+
 }
 
 
