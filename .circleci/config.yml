@@ -7,6 +7,9 @@ jobs:
     machine: true
     steps:
       - checkout
+      ## replace build environment vars file
+      - run: cp .circleci/staging.environment.ts SupportForce/src/environments/environment.ts
+      - run: cp .circleci/staging.environment.prod.ts SupportForce/src/environments/environment.prod.ts
       ## authorize with gcp service account key
       - run: cat .circleci/support-force-circleci.json | docker login -u _json_key --password-stdin https://gcr.io
       ## build the application image

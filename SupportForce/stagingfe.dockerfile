@@ -17,7 +17,7 @@ WORKDIR /app/SupportForce
 # RUN echo ${PATH}
 # RUN npm install -g @angular/cli
 RUN yes | npm install
-RUN ng build --environment=dev
+RUN ng build
 
 ## save build artifacts to storage bucket
 CMD gsutil -m cp -r dist/SupportForce/* gs://www.support-force.org
