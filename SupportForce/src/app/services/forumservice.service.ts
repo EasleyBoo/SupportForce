@@ -12,8 +12,9 @@ import { environment } from '../../environments/environment';
 })
 
 export class ForumserviceService {
-  BACKEND_URL = environment.BACKEND_URL;
-  postUrl = `${this.BACKEND_URL}/SupportForceBE/supportforce/createPost`;
+  /* BACKEND_URL = environment.BACKEND_URL; */
+  postUrl = `http://localhost:8080/SupportForceBE/supportforce/createPost`;
+
 
 constructor(private http: HttpClient) { }
 
