@@ -29,10 +29,13 @@ currentUser: User[];
   loginUser(userLogin: NgForm) {
     console.log(userLogin.value);
     this.userserv.myLogin(userLogin.value).subscribe(data => {
-      console.log('This is the userId after logging in' + data.userId);
-      localStorage.setItem('userId', JSON.stringify(data.userId));
-      userLogin.reset();
-      this.router.navigateByUrl('/home');
+      if (data === null) {
+        alert(`bad login`);
+      } else {
+        localStorage.setItem('userId', JSON.stringify(data.userId));
+        userLogin.reset();
+        this.router.navigateByUrl('/home');
+      }
     });
 
     }
