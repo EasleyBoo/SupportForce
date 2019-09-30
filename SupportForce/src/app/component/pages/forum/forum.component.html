@@ -1,23 +1,21 @@
 <!-- message box place here for testing... -->
+<div class="row container-fluid">
 <div class="container mt-4 d-flex justify-content-center">
-    <div class="card w-75 messager">
+    <div class="card w-50 messager">
   
       <div class="card-body">
-        <h2 class="text-center">message box</h2>
-  
         <form #newComment="ngForm" (ngSubmit)="insertComment(newComment)">
           <div class="form-group">
-            <label for="postMessage">Post message...</label>
+            <h5>New Post:</h5>
             <textarea [(ngModel)]="postComment" class="form-control" name="postBody" id="postComment" cols="30"
               rows="5"></textarea>
           </div>
-          <button type="submit" class="btn btn-primary">submit</button>
+          <button type="submit" class="btn btn-primary">Submit</button>
         </form>
       </div>
   
     </div>
   </div>
-</div>
 
 
 <div *ngFor="let allPost of allPosts" class="card w-50">
@@ -29,6 +27,8 @@
       <h5 class="card-text container-fluid" >  {{ allPost.postBody }}</h5>
     </div>
   </div>
+  </div>
+
 
 
 
