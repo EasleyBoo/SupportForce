@@ -110,15 +110,41 @@
         </button>
       </div>
       <div class="modal-body">
-          <div class="form-group">
+
+          <!-- <div class="form-group">
               <label for="selectAddiction">Enter group number</label>
               <input class="form-control" type="number" name="" id="">
-          </div>
+          </div> -->
+
+          <form #joinGroupFm="ngForm">
+              <div class="form-group">
+                <label for="selectAddiction">Enter group number</label>
+                <input [(ngModel)]="groupNumber" type="text" class="form-control" name="groupNumber" id="groupNumber">
+              </div>
+    
+              <div class="form-group">
+                <label for="selectAddiction">Addiction</label>
+                <select [(ngModel)]="addictionId" class="form-control" id="addictionId" name="addictionId">
+                  <option value="1">Alcohol</option>
+                  <option value="2">Heroin</option>
+                  <option value="3">Pain Killers</option>
+                  <option value="4">Meth</option>
+                  <option value="5">Gambling</option>
+                  <option value="6">Nicotine</option>
+                  <option value="7">Cocaine</option>
+                </select>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary" (click)="joinGroup(joinGroupFm)">Join Group</button>
+              </div>
+            </form>
+
+
+
+
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+
     </div>
   </div>
 </div>
