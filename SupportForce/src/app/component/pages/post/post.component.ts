@@ -38,7 +38,9 @@ export class PostComponent implements OnInit {
     const supportGroupId = this.route.snapshot.paramMap.get('idgp');
     userId = localStorage.getItem('userId');
     this.forumServ.createReply(id, supportGroupId, userId, newReply.value).subscribe(data => {
-      this.allReplies = data;
+      /* this.allReplies = data;
+       */
+      this.allReplies.push(data);
     });
     return this.allReplies;
   }
@@ -46,6 +48,8 @@ export class PostComponent implements OnInit {
   readAllReplies(): Reply[] {
     const id = this.route.snapshot.paramMap.get('id');
     this.forumServ.readAllRepliesServ(id).subscribe(data => {
+      console.log(`readallreplies all replies`)
+      console.log(data);
       this.allReplies = data;
     });
     return this.allReplies;
