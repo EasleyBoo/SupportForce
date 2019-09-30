@@ -14,7 +14,6 @@ export class GroupserviceService {
   AllGroupUrl = `http://${this.BACKEND_URL}/SupportForceBE/supportforce/getAllSupportGroups`;
   myGroupUrl = `http://${this.BACKEND_URL}/SupportForceBE/supportforce/getUserSupportGroups`;
   createGroupUrl = `http://${this.BACKEND_URL}/SupportForceBE/supportforce/createSupportGroup`;
- 
 
   constructor(private http: HttpClient) { }
 
@@ -34,27 +33,6 @@ export class GroupserviceService {
     console.log('Your newGroup is ' + newGroup);
     return this.http.post<SupportGroup[]>(this.createGroupUrl + tempId, newGroup);
   }
-
-
-
-
-
-  //  myNewGroup(newGroup: SupportGroup): SupportGroup {
-  //    console.log(this.users);
-  //    this.mySupportGroup.push(newGroup);
-  //    console.log('This is my new Support Group' + this.mySupportGroup);
-
-  //   this.tempGroup = newGroup;
-
-  //   console.log('This is my tempGroup');
-  //    console.log(this.tempGroup);
-  //    return this.tempGroup;
-  //  }
-
-  // updateMyGroup(joinGroup): void {
-  //   this.mySupportGroup.push(joinGroup);
-
-  // }
 
 
 

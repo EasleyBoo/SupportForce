@@ -1,7 +1,7 @@
 import { Reply } from './reply';
 
 export class Post {
-    postId: number;
+    postId?: number;
     postBody: string;
     replyList?: Reply[];
     userId: number;

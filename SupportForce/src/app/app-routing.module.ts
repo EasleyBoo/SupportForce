@@ -6,6 +6,7 @@ import { EmergencycontactComponent } from './component/pages/emergencycontact/em
 import { MainHomeComponent } from './component/pages/main-home/main-home.component';
 import { UserHomeComponent } from './component/pages/user-home/user-home.component';
 import { AuthGuard } from './guards/auth.guard';
+import { PostComponent } from './component/pages/post/post.component';
 
 
 const routes: Routes = [
@@ -13,7 +14,8 @@ const routes: Routes = [
   {path: 'home/forum/:id', component: ForumComponent},
   {path: 'faq', component: FaqComponent},
   {path: 'emergencycontact', component: EmergencycontactComponent},
-  {path: 'home', component: UserHomeComponent, canActivate: [AuthGuard]}
+  {path: 'home', component: UserHomeComponent, canActivate: [AuthGuard]},
+  {path: 'home/forum/:idgp/post/:id', component: PostComponent}
 ];
 
 @NgModule({

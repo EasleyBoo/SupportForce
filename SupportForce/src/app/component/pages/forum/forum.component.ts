@@ -4,6 +4,8 @@ import { Post } from 'src/app/models/post';
 import { Reply } from 'src/app/models/reply';
 import { NgForm } from '@angular/forms';
 import { ForumserviceService } from 'src/app/services/forumservice.service';
+import { Subscription, Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-forum',
@@ -15,15 +17,17 @@ export class ForumComponent implements OnInit {
 
   forumReplies: Reply[];
   forumPosts: Post[];
-
+  allPosts: Post[];
 
   constructor(private forumServ: ForumserviceService, private route: ActivatedRoute) {
 
   }
 
+
+
   ngOnInit() {
-   // this.getPost();
-  // this.forumReplies = this.forumServ.getReply();
+    this.allPosts = this.readPost();
+
   }
 
 
@@ -34,21 +38,42 @@ export class ForumComponent implements OnInit {
   //   this.forumServ.getPost(id);
   // }
 
+  insertComment(comment: NgForm) {
+    console.log(comment.value);
+    let tempId;
+    tempId = localStorage.getItem('userId');
 
-  // insertComment(comment: NgForm): void {
-  //   console.log(comment.value);
-  //   let tempId;
-  //   tempId = localStorage.getItem('userId');
-
-  //   this.forumServ.newPost(comment.value, tempId).subscribe(data => {
-  //     console.log(data);
-  //   });
-  //   comment.reset();
-
-  // }
-
+    const id = this.route.snapshot.paramMap.get('id');
+    console.log('This is on the ngOnIt ID');
+    console.log(id);
+    this.forumServ.newPost(comment.value, id, tempId).subscribe(data => {
+      console.log(data);
+    });
+    comment.reset();
 
   }
+
+  readPost() {
+    const id = this.route.snapshot.paramMap.get('id');
+    this.forumServ.readPostServ(id).subscribe(data => {
+      console.log(data);
+      this.allPosts = data;
+    });
+
+  }
+
+  
+
+
+ 
+
+
+
+
+
+}
+
+
 
 
 

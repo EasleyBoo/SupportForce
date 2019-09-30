@@ -13,30 +13,40 @@ import { environment } from '../../environments/environment';
 export class ForumserviceService {
   BACKEND_URL = environment.BACKEND_URL;
   postUrl = `http://${this.BACKEND_URL}/SupportForceBE/supportforce/createPost`;
+  readPostUrl = `http://${this.BACKEND_URL}/SupportForceBE/supportforce/getAllPost`;
+  onePostUrl = `http://${this.BACKEND_URL}/SupportForceBE/supportforce/getSpecificPost`;
+  createReplyUrl = `http://${this.BACKEND_URL}/SupportForceBE/supportforce/createReply`;
+  readReplyUrl = `http://${this.BACKEND_URL}/SupportForceBE/supportforce/getAllReply`;
 
- 
+constructor(private http: HttpClient) { }
 
-constructor() { }
+newPost(newGroup, id, tempId): Observable<Post> {
+  console.log('this is within the post');
+  return this.http.post<Post>(this.postUrl + id + '/' + tempId, newGroup);
 
-// getPost(id): Post[] {
-//   console.log('This is my support group id in my service ' + id);
-//   return this.posts;
-//   // this will issue a http request by passing specific group id to get posts
-// }
+}
 
-// getReply(): Reply[] {
-//   return this.replies;
-//   // this will issue a http request by passing specific post if to get replies
-// }
+readPostServ(id): Observable<Post[]> {
+  console.log('this is within read all post serve');
+  console.log(id);
+  return this.http.get<Post[]>(this.readPostUrl + id);
+}
 
-// newPost(newGroup, tempId):Observable<Post> {
-//   console.log('this is within the post') 
-//   return this.http.post<Post>(this.postUrl, object )
+readOnePost(id): Observable<Post[]> {
+  console.log('this is within read one Post');
+  return this.http.get<Post[]>(this.onePostUrl + id);
+}
 
-// }
+createReply(id, supportGroupId, userId, newReply) {
+  console.log('this is within reply in forumService');
+  return this.http.post<Reply[]>(this.createReplyUrl + id + '/' + supportGroupId + '/' + userId, newReply);
 
-/* getAllPostsByGroup(): Observable<Post[]> {
-  console.log(`getting all posts in the group`);
-} */
+}
+
+readAllRepliesServ(id) {
+  console.log('this is within Reply in forumService');
+  return this.http.get<Reply[]>(this.readReplyUrl + id);
+}
+
 
 }
