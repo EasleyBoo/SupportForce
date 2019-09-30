@@ -12,11 +12,17 @@
 
 .userGroup__card {
   margin-top: 1rem;
-  background-image: url('https://static.wixstatic.com/media/72cbe8_2a16083e58c74009a288d9b797881414.jpg');
-  background-size: cover;
-  height: 400px;
+ /*  background-image: url('https://static.wixstatic.com/media/72cbe8_2a16083e58c74009a288d9b797881414.jpg');
+  background-size: cover; */
+  /* height: 400px; */
 }
 .background {
   background-color: #f1f8e9;
 }
 
+.jumbotron__image {
+  background-image: url('https://static.wixstatic.com/media/72cbe8_2a16083e58c74009a288d9b797881414.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 15rem;
+}
