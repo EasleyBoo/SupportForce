@@ -28,7 +28,7 @@ constructor(private http: HttpClient) { }
 //   return this.replies;
 //   // this will issue a http request by passing specific post if to get replies
 // }
-
+// d
 newPost(newGroup, id, tempId): Observable<Post> {
   console.log('this is within the post');
   return this.http.post<Post>(this.postUrl + id + '/' + tempId, newGroup);
