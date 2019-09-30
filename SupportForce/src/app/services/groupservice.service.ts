@@ -14,6 +14,8 @@ export class GroupserviceService {
   AllGroupUrl = `http://${this.BACKEND_URL}/SupportForceBE/supportforce/getAllSupportGroups`;
   myGroupUrl = `http://${this.BACKEND_URL}/SupportForceBE/supportforce/getUserSupportGroups`;
   createGroupUrl = `http://${this.BACKEND_URL}/SupportForceBE/supportforce/createSupportGroup`;
+  joinGroupUrl = `http://${this.BACKEND_URL}/SupportForceBE/supportforce/joinSupportGroup`;
+  leaveGroupUrl = `http://${this.BACKEND_URL}/SupportForceBE/supportforce/leaveSupportGroup`;
 
   constructor(private http: HttpClient) { }
 
@@ -32,6 +34,16 @@ export class GroupserviceService {
     console.log('Your in the Newgroup within service layer' + tempId);
     console.log('Your newGroup is ' + newGroup);
     return this.http.post<SupportGroup[]>(this.createGroupUrl + tempId, newGroup);
+  }
+
+  joinGroupServ(joinGroupFm, userId): Observable<SupportGroup> {
+    console.log('Your in the Join group within the group service');
+    return this.http.post<SupportGroup>(this.joinGroupUrl + userId, joinGroupFm);
+  }
+
+  leaveGroupServ(leaveGroupFm, userId): Observable<SupportGroup>{
+    console.log('Your in the Leave Group within the group service');
+    return this.http.post<SupportGroup>(this.leaveGroupUrl + userId, leaveGroupFm );
   }
 
 
