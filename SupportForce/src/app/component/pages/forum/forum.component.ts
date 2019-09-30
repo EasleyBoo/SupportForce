@@ -15,7 +15,7 @@ import { Subscription } from 'rxjs';
 export class ForumComponent implements OnInit {
 
   private routeSub: Subscription;
-  
+
   forumReplies: Reply[];
   forumPosts: Post[];
 

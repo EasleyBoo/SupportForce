@@ -7,6 +7,7 @@ import { ForumserviceService } from 'src/app/services/forumservice.service';
 import { GroupserviceService } from 'src/app/services/groupservice.service';
 import { LoginComponent } from '../../login/login.component';
 
+
 @Component({
   selector: 'app-user-home',
   templateUrl: './user-home.component.html',
@@ -92,7 +93,7 @@ export class UserHomeComponent implements OnInit, DoCheck {
     console.log('emitted event!');
     console.log(addedGroup);
     this.mySupportGroup.push(addedGroup);
-
+    this.allSupportGroup.push(addedGroup);
   }
 
 }
