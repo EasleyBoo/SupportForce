@@ -31,9 +31,9 @@ currentUser: User[];
     this.userserv.myLogin(userLogin.value).subscribe(data => {
       console.log('This is the userId after logging in' + data.userId);
       localStorage.setItem('userId', JSON.stringify(data.userId));
+      userLogin.reset();
       this.router.navigateByUrl('/home');
     });
-    userLogin.reset();
 
     }
 
