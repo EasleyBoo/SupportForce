@@ -6,6 +6,8 @@ import { UserserviceService } from 'src/app/services/userservice.service';
 import { ForumserviceService } from 'src/app/services/forumservice.service';
 import { GroupserviceService } from 'src/app/services/groupservice.service';
 import { LoginComponent } from '../../login/login.component';
+import { NgForm } from '@angular/forms';
+
 
 @Component({
   selector: 'app-user-home',
@@ -60,10 +62,6 @@ export class UserHomeComponent implements OnInit, DoCheck {
       groups.addict.addictionName.toLocaleLowerCase().indexOf(query) !== -1);
   }
 
-  // joinGroup(allgroups) {
-  //   this.groupServ.updateMyGroup(allgroups);
-  //   console.log(allgroups);
-  // }
 
   userAllgroups(): SupportGroup[] {
     this.groupServ.getAllGroups().subscribe(data => {
@@ -83,7 +81,9 @@ export class UserHomeComponent implements OnInit, DoCheck {
     temp = localStorage.getItem('userId');
     console.log(temp);
     this.groupServ.getMyGroups(temp).subscribe(data => {
+
       this.mySupportGroup = data;
+
     });
     return this.mySupportGroup;
   }
@@ -92,13 +92,31 @@ export class UserHomeComponent implements OnInit, DoCheck {
     console.log('emitted event!');
     console.log(addedGroup);
     this.mySupportGroup.push(addedGroup);
+    this.allSupportGroup.push(addedGroup);
+  }
+
+  joinGroup(joinGroupFm: NgForm) {
+    let userId;
+    userId = localStorage.getItem('userId');
+    this.groupServ.joinGroupServ(joinGroupFm.value, userId).subscribe(data => {
+      console.log(data);
+
+    });
 
   }
 
+  leaveGroup(leaveGroupFm: NgForm) {
+    console.log('im in the leave group component');
+    let userId;
+    userId = localStorage.getItem('userId');
+    this.groupServ.leaveGroupServ(leaveGroupFm.value, userId).subscribe(data => {
+      console.log(data);
+    });
+  }
+
+
 }
 
-
-/* random comment here!!! */
 
 
 

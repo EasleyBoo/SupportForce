@@ -1,8 +1,10 @@
 .navbar{
-    background-color: rgb(143, 164, 174, 0.3);
+    /* background-color: rgb(143, 164, 174, 0.3); */
+    /* background-color: #1230CA; */
+    background-color: #01376D;
 }
 .navbar .navbar-brand {
-    color: black;
+    color: white;
     font-weight: bolder;
     font-size: 1.8em;
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -13,6 +15,9 @@
 } */
 
 .navbar .nav-item {
-    color: black !important;
+    color: white !important;
 }
 
+.logoutBtn {
+    border-radius: 40rem;
+  }
