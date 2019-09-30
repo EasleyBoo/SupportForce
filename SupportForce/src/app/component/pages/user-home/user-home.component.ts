@@ -84,7 +84,9 @@ export class UserHomeComponent implements OnInit, DoCheck {
     temp = localStorage.getItem('userId');
     console.log(temp);
     this.groupServ.getMyGroups(temp).subscribe(data => {
+
       this.mySupportGroup = data;
+
     });
     return this.mySupportGroup;
   }
@@ -98,8 +100,6 @@ export class UserHomeComponent implements OnInit, DoCheck {
 
 }
 
-
-/* random comment here!!! */
 
 
 

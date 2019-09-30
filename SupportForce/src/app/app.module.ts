@@ -27,6 +27,7 @@ import { GroupserviceService } from './services/groupservice.service';
 import { SessionService } from './services/session.service';
 import { AuthGuard } from './guards/auth.guard';
 import { SpinnerComponent } from './component/spinner/spinner.component';
+import { PostComponent } from 'src/app/component/pages/post/post.component';
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import { SpinnerComponent } from './component/spinner/spinner.component';
     LoginComponent,
     RegisterComponent,
     SpinnerComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,

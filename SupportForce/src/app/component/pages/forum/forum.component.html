@@ -1,11 +1,10 @@
-<div class="component__container">
-  <!-- message box place here for testing... -->
-  <div class="container mt-4 d-flex justify-content-center">
+<!-- message box place here for testing... -->
+<div class="container mt-4 d-flex justify-content-center">
     <div class="card w-75 messager">
-
+  
       <div class="card-body">
         <h2 class="text-center">message box</h2>
-
+  
         <form #newComment="ngForm" (ngSubmit)="insertComment(newComment)">
           <div class="form-group">
             <label for="postMessage">Post message...</label>
@@ -15,27 +14,34 @@
           <button type="submit" class="btn btn-primary">submit</button>
         </form>
       </div>
-
+  
     </div>
   </div>
-
-  <div class="container d-flex justify-content-center">
-    <div class="m-4 w-75">
-      <div *ngFor="let post of forumPosts" class="card w-100">
-        <div class="card-body">
-          <h5>{{post.postBody}}</h5>
-        </div>
-      </div>
-      <div *ngFor="let reply of forumReplies" class="card w-100">
-        <div class="card-body">
-          <h5>{{reply.replyBody}}</h5>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-
-
-
-</div>
+  
+  
+  <div *ngFor="let allPost of allPosts" class=" card w-25 m-3 p-4"
+          routerLink="post/{{allPost.postId}}" >
+            <h2 class="text-center">{{ allPost.postId}}</h2>
+            <div class="row">
+              <div class="col-9">
+                <div class="">Post: {{ allPost.postBody }}</div>
+              </div>
+            </div>
+          </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
