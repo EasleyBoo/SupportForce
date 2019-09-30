@@ -102,3 +102,73 @@
     </div>
   </div>
 </ng-template>
+
+
+
+
+
+<!-- join Modal -->
+<div class="modal fade" id="joinGroupModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <div class="form-group">
+              <label for="selectAddiction">Enter group number</label>
+              <input class="form-control" type="number" name="" id="">
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- leave Modal -->
+<div class="modal fade" id="leaveGroupModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action>
+          <div class="form-group">
+
+            <label for="selectAddiction">Enter group id:</label>
+            <input class="form-control" type="number" name="" id="">
+          </div>
+
+          <div class="form-group">
+              <label for="selectAddiction">Addiction</label>
+              <select [(ngModel)]="addictionId" class="form-control" id="addictionId" name="addictionId">
+                  <option value="1">Alcohol</option>
+                  <option value="2">Heroin</option>
+                  <option value="3">Pain Killers</option>
+                  <option value="4">Meth</option>
+                  <option value="5">Gambling</option>
+                  <option value="6">Nicotine</option>
+                  <option value="7">Cocaine</option>
+              </select>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
