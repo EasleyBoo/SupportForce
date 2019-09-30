@@ -4,7 +4,6 @@ import { Post } from 'src/app/models/post';
 import { Reply } from 'src/app/models/reply';
 import { NgForm } from '@angular/forms';
 import { ForumserviceService } from 'src/app/services/forumservice.service';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-forum',
@@ -14,8 +13,6 @@ import { Subscription } from 'rxjs';
 
 export class ForumComponent implements OnInit {
 
-  private routeSub: Subscription;
-  
   forumReplies: Reply[];
   forumPosts: Post[];
 
@@ -27,8 +24,6 @@ export class ForumComponent implements OnInit {
   ngOnInit() {
    // this.getPost();
   // this.forumReplies = this.forumServ.getReply();
-
-  
   }
 
 
@@ -40,21 +35,17 @@ export class ForumComponent implements OnInit {
   // }
 
 
-  insertComment(comment: NgForm) {
-    console.log(comment.value);
-    let tempId;
-    tempId = localStorage.getItem('userId');
+  // insertComment(comment: NgForm): void {
+  //   console.log(comment.value);
+  //   let tempId;
+  //   tempId = localStorage.getItem('userId');
 
-    const id = this.route.snapshot.paramMap.get('id');
-    console.log('This is on the ngOnIt ID');
-    console.log(id);
-    this.forumServ.newPost(comment.value, id, tempId).subscribe(data => {
-      console.log(data);
-    });
-    comment.reset();
+  //   this.forumServ.newPost(comment.value, tempId).subscribe(data => {
+  //     console.log(data);
+  //   });
+  //   comment.reset();
 
-  }
-
+  // }
 
 
   }

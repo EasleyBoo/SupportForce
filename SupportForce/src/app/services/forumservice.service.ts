@@ -10,13 +10,13 @@ import { environment } from '../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-
 export class ForumserviceService {
   BACKEND_URL = environment.BACKEND_URL;
   postUrl = `http://${this.BACKEND_URL}/SupportForceBE/supportforce/createPost`;
 
+ 
 
-constructor(private http: HttpClient) { }
+constructor() { }
 
 // getPost(id): Post[] {
 //   console.log('This is my support group id in my service ' + id);
@@ -29,11 +29,11 @@ constructor(private http: HttpClient) { }
 //   // this will issue a http request by passing specific post if to get replies
 // }
 
-newPost(newGroup, id, tempId): Observable<Post> {
-  console.log('this is within the post');
-  return this.http.post<Post>(this.postUrl + id + '/' + tempId, newGroup);
+// newPost(newGroup, tempId):Observable<Post> {
+//   console.log('this is within the post') 
+//   return this.http.post<Post>(this.postUrl, object )
 
-}
+// }
 
 /* getAllPostsByGroup(): Observable<Post[]> {
   console.log(`getting all posts in the group`);
