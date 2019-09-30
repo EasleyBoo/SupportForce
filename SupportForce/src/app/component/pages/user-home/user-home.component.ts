@@ -106,6 +106,7 @@ export class UserHomeComponent implements OnInit, DoCheck {
   }
 
   leaveGroup(leaveGroupFm: NgForm) {
+    console.log('im in the leave group component');
     let userId;
     userId = localStorage.getItem('userId');
     this.groupServ.leaveGroupServ(leaveGroupFm.value, userId).subscribe(data => {
