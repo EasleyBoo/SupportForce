@@ -1,22 +1,40 @@
 <!-- message box place here for testing... -->
 <div class="row container-fluid">
-<div class="container mt-4 d-flex justify-content-center">
-    <div class="card w-50 messager">
-  
-      <div class="card-body">
-        <form #newComment="ngForm" (ngSubmit)="insertComment(newComment)">
-          <div class="form-group">
-            <h5>New Post:</h5>
-            <textarea [(ngModel)]="postComment" class="form-control" name="postBody" id="postComment" cols="30"
-              rows="5"></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-      </div>
-  
-    </div>
 
-  </div>
+    <p>
+        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+          Create New Post
+        </button>
+      </p>
+      <div class="collapse" id="collapseExample">
+        <div class="card card-body">
+          
+          <div class="container mt-4 d-flex justify-content-center">
+              <div class="card messager">
+            
+                <div class="card-body">
+                  <form #newComment="ngForm" (ngSubmit)="insertComment(newComment)">
+                    <div class="form-group">
+                      <h5>New Post:</h5>
+                      <textarea [(ngModel)]="postComment" class="form-control" name="postBody" id="postComment" cols="30"
+                        rows="5"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-secondary">Submit</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          
+        </div>
+      </div>
+
+
+
+
+
+
+
+
 
 
 <div *ngFor="let allPost of allPosts" class="card w-50">
@@ -29,6 +47,18 @@
     </div>
   </div>
   </div>
+
+
+  <h6>All Posts</h6>
+  <div *ngFor="let allPost of allPosts" class="list-group w-50">
+      <!-- <h6 class="list-group-item list-group-item-action">Post #: {{ allPost.postId}}</h6> -->
+      <div class="container-fluid d-flex justify-content-between">
+          <h5 class="list-group-item list-group-item-action">Post #: {{ allPost.postId}} {{ allPost.postBody }}</h5>
+        <button type="button" class="btn btn-primary btn-sm" routerLink="post/{{allPost.postId}}">View Replies</button>
+      </div>
+      
+    </div>
+    
 
 
 

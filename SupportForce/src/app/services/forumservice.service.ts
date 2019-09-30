@@ -43,7 +43,7 @@ createReply(id, supportGroupId, userId, newReply) {
 
 }
 
-readAllRepliesServ(id) {
+readAllRepliesServ(id): Observable<Reply[]> {
   console.log('this is within Reply in forumService');
   return this.http.get<Reply[]>(this.readReplyUrl + id);
 }
