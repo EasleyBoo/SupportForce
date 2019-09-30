@@ -1,4 +1,4 @@
 export class Addiction {
-    addictionId: number;
+    addictionId: string;
     addictionName: string;
 }

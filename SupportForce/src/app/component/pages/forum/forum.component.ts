@@ -64,70 +64,7 @@ export class ForumComponent implements OnInit {
     return this.allPosts;
   }
 
-  
-
-
- 
-
-
-
-
 
 }
 
 
-
-
-
-
-
-
-//USING MOCK DATA TO GET REPLIES AND POSTS
-
-// getSupportId(): number {
-// return 1;
-// }
-
-// getPosts(): number {
-//   let num = this.getSupportId();
-//   return 1;
-// }
-
-
-// getReplies(): Reply {
-
-//   return null;
-// }
-
-// getReplies(): string[] {
-//   let myReply: Reply;
-//   let emptyArr: string[] = [];
-//   this.posts.forEach(post => {
-//     const postId = post.postId;
-//     this.replies.forEach(reply => {
-//       if (reply.postId === postId) {
-//         myReply = reply;
-//         emptyArr.push(myReply.replyBody);
-//       }
-//     });
-//   });
-//   return emptyArr;
-// }
-// }
-
-
-//   getReplies(): string[] {
-//     let myReply: Reply;
-//     let emptyArr: string[] = [];
-//     this.posts.forEach(post => {
-//       const postId = post.postId;
-//       this.replies.forEach(reply => {
-//         if (reply.postId === postId) {
-//           myReply = reply;
-//           emptyArr.push(myReply.replyBody);
-//         }
-//       });
-//     });
-//     return emptyArr;
-//   }
-// }
