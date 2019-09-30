@@ -4,7 +4,8 @@ import { Post } from 'src/app/models/post';
 import { Reply } from 'src/app/models/reply';
 import { NgForm } from '@angular/forms';
 import { ForumserviceService } from 'src/app/services/forumservice.service';
-import { Subscription } from 'rxjs';
+import { Subscription, Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-forum',
@@ -14,21 +15,19 @@ import { Subscription } from 'rxjs';
 
 export class ForumComponent implements OnInit {
 
-  private routeSub: Subscription;
-  
   forumReplies: Reply[];
   forumPosts: Post[];
-
+  allPosts: Post[];
 
   constructor(private forumServ: ForumserviceService, private route: ActivatedRoute) {
 
   }
 
-  ngOnInit() {
-   // this.getPost();
-  // this.forumReplies = this.forumServ.getReply();
 
-  
+
+  ngOnInit() {
+    this.allPosts = this.readPost();
+
   }
 
 
@@ -38,7 +37,6 @@ export class ForumComponent implements OnInit {
   //   let id = this.route.snapshot.paramMap.get('id');
   //   this.forumServ.getPost(id);
   // }
-
 
   insertComment(comment: NgForm) {
     console.log(comment.value);
@@ -55,9 +53,27 @@ export class ForumComponent implements OnInit {
 
   }
 
-
+  readPost() {
+    const id = this.route.snapshot.paramMap.get('id');
+    this.forumServ.readPostServ(id).subscribe(data => {
+      console.log(data);
+      this.allPosts = data;
+    });
 
   }
+
+  
+
+
+ 
+
+
+
+
+
+}
+
+
 
 
 
