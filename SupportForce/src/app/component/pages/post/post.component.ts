@@ -13,7 +13,7 @@ import { NgForm } from '@angular/forms';
 export class PostComponent implements OnInit {
 
 
-  allReplies: Reply[];
+  allReplies: Reply[] = [];
   postById: Post[] = [];
 
   constructor(private route: ActivatedRoute, private forumServ: ForumserviceService) { }
