@@ -17,28 +17,30 @@
   
     </div>
   </div>
-  
-  
-  <div *ngFor="let allPost of allPosts" class=" card w-25 m-3 p-4"
-          routerLink="post/{{allPost.postId}}" >
-            <h2 class="text-center">{{ allPost.postId}}</h2>
-            <div class="row">
-              <div class="col-9">
-                <div class="">Post: {{ allPost.postBody }}</div>
-              </div>
-            </div>
-          </div>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+</div>
+
+
+<div *ngFor="let allPost of allPosts" class="card w-50">
+    <div class="card-body">
+      <div class="container-fluid d-flex justify-content-between">
+          <h5>Post #: {{ allPost.postId}}</h5>
+        <button type="button" class="btn btn-primary btn-sm" routerLink="post/{{allPost.postId}}">View Replies</button>
+      </div>
+      <h5 class="card-text container-fluid" >  {{ allPost.postBody }}</h5>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
