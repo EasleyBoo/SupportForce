@@ -47,7 +47,7 @@ import { SpinnerComponent } from './component/spinner/spinner.component';
     GroupcreationformComponent,
     LoginComponent,
     RegisterComponent,
-    SpinnerComponent
+    SpinnerComponent,
   ],
   imports: [
     BrowserModule,
