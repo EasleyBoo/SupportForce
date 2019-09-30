@@ -39,7 +39,7 @@ readOnePost(id): Observable<Post[]> {
 
 createReply(id, supportGroupId, userId, newReply) {
   console.log('this is within reply in forumService');
-  return this.http.post<Reply[]>(this.createReplyUrl + id + '/' + supportGroupId + '/' + userId, newReply);
+  return this.http.post<Reply>(this.createReplyUrl + id + '/' + supportGroupId + '/' + userId, newReply);
 
 }
 
