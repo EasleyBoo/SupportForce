@@ -24,6 +24,7 @@
         <div *ngFor="let groups of mySupportGroup" class=" card w-25 m-3 p-4 group {{groups.addiction}}"
         routerLink="forum/{{groups.supportGroupId}}" >
           <h2 class="text-center">{{groups.supportGroupName}}</h2>
+          <h2>{{ groups.supportGroupId }}</h2>
           <div class="row">
             <div class="col-9">
               <div class="">Topic: {{groups.addict.addictionName}}</div>

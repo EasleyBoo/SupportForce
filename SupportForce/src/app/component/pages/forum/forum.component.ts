@@ -15,6 +15,8 @@ import { HttpClient } from '@angular/common/http';
 
 export class ForumComponent implements OnInit {
 
+  private routeSub: Subscription;
+
   forumReplies: Reply[];
   forumPosts: Post[];
   allPosts: Post[];
@@ -53,79 +55,16 @@ export class ForumComponent implements OnInit {
 
   }
 
-  readPost() {
+  readPost(): Post[]{
     const id = this.route.snapshot.paramMap.get('id');
     this.forumServ.readPostServ(id).subscribe(data => {
       console.log(data);
       this.allPosts = data;
     });
-
+    return this.allPosts;
   }
-
-  
-
-
- 
-
-
-
 
 
 }
 
 
-
-
-
-
-
-
-//USING MOCK DATA TO GET REPLIES AND POSTS
-
-// getSupportId(): number {
-// return 1;
-// }
-
-// getPosts(): number {
-//   let num = this.getSupportId();
-//   return 1;
-// }
-
-
-// getReplies(): Reply {
-
-//   return null;
-// }
-
-// getReplies(): string[] {
-//   let myReply: Reply;
-//   let emptyArr: string[] = [];
-//   this.posts.forEach(post => {
-//     const postId = post.postId;
-//     this.replies.forEach(reply => {
-//       if (reply.postId === postId) {
-//         myReply = reply;
-//         emptyArr.push(myReply.replyBody);
-//       }
-//     });
-//   });
-//   return emptyArr;
-// }
-// }
-
-
-//   getReplies(): string[] {
-//     let myReply: Reply;
-//     let emptyArr: string[] = [];
-//     this.posts.forEach(post => {
-//       const postId = post.postId;
-//       this.replies.forEach(reply => {
-//         if (reply.postId === postId) {
-//           myReply = reply;
-//           emptyArr.push(myReply.replyBody);
-//         }
-//       });
-//     });
-//     return emptyArr;
-//   }
-// }
