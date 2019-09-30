@@ -50,6 +50,7 @@ export class ForumComponent implements OnInit {
     console.log(id);
     this.forumServ.newPost(comment.value, id, tempId).subscribe(data => {
       console.log(data);
+      this.allPosts.push(data);
     });
     comment.reset();
 
@@ -63,6 +64,7 @@ export class ForumComponent implements OnInit {
     });
     return this.allPosts;
   }
+
 
 
 }
