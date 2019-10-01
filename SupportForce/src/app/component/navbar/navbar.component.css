@@ -1,6 +1,4 @@
 .navbar{
-    /* background-color: rgb(143, 164, 174, 0.3); */
-    /* background-color: #1230CA; */
     background-color: #01376D;
 }
 .navbar .navbar-brand {
@@ -9,10 +7,6 @@
     font-size: 1.8em;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
-
-/* .navbar .navbar-nav {
-    margin: 0 auto;
-} */
 
 .navbar .nav-item {
     color: white !important;
