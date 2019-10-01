@@ -1,4 +1,45 @@
-.messager {
-  background-color: #01376D;;
+.jumbotron__image {
+  background-image: url('https://www.addictionhope.com/wp-content/uploads/2016/06/Support-A-Spouse-With-Mental-Illness-And-Substance-Abuse-Addiction-Hope-1024x538.jpg');
+  /* background-size: cover; */
+  background-position: center;
+  height: 15rem;
 }
 
+.group__header {
+  background-color: #01376D;
+}
+
+.messager {
+  background-color: #01376D;
+  color: white;
+  }
+
+  body {
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 0 20px;
+  }
+  
+  .container2 {
+    border: 2px solid #dedede;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+  }
+  
+  
+  .container::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  .btn-primary {
+    background-color: #01376D;
+  }
+
+  
+  
+ 
+ 
