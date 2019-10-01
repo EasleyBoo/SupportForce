@@ -83,9 +83,7 @@ export class UserHomeComponent implements OnInit, DoCheck {
     temp = localStorage.getItem('userId');
     console.log(temp);
     this.groupServ.getMyGroups(temp).subscribe(data => {
-
       this.mySupportGroup = data;
-
     });
     return this.mySupportGroup;
   }
@@ -109,10 +107,10 @@ export class UserHomeComponent implements OnInit, DoCheck {
     userId = localStorage.getItem('userId');
     this.groupServ.leaveGroupServ(leaveGroupFm.value, userId).subscribe(data => {
     //  console.log(data);
-    this.mySupportGroup = this.mySupportGroup.filter(groups =>groups.supportGroupId !== data.supportGroupId);
+    this.mySupportGroup = this.mySupportGroup.filter(groups => groups.supportGroupId !== data.supportGroupId);
+    leaveGroupFm.reset();
     });
   }
-
 
 }
 
