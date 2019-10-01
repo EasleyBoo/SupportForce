@@ -8,11 +8,33 @@
     <div class="navbar-nav">
       <a class="nav-item nav-link active" routerLink='/'>Home <span class="sr-only">(current)</span></a>
       <a *ngIf="isLoggedin" class="nav-item nav-link" routerLink='/home'>Discussion</a>
+      <li *ngIf="isLoggedin" class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Groups
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <!-- <a class="dropdown-item" href="#">Create Support Group</a> -->
+          <div class="dropdown-item" data-toggle="modal" data-target="#addGroupModal">
+              Create Support Group
+          </div>
+          <div class="dropdown-item" data-toggle="modal" data-target="#joinGroupModal">
+            Join Support Group
+          </div>
+          <div class="dropdown-divider"></div>
+          <!-- <a class="dropdown-item" href="#">Leave Support Group</a> -->
+          <div class="dropdown-item" data-toggle="modal" data-target="#leaveGroupModal">
+              Leave Support Group
+          </div>
+        </div>
+      </li>
       <a class="nav-item nav-link" routerLink='/emergencycontact'>Emergency Contact</a>
       <a class="nav-item nav-link" routerLink='/faq'>FAQ</a>
 
+
       <!-- logout button -->
-      <button *ngIf="isLoggedin; else logOutBtn" type="button" class="btn btn-warning" (click)="logOut()">LOGOUT</button>
+      <button *ngIf="isLoggedin; else logOutBtn" type="button" class="btn btn-primary logoutBtn"
+        (click)="logOut()">Logout</button>
       <!-- Button trigger modal -->
       <ng-template #logOutBtn>
 
@@ -31,3 +53,7 @@
     </div>
   </div>
 </nav>
+
+
+
+

@@ -4,7 +4,8 @@ import { Post } from 'src/app/models/post';
 import { Reply } from 'src/app/models/reply';
 import { NgForm } from '@angular/forms';
 import { ForumserviceService } from 'src/app/services/forumservice.service';
-import { Subscription } from 'rxjs';
+import { Subscription, Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-forum',
@@ -15,20 +16,20 @@ import { Subscription } from 'rxjs';
 export class ForumComponent implements OnInit {
 
   private routeSub: Subscription;
-  
+
   forumReplies: Reply[];
   forumPosts: Post[];
-
+  allPosts: Post[];
 
   constructor(private forumServ: ForumserviceService, private route: ActivatedRoute) {
 
   }
 
-  ngOnInit() {
-   // this.getPost();
-  // this.forumReplies = this.forumServ.getReply();
 
-  
+
+  ngOnInit() {
+    this.allPosts = this.readPost();
+
   }
 
 
@@ -38,7 +39,6 @@ export class ForumComponent implements OnInit {
   //   let id = this.route.snapshot.paramMap.get('id');
   //   this.forumServ.getPost(id);
   // }
-
 
   insertComment(comment: NgForm) {
     console.log(comment.value);
@@ -50,66 +50,23 @@ export class ForumComponent implements OnInit {
     console.log(id);
     this.forumServ.newPost(comment.value, id, tempId).subscribe(data => {
       console.log(data);
+      this.allPosts.push(data);
     });
     comment.reset();
 
   }
 
-
-
+  readPost(): Post[] {
+    const id = this.route.snapshot.paramMap.get('id');
+    this.forumServ.readPostServ(id).subscribe(data => {
+      console.log(data);
+      this.allPosts = data;
+    });
+    return this.allPosts;
   }
 
 
 
+}
 
 
-
-//USING MOCK DATA TO GET REPLIES AND POSTS
-
-// getSupportId(): number {
-// return 1;
-// }
-
-// getPosts(): number {
-//   let num = this.getSupportId();
-//   return 1;
-// }
-
-
-// getReplies(): Reply {
-
-//   return null;
-// }
-
-// getReplies(): string[] {
-//   let myReply: Reply;
-//   let emptyArr: string[] = [];
-//   this.posts.forEach(post => {
-//     const postId = post.postId;
-//     this.replies.forEach(reply => {
-//       if (reply.postId === postId) {
-//         myReply = reply;
-//         emptyArr.push(myReply.replyBody);
-//       }
-//     });
-//   });
-//   return emptyArr;
-// }
-// }
-
-
-//   getReplies(): string[] {
-//     let myReply: Reply;
-//     let emptyArr: string[] = [];
-//     this.posts.forEach(post => {
-//       const postId = post.postId;
-//       this.replies.forEach(reply => {
-//         if (reply.postId === postId) {
-//           myReply = reply;
-//           emptyArr.push(myReply.replyBody);
-//         }
-//       });
-//     });
-//     return emptyArr;
-//   }
-// }

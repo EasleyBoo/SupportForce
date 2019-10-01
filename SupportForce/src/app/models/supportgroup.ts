@@ -6,7 +6,7 @@ import { Addiction } from './addiction';
 
 
 export class SupportGroup {
-    supportGroupId?: number;
+    supportGroupId?: string;
     supportGroupName: string;
     supportGroupUsers?: User[];
     addict?: Addiction;
