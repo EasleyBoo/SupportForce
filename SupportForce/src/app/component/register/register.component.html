@@ -6,7 +6,7 @@
     <label for="registerEmail">Email</label>
     <input [(ngModel)]="registerEmail" name="email" #email="ngModel" type="email" class="form-control" id="registerEmail"
       aria-describedby="UNHelp" placeholder="Enter email" [ngClass] ="{'is-invalid': email.errors && email.touched}" required
-      pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?">
+      pattern="^\S+@\S+$">
 
       <div [hidden]="!email.errors?.required" class="invalid-feedback">
         Email name required

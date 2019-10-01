@@ -30,7 +30,7 @@ currentUser: User[];
     console.log(userLogin.value);
     this.userserv.myLogin(userLogin.value).subscribe(data => {
       if (data === null) {
-        alert(`bad login`);
+        alert(`username is already in use`);
       } else {
         localStorage.setItem('userId', JSON.stringify(data.userId));
         userLogin.reset();
