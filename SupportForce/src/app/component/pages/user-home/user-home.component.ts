@@ -42,8 +42,10 @@ export class UserHomeComponent implements OnInit, DoCheck {
     this.mySupportGroup = this.myGroups();
   }
 
+  /* caused infinate look oops */
   ngDoCheck() {
-
+    /* this.mySupportGroup = this.myGroups();
+    this.allSupportGroup = this.userAllgroups(); */
   }
 
   get filterGroups(): string {
@@ -89,8 +91,6 @@ export class UserHomeComponent implements OnInit, DoCheck {
   }
 
   displayAddedGroup(addedGroup: SupportGroup) {
-    console.log('emitted event!');
-    console.log(addedGroup);
     this.mySupportGroup.push(addedGroup);
     this.allSupportGroup.push(addedGroup);
   }
@@ -99,18 +99,17 @@ export class UserHomeComponent implements OnInit, DoCheck {
     let userId;
     userId = localStorage.getItem('userId');
     this.groupServ.joinGroupServ(joinGroupFm.value, userId).subscribe(data => {
-      console.log(data);
-
+    //  console.log(data);
+    this.mySupportGroup.unshift(data);
     });
-
   }
 
   leaveGroup(leaveGroupFm: NgForm) {
-    console.log('im in the leave group component');
     let userId;
     userId = localStorage.getItem('userId');
     this.groupServ.leaveGroupServ(leaveGroupFm.value, userId).subscribe(data => {
-      console.log(data);
+    //  console.log(data);
+    this.mySupportGroup = this.mySupportGroup.filter(groups =>groups.supportGroupId !== data.supportGroupId);
     });
   }
 

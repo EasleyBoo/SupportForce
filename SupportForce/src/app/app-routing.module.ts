@@ -15,7 +15,8 @@ const routes: Routes = [
   {path: 'faq', component: FaqComponent},
   {path: 'emergencycontact', component: EmergencycontactComponent},
   {path: 'home', component: UserHomeComponent, canActivate: [AuthGuard]},
-  {path: 'home/forum/:idgp/post/:id', component: PostComponent}
+  {path: 'home/forum/:idgp/post/:id', component: PostComponent},
+  {path: '**', component: MainHomeComponent}
 ];
 
 @NgModule({
