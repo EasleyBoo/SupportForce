@@ -29,6 +29,7 @@ export class GroupcreationformComponent implements OnInit {
     this.groupServ.myNewGroup(newGroup.value, tempId).subscribe(data => {
       console.log(data);
       this.createdGroup.emit(data);
+      newGroup.resetForm();
     });
   }
 
