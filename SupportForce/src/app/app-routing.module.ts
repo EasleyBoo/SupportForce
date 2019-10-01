@@ -11,11 +11,11 @@ import { PostComponent } from './component/pages/post/post.component';
 
 const routes: Routes = [
   {path: '', component: MainHomeComponent},
-  {path: 'home/forum/:id', component: ForumComponent},
+  {path: 'home/forum/:id', component: ForumComponent, canActivate: [AuthGuard]},
   {path: 'faq', component: FaqComponent},
   {path: 'emergencycontact', component: EmergencycontactComponent},
   {path: 'home', component: UserHomeComponent, canActivate: [AuthGuard]},
-  {path: 'home/forum/:idgp/post/:id', component: PostComponent},
+  {path: 'home/forum/:idgp/post/:id', component: PostComponent, canActivate: [AuthGuard]},
   {path: '**', component: MainHomeComponent}
 ];
 
