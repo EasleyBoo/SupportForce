@@ -23,11 +23,8 @@ export class GroupcreationformComponent implements OnInit {
   createGroup(newGroup: NgForm) {
     let tempId;
     tempId = localStorage.getItem('userId');
-    console.log(tempId);
-    console.log(newGroup.value);
 
     this.groupServ.myNewGroup(newGroup.value, tempId).subscribe(data => {
-      console.log(data);
       this.createdGroup.emit(data);
       newGroup.resetForm();
     });

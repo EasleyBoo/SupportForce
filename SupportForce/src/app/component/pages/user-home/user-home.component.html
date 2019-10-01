@@ -4,98 +4,80 @@
 
 <ng-template #displayPage>
   <div class="jumbotron jumbotron__image"></div>
-<!-- begin revamp of page here -->
-<div class="row container-fluid">
-  <div class="col-5">
-    <!-- my groups -->
-    <div class="card">
-      <div class="card-header group__header">
-        <h4 class="text-center text-light">My Groups</h4>
-      </div>
-        <div class="card-body">
-          <!-- <div *ngFor="let groups of mySupportGroup" class="container-fluid card w-25 m-3 p-4 group {{groups.addiction}}"
-              routerLink="forum/{{groups.supportGroupId}}"> -->
-          <ul class="list-group">
-              <a *ngFor="let groups of mySupportGroup" class="list-group-item list-group-item-action {{groups.addiction}}"
-              routerLink="forum/{{groups.supportGroupId}}">
-                <div class="container-fluid d-flex justify-content-between">
-                  <h5>{{groups.supportGroupName}}</h5>
-                  <div>Discussion # {{groups.supportGroupId}}</div>
-                </div>
-                <div class="container-fluid d-flex justify-content-between">
-                    <div class="">Topic: {{groups.addict.addictionName}}</div>
-                    <div>{{groups.supportGroupUsers.length}}/15</div>
-                </div>
-              </a>
-          </ul>
-
+  <!-- begin revamp of page here -->
+  <div class="row container-fluid">
+    <div class="col-5">
+      <!-- my groups -->
+      <div class="card">
+        <div class="card-header group__header">
+          <h4 class="text-center text-light">My Groups</h4>
         </div>
-    </div>
-  </div>
-
-  <div class="col">
-    <div class="card">
-      <div class="card-header group__header">
-        <h4 class="text-center text-light">All Groups Available</h4>
+        <div class="card-body">
+          <ul class="list-group">
+            <a *ngFor="let groups of mySupportGroup" class="list-group-item list-group-item-action {{groups.addiction}}"
+              routerLink="forum/{{groups.supportGroupId}}">
+              <div class="container-fluid d-flex justify-content-between">
+                <h5>{{groups.supportGroupName}}</h5>
+                <div>Discussion # {{groups.supportGroupId}}</div>
+              </div>
+              <div class="container-fluid d-flex justify-content-between">
+                <div class="">Topic: {{groups.addict.addictionName}}</div>
+                <div>{{groups.supportGroupUsers.length}}/15</div>
+              </div>
+            </a>
+          </ul>
+        </div>
       </div>
+    </div>
 
-      <div class="card-body">
+    <div class="col">
+      <div class="card">
+        <div class="card-header group__header">
+          <h4 class="text-center text-light">All Groups Available</h4>
+        </div>
+
+        <div class="card-body">
           <div class="container-fluid d-flex justify-content-between mb-3">
             <div class="font-weight-bold">Filter groups by addiction:</div>
             <input type="text" class="mt-1 form-control w-75" [(ngModel)]="filterGroups">
           </div>
-          <!-- <div class="row">
-              <div class="col-2">Filter groups by addiction:</div>
-              <div class="col-10">
-                <input type="text" class="form-control w-50" [(ngModel)]="filterGroups">
-              </div>
-          </div> -->
-
           <table class="table table-hover" *ngIf="allSupportGroup && allSupportGroup.length">
-              <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Support Name</th>
-                  <th scope="col">Addiction</th>
-                  <th scope="col" class="text-center">Number of Participants</th>
-                  <!-- <th scope="col">actions</th> -->
-                </tr>
-              </thead>
-              <tbody *ngIf="fileredInput === ''; else filteredTable">
-                <tr *ngFor="let allgroups of allSupportGroup">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Support Name</th>
+                <th scope="col">Addiction</th>
+                <th scope="col" class="text-center">Number of Participants</th>
+              </tr>
+            </thead>
+            <tbody *ngIf="fileredInput === ''; else filteredTable">
+              <tr *ngFor="let allgroups of allSupportGroup">
+                <th scope="row">{{allgroups.supportGroupId}} </th>
+                <td>{{allgroups.supportGroupName}}</td>
+                <td>{{allgroups.addict.addictionName}}</td>
+                <td class="text-center">{{allgroups.supportGroupUsers.length}}</td>
+              </tr>
+            </tbody>
+            <!-- the ng Else block for filtered table... -->
+            <ng-template #filteredTable>
+              <tbody>
+                <tr *ngFor="let allgroups of filteredSupportGroups">
                   <th scope="row">{{allgroups.supportGroupId}} </th>
                   <td>{{allgroups.supportGroupName}}</td>
                   <td>{{allgroups.addict.addictionName}}</td>
                   <td class="text-center">{{allgroups.supportGroupUsers.length}}</td>
-                 <!--  <td> -->
-                    <!-- <button *ngIf="showMyContainer" (click)="[joinGroup(allgroups),showMyContainer=!showMyContainer]" class="btn btn-sm btn-success mr-1" id="group{{allgroups.supportId}}">Join</button> -->
-                    <!-- <button class="btn btn-sm btn-success mr-1" id="group{{allgroups.supportGroupId}}">Join</button> -->
-                 <!--  </td> -->
                 </tr>
               </tbody>
-              <!-- the ng Else block for filtered table... -->
-              <ng-template #filteredTable>
-                <tbody>
-                  <tr *ngFor="let allgroups of filteredSupportGroups">
-                    <th scope="row">{{allgroups.supportGroupId}} </th>
-                    <td>{{allgroups.supportGroupName}}</td>
-                    <td>{{allgroups.addict.addictionName}}</td>
-                    <td class="text-center">{{allgroups.supportGroupUsers.length}}</td>
-                    <!-- <td>
-                      <button class="btn btn-sm btn-success mr-1" id="group{{allgroups.supportGroupId}}">Join</button>
-                    </td> -->
-                  </tr>
-                </tbody>
-              </ng-template>
-            </table>
-      </div>      
+            </ng-template>
+          </table>
+        </div>
+      </div>
     </div>
   </div>
-</div>
 
-<!-- end of revamp zone -->
+  <!-- end of revamp zone -->
 
-  
+
 </ng-template>
 
 <!-- join Modal -->
@@ -110,30 +92,30 @@
         </button>
       </div>
       <div class="modal-body">
-          <form #joinGroupFm="ngForm">
-              <div class="form-group">
-                <label for="selectAddiction">Enter group number</label>
-                <input [(ngModel)]="groupNumber" type="text" class="form-control" name="groupNumber" id="groupNumber">
-              </div> 
-              <div class="form-group">
-                <label for="selectAddiction">Addiction</label>
-                <select [(ngModel)]="addictionId" class="form-control" id="addictionId" name="addictionId">
-                  <option value="1">Alcohol</option>
-                  <option value="2">Heroin</option>
-                  <option value="3">Pain Killers</option>
-                  <option value="4">Meth</option>
-                  <option value="5">Gambling</option>
-                  <option value="6">Nicotine</option>
-                  <option value="7">Cocaine</option>
-                </select>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary" data-dismiss="modal" (click)="joinGroup(joinGroupFm)">Join Group</button>
-              </div>
-            </form>
+        <form #joinGroupFm="ngForm">
+          <div class="form-group">
+            <label for="selectAddiction">Enter group number</label>
+            <input [(ngModel)]="groupNumber" type="text" class="form-control" name="groupNumber" id="groupNumber">
+          </div>
+          <div class="form-group">
+            <label for="selectAddiction">Addiction</label>
+            <select [(ngModel)]="addictionId" class="form-control" id="addictionId" name="addictionId">
+              <option value="1">Alcohol</option>
+              <option value="2">Heroin</option>
+              <option value="3">Pain Killers</option>
+              <option value="4">Meth</option>
+              <option value="5">Gambling</option>
+              <option value="6">Nicotine</option>
+              <option value="7">Cocaine</option>
+            </select>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary" data-dismiss="modal" (click)="joinGroup(joinGroupFm)">Join
+              Group</button>
+          </div>
+        </form>
       </div>
-
     </div>
   </div>
 </div>
@@ -150,28 +132,29 @@
         </button>
       </div>
       <div class="modal-body">
-          <form #leaveGroupFm="ngForm">
+        <form #leaveGroupFm="ngForm">
           <div class="form-group">
-              <label for="selectAddiction">Enter Support Group Id:</label>
-              <input [(ngModel)]="groupNumber" type="text" class="form-control" name="groupNumber" id="groupNumber">   
+            <label for="selectAddiction">Enter Support Group Id:</label>
+            <input [(ngModel)]="groupNumber" type="text" class="form-control" name="groupNumber" id="groupNumber">
           </div>
 
           <label for="selectAddiction">Addiction</label>
-            <select [(ngModel)]="addictionId" class="form-control" id="addictionId" name="addictionId">
-              <option value="1">Alcohol</option>
-              <option value="2">Heroin</option>
-              <option value="3">Pain Killers</option>
-              <option value="4">Meth</option>
-              <option value="5">Gambling</option>
-              <option value="6">Nicotine</option>
-              <option value="7">Cocaine</option>
-            </select>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="leaveGroup(leaveGroupFm)">Save changes </button>
-              </div>
-          </form>
-        </div>
+          <select [(ngModel)]="addictionId" class="form-control" id="addictionId" name="addictionId">
+            <option value="1">Alcohol</option>
+            <option value="2">Heroin</option>
+            <option value="3">Pain Killers</option>
+            <option value="4">Meth</option>
+            <option value="5">Gambling</option>
+            <option value="6">Nicotine</option>
+            <option value="7">Cocaine</option>
+          </select>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="leaveGroup(leaveGroupFm)">Save
+              changes </button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
+</div>
