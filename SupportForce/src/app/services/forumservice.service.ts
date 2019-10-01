@@ -21,30 +21,24 @@ export class ForumserviceService {
 constructor(private http: HttpClient) { }
 
 newPost(newGroup, id, tempId): Observable<Post> {
-  console.log('this is within the post');
   return this.http.post<Post>(this.postUrl + id + '/' + tempId, newGroup);
 
 }
 
 readPostServ(id): Observable<Post[]> {
-  console.log('this is within read all post serve');
-  console.log(id);
   return this.http.get<Post[]>(this.readPostUrl + id);
 }
 
 readOnePost(id): Observable<Post[]> {
-  console.log('this is within read one Post');
   return this.http.get<Post[]>(this.onePostUrl + id);
 }
 
 createReply(id, supportGroupId, userId, newReply) {
-  console.log('this is within reply in forumService');
   return this.http.post<Reply>(this.createReplyUrl + id + '/' + supportGroupId + '/' + userId, newReply);
 
 }
 
 readAllRepliesServ(id): Observable<Reply[]> {
-  console.log('this is within Reply in forumService');
   return this.http.get<Reply[]>(this.readReplyUrl + id);
 }
 

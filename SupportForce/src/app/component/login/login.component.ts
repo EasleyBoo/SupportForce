@@ -27,10 +27,10 @@ currentUser: User[];
   }
 
   loginUser(userLogin: NgForm) {
-    console.log(userLogin.value);
+
     this.userserv.myLogin(userLogin.value).subscribe(data => {
       if (data === null) {
-        alert(`bad login`);
+        alert(`username or password incorrect.`);
       } else {
         localStorage.setItem('userId', JSON.stringify(data.userId));
         userLogin.reset();

@@ -1,0 +1,18 @@
+/* Style the container with a rounded border, grey background and some padding and margin */
+.container {
+    border: 2px solid #ccc;
+    background-color: #eee;
+    border-radius: 5px;
+    margin: 10px;
+  }
+
+.containerHeader {
+    border: 2px solid #ccc;
+    background-color: #eee;
+    margin: 10px;
+}
+  
+
+  
+  
+  

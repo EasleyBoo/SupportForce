@@ -33,23 +33,12 @@ export class ForumComponent implements OnInit {
   }
 
 
-  // getPost() {
-  //   //this method should grab the support id to pass into the service
-  //   console.log(this.route.snapshot.paramMap.get('id'));
-  //   let id = this.route.snapshot.paramMap.get('id');
-  //   this.forumServ.getPost(id);
-  // }
-
   insertComment(comment: NgForm) {
-    console.log(comment.value);
     let tempId;
     tempId = localStorage.getItem('userId');
 
     const id = this.route.snapshot.paramMap.get('id');
-    console.log('This is on the ngOnIt ID');
-    console.log(id);
     this.forumServ.newPost(comment.value, id, tempId).subscribe(data => {
-      console.log(data);
       this.allPosts.push(data);
     });
     comment.reset();
@@ -59,7 +48,6 @@ export class ForumComponent implements OnInit {
   readPost(): Post[] {
     const id = this.route.snapshot.paramMap.get('id');
     this.forumServ.readPostServ(id).subscribe(data => {
-      console.log(data);
       this.allPosts = data;
     });
     return this.allPosts;
@@ -70,3 +58,4 @@ export class ForumComponent implements OnInit {
 }
 
 
+/* s */
