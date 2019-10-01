@@ -27,7 +27,7 @@ currentUser: User[];
   }
 
   loginUser(userLogin: NgForm) {
-    console.log(userLogin.value);
+
     this.userserv.myLogin(userLogin.value).subscribe(data => {
       if (data === null) {
         alert(`username or password incorrect.`);

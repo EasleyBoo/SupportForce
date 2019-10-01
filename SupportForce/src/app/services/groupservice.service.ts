@@ -20,8 +20,6 @@ export class GroupserviceService {
   constructor(private http: HttpClient) { }
 
   getMyGroups(temp): Observable<SupportGroup[]> {
-    console.log('in my get groups');
-    console.log(temp);
     return this.http.get<SupportGroup[]>(this.myGroupUrl + temp);
   }
 
@@ -31,18 +29,14 @@ export class GroupserviceService {
   }
 
   myNewGroup(newGroup: SupportGroup, tempId): Observable<SupportGroup[]> {
-    console.log('Your in the Newgroup within service layer' + tempId);
-    console.log('Your newGroup is ' + newGroup);
     return this.http.post<SupportGroup[]>(this.createGroupUrl + tempId, newGroup);
   }
 
   joinGroupServ(joinGroupFm, userId): Observable<SupportGroup> {
-    console.log('Your in the Join group within the group service');
     return this.http.post<SupportGroup>(this.joinGroupUrl + userId, joinGroupFm);
   }
 
   leaveGroupServ(leaveGroupFm, userId): Observable<SupportGroup>{
-    console.log('Your in the Leave Group within the group service');
     return this.http.post<SupportGroup>(this.leaveGroupUrl + userId, leaveGroupFm );
   }
 
