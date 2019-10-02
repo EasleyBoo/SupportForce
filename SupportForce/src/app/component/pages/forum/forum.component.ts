@@ -7,6 +7,7 @@ import { ForumserviceService } from 'src/app/services/forumservice.service';
 import { Subscription, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Location } from '@angular/common';
+import { SupportGroup } from 'src/app/models/supportgroup';
 
 @Component({
   selector: 'app-forum',
@@ -17,10 +18,12 @@ import { Location } from '@angular/common';
 export class ForumComponent implements OnInit {
 
   private routeSub: Subscription;
+  id = this.route.snapshot.paramMap.get('id');
 
   forumReplies: Reply[];
   forumPosts: Post[];
   allPosts: Post[];
+  oneSuppGroup: SupportGroup[] = [];
 
   constructor(private forumServ: ForumserviceService, private route: ActivatedRoute, private location: Location) {
 
@@ -29,6 +32,7 @@ export class ForumComponent implements OnInit {
 
 
   ngOnInit() {
+    this.oneSuppGroup = this.getSpecficSg();
     this.allPosts = this.readPost();
 
   }
@@ -59,4 +63,11 @@ export class ForumComponent implements OnInit {
     this.location.back();
   }
 
+  getSpecficSg(): SupportGroup[] {
+    const id = this.route.snapshot.paramMap.get('id');
+    this.forumServ.oneSupportGroup(id).subscribe(data => {
+      this.oneSuppGroup = data;
+    });
+    return this.oneSuppGroup;
+  }
 }
