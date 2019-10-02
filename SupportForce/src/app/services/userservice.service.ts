@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
 import { User } from 'src/app/models/user';
-import { Observable, of } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable, of, throwError } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { NewUser } from '../models/newUser';
 import { environment } from '../../environments/environment';
+
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +22,11 @@ export class UserserviceService {
 
   /* insert new user */
   createNewUser(user: User): Observable<User> {
-    return this.http.post<User>(this.registerUrl, user);
+      return this.http.post<User>(this.registerUrl, user)
+            .pipe(
+              tap(data => console.log(data)),
+              catchError(this.handleError())
+            );
   }
 
   /* get user by username */
@@ -28,7 +34,13 @@ export class UserserviceService {
     return this.http.post<User>(this.loginUrl, userLogin, {withCredentials: true});
   }
 
-
+  handleError(): any {
+    return error => {
+      if (error instanceof HttpErrorResponse) {
+        alert(`username has already been taken`);
+      }
+    };
+  }
 
 }
 

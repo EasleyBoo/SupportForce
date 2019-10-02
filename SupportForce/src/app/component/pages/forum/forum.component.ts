@@ -6,6 +6,7 @@ import { NgForm } from '@angular/forms';
 import { ForumserviceService } from 'src/app/services/forumservice.service';
 import { Subscription, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { Location } from '@angular/common';
 import { SupportGroup } from 'src/app/models/supportgroup';
 
 @Component({
@@ -24,7 +25,7 @@ export class ForumComponent implements OnInit {
   allPosts: Post[];
   oneSuppGroup: SupportGroup[] = [];
 
-  constructor(private forumServ: ForumserviceService, private route: ActivatedRoute) {
+  constructor(private forumServ: ForumserviceService, private route: ActivatedRoute, private location: Location) {
 
   }
 
@@ -53,11 +54,14 @@ export class ForumComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');
     this.forumServ.readPostServ(id).subscribe(data => {
       this.allPosts = data;
+      console.log(data);
     });
     return this.allPosts;
   }
 
-
+  goBack(): void {
+    this.location.back();
+  }
 
   getSpecficSg(): SupportGroup[] {
     const id = this.route.snapshot.paramMap.get('id');

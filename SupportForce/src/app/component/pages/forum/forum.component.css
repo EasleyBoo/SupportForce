@@ -45,8 +45,15 @@
     padding: 2rem ;
     background-image: url("https://ak2.picdn.net/shutterstock/videos/23151772/thumb/1.jpg");
     background-color: rgb(215, 235, 242);
-
+    
   }
   
+  @media screen and (min-width: 1040px) {
+
+    .jumbotron__image {
+      background-size: cover;
+    }
+  } 
+  
  
- 
+  
