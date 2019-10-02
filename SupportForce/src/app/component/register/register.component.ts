@@ -20,18 +20,20 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
 
-  registerUser(userForm: NgForm): boolean {
+  registerUser(userForm: NgForm) {
 
     if (userForm.invalid) {
       // literally do nothing. users should not even be getting here but added just in case.
       return false;
     } else {
-
-      this.userserv.createNewUser(userForm.value);
       this.userserv.createNewUser(userForm.value).subscribe(data => {
+        if (data === null) {
+          alert(`username is already be taken`);
+          return false;
+        }
         userForm.reset();
       });
-      return true;
+
     }
 
   }
