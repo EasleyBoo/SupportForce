@@ -17,6 +17,7 @@ export class ForumserviceService {
   onePostUrl = `http://${this.BACKEND_URL}/SupportForceBE/supportforce/getSpecificPost`;
   createReplyUrl = `http://${this.BACKEND_URL}/SupportForceBE/supportforce/createReply`;
   readReplyUrl = `http://${this.BACKEND_URL}/SupportForceBE/supportforce/getAllReply`;
+  oneSupGroup = `http://${this.BACKEND_URL}/SupportForceBE/supportforce/getSupportGroup`;
 
 constructor(private http: HttpClient) { }
 
@@ -40,6 +41,10 @@ createReply(id, supportGroupId, userId, newReply) {
 
 readAllRepliesServ(id): Observable<Reply[]> {
   return this.http.get<Reply[]>(this.readReplyUrl + id);
+}
+
+oneSupportGroup(id): Observable<SupportGroup[]> {
+  return this.http.get<SupportGroup[]>(this.oneSupGroup + id);
 }
 
 

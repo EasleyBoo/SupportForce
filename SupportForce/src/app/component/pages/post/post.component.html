@@ -1,13 +1,19 @@
-<div class="containerHeader">
+<div class="jumbotron jumbotron__image">
   <h1 class="text-center">{{postById.postBody}}</h1>
+</div>
+
+
+
   <!-- Button trigger modal -->
+
   <div class="container-fluid d-flex justify-content-end">
     <button type="button" class="btn btn-primary justify-content-end" data-toggle="modal" data-target="#replyModal">
       Reply
     </button>
   </div>
-</div>
 
+
+<div class= "card containerReply">
 <!--View all Replies-->
 <div class="container2 d-flex justify-content-center">
   <div class="w-75">
@@ -16,13 +22,14 @@
     </div>
   </div>
 </div>
+</div>
 
 <!-- Modal -->
 <div class="modal fade" id="replyModal" tabindex="-1" role="dialog" aria-labelledby="ReplyTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="ReplyTitle">New Reply</h5>
+        <h5 class="modal-title" id="ReplyTitle">Leave a Reply</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
