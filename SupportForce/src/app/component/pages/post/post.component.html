@@ -1,7 +1,8 @@
 <div class="containerHeader">
   <h1 class="text-center">{{postById.postBody}}</h1>
   <!-- Button trigger modal -->
-  <div class="container-fluid d-flex justify-content-end">
+  <div class="container-fluid d-flex justify-content-between pb-2">
+    <button class="btn btn-dark" (click) = "goBack()">Back</button>
     <button type="button" class="btn btn-primary justify-content-end" data-toggle="modal" data-target="#replyModal">
       Reply
     </button>
