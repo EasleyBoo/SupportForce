@@ -54,7 +54,6 @@ export class ForumComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');
     this.forumServ.readPostServ(id).subscribe(data => {
       this.allPosts = data;
-      console.log(data);
     });
     return this.allPosts;
   }

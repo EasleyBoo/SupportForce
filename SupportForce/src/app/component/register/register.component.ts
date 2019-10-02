@@ -34,20 +34,6 @@ export class RegisterComponent implements OnInit {
         userForm.reset();
       });
 
-     /*  return new Promise((resolve, reject) => {
-        this.userserv.createNewUser(userForm.value).subscribe(data => {
-          console.log(data);
-          resolve(data);
-        }),
-        // tslint:disable-next-line: no-unused-expression
-        error => {
-          console.log(`rejected promise`);
-          console.log(error);
-          reject(error);
-          alert(`username is already been taken`);
-        };
-      }); */
-
     }
 
   }
