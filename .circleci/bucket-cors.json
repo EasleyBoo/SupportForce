@@ -3,6 +3,11 @@
       "origin": ["*"],
       "method": ["*"],
       "Access-Control-Allow-Origin": ["*"],
+      "requestHeader": [
+        "Origin",
+        "Access-Control-Request-Method",
+        "Access-Control-Request-Headers"
+      ],
       "responseHeader": [
 	      "Access-Control-Allow-Origin", 
 	      "Access-Control-Allow-Credentials", 
