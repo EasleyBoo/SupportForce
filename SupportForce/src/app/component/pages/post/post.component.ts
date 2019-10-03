@@ -4,6 +4,7 @@ import { Reply } from 'src/app/models/reply';
 import { ActivatedRoute } from '@angular/router';
 import { ForumserviceService } from 'src/app/services/forumservice.service';
 import { NgForm } from '@angular/forms';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-post',
@@ -16,7 +17,7 @@ export class PostComponent implements OnInit {
   allReplies: Reply[] = [];
   postById: Post[] = [];
 
-  constructor(private route: ActivatedRoute, private forumServ: ForumserviceService) { }
+  constructor(private route: ActivatedRoute, private forumServ: ForumserviceService, private location: Location) { }
 
   ngOnInit() {
     this.postById = this.getOnePost();
@@ -49,6 +50,10 @@ export class PostComponent implements OnInit {
       this.allReplies = data;
     });
     return this.allReplies;
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 
 }
